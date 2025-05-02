@@ -1,0 +1,938 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      next:
+        specifier: 15.3.1
+        version: 15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      react:
+        specifier: ^19.0.0
+        version: 19.1.0
+      react-dom:
+        specifier: ^19.0.0
+        version: 19.1.0(react@19.1.0)
+    devDependencies:
+      '@tailwindcss/postcss':
+        specifier: ^4
+        version: 4.1.5
+      '@types/node':
+        specifier: ^20
+        version: 20.17.32
+      '@types/react':
+        specifier: ^19
+        version: 19.1.2
+      '@types/react-dom':
+        specifier: ^19
+        version: 19.1.3(@types/react@19.1.2)
+      tailwindcss:
+        specifier: ^4
+        version: 4.1.5
+      typescript:
+        specifier: ^5
+        version: 5.8.3
+
+packages:
+
+  '@alloc/quick-lru@5.2.0':
+    resolution: {integrity: sha1-e/aLIMCjUPk2kV/K4G9Y4yAHzjA=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@alloc/quick-lru/-/@alloc/quick-lru-5.2.0.tgz}
+    engines: {node: '>=10'}
+
+  '@emnapi/runtime@1.4.3':
+    resolution: {integrity: sha1-wFZGZcgNyBxEitrCP5377WyDj30=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@emnapi/runtime/-/@emnapi/runtime-1.4.3.tgz}
+
+  '@img/sharp-darwin-arm64@0.34.1':
+    resolution: {integrity: sha1-55pHVr6poGp6rbQ5HuU8sVSklow=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-darwin-arm64/-/@img/sharp-darwin-arm64-0.34.1.tgz}
+    engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@img/sharp-darwin-x64@0.34.1':
+    resolution: {integrity: sha1-8fHThnGfaTN5ZBXYSTdQK3GZp0Q=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-darwin-x64/-/@img/sharp-darwin-x64-0.34.1.tgz}
+    engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
+    cpu: [x64]
+    os: [darwin]
+
+  '@img/sharp-libvips-darwin-arm64@1.1.0':
+    resolution: {integrity: sha1-hD98CcckXcDTz+wrPIO7CHmacE8=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-libvips-darwin-arm64/-/@img/sharp-libvips-darwin-arm64-1.1.0.tgz}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@img/sharp-libvips-darwin-x64@1.1.0':
+    resolution: {integrity: sha1-EjnCRCbAao6DOBVWL3gEejv7qvg=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-libvips-darwin-x64/-/@img/sharp-libvips-darwin-x64-1.1.0.tgz}
+    cpu: [x64]
+    os: [darwin]
+
+  '@img/sharp-libvips-linux-arm64@1.1.0':
+    resolution: {integrity: sha1-INJ2zv2QPuSD8EQbo1lhZ5woYxU=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-libvips-linux-arm64/-/@img/sharp-libvips-linux-arm64-1.1.0.tgz}
+    cpu: [arm64]
+    os: [linux]
+    libc: [glibc]
+
+  '@img/sharp-libvips-linux-arm@1.1.0':
+    resolution: {integrity: sha1-BnwLVm6ugGNzjPGx24+KhXO1Rlw=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-libvips-linux-arm/-/@img/sharp-libvips-linux-arm-1.1.0.tgz}
+    cpu: [arm]
+    os: [linux]
+    libc: [glibc]
+
+  '@img/sharp-libvips-linux-ppc64@1.1.0':
+    resolution: {integrity: sha1-aCM0WV8soA4KB6Z1uhcK8WUWKAI=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-libvips-linux-ppc64/-/@img/sharp-libvips-linux-ppc64-1.1.0.tgz}
+    cpu: [ppc64]
+    os: [linux]
+    libc: [glibc]
+
+  '@img/sharp-libvips-linux-s390x@1.1.0':
+    resolution: {integrity: sha1-gvzWhESzZmOEI1J5wUXCso2O4wI=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-libvips-linux-s390x/-/@img/sharp-libvips-linux-s390x-1.1.0.tgz}
+    cpu: [s390x]
+    os: [linux]
+    libc: [glibc]
+
+  '@img/sharp-libvips-linux-x64@1.1.0':
+    resolution: {integrity: sha1-ZbK5CL9HFWsHJP3pCVZ2yDoYz1o=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-libvips-linux-x64/-/@img/sharp-libvips-linux-x64-1.1.0.tgz}
+    cpu: [x64]
+    os: [linux]
+    libc: [glibc]
+
+  '@img/sharp-libvips-linuxmusl-arm64@1.1.0':
+    resolution: {integrity: sha1-cqzPkk6AsIHI24O5ALREpnwgPwE=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-libvips-linuxmusl-arm64/-/@img/sharp-libvips-linuxmusl-arm64-1.1.0.tgz}
+    cpu: [arm64]
+    os: [linux]
+    libc: [musl]
+
+  '@img/sharp-libvips-linuxmusl-x64@1.1.0':
+    resolution: {integrity: sha1-H6BSc34gP0a/RBkqzQH5+vEVItc=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-libvips-linuxmusl-x64/-/@img/sharp-libvips-linuxmusl-x64-1.1.0.tgz}
+    cpu: [x64]
+    os: [linux]
+    libc: [musl]
+
+  '@img/sharp-linux-arm64@0.34.1':
+    resolution: {integrity: sha1-w275ZEmbjPwtLtiP5o8nzkFSLIA=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-linux-arm64/-/@img/sharp-linux-arm64-0.34.1.tgz}
+    engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
+    cpu: [arm64]
+    os: [linux]
+    libc: [glibc]
+
+  '@img/sharp-linux-arm@0.34.1':
+    resolution: {integrity: sha1-yW44/wKNZFkSuwqhMqcXi5aZeGY=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-linux-arm/-/@img/sharp-linux-arm-0.34.1.tgz}
+    engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
+    cpu: [arm]
+    os: [linux]
+    libc: [glibc]
+
+  '@img/sharp-linux-s390x@0.34.1':
+    resolution: {integrity: sha1-isWNmkncsIIV52yNRQcXl5t4FcM=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-linux-s390x/-/@img/sharp-linux-s390x-0.34.1.tgz}
+    engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
+    cpu: [s390x]
+    os: [linux]
+    libc: [glibc]
+
+  '@img/sharp-linux-x64@0.34.1':
+    resolution: {integrity: sha1-PYZS76xjXw26OdXjuLSVFaKy3uE=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-linux-x64/-/@img/sharp-linux-x64-0.34.1.tgz}
+    engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
+    cpu: [x64]
+    os: [linux]
+    libc: [glibc]
+
+  '@img/sharp-linuxmusl-arm64@0.34.1':
+    resolution: {integrity: sha1-smfmo+Bvnk00XN5HHlSAxcOeaWk=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-linuxmusl-arm64/-/@img/sharp-linuxmusl-arm64-0.34.1.tgz}
+    engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
+    cpu: [arm64]
+    os: [linux]
+    libc: [musl]
+
+  '@img/sharp-linuxmusl-x64@0.34.1':
+    resolution: {integrity: sha1-qN7ktiJ/NIxLusqmrD3FhKGoA5E=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-linuxmusl-x64/-/@img/sharp-linuxmusl-x64-0.34.1.tgz}
+    engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
+    cpu: [x64]
+    os: [linux]
+    libc: [musl]
+
+  '@img/sharp-wasm32@0.34.1':
+    resolution: {integrity: sha1-99/Wa2wjEmkELT2HUMkPKLndy6E=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-wasm32/-/@img/sharp-wasm32-0.34.1.tgz}
+    engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
+    cpu: [wasm32]
+
+  '@img/sharp-win32-ia32@0.34.1':
+    resolution: {integrity: sha1-S8KTcF33al8KAt9myj3BLoj2EzI=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-win32-ia32/-/@img/sharp-win32-ia32-0.34.1.tgz}
+    engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
+    cpu: [ia32]
+    os: [win32]
+
+  '@img/sharp-win32-x64@0.34.1':
+    resolution: {integrity: sha1-inki/slJ8DfCBMefa4MjjSSCOEs=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-win32-x64/-/@img/sharp-win32-x64-0.34.1.tgz}
+    engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
+    cpu: [x64]
+    os: [win32]
+
+  '@next/env@15.3.1':
+    resolution: {integrity: sha1-/KmNy5DZLVVZcs2/A635qpguIRU=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@next/env/-/@next/env-15.3.1.tgz}
+
+  '@next/swc-darwin-arm64@15.3.1':
+    resolution: {integrity: sha1-j5WJrtn2gWaHRAqjaoY3azoWr1g=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@next/swc-darwin-arm64/-/@next/swc-darwin-arm64-15.3.1.tgz}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@next/swc-darwin-x64@15.3.1':
+    resolution: {integrity: sha1-LfATIm2Eg5TtcwcYjBQfDm2kqz4=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@next/swc-darwin-x64/-/@next/swc-darwin-x64-15.3.1.tgz}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [darwin]
+
+  '@next/swc-linux-arm64-gnu@15.3.1':
+    resolution: {integrity: sha1-0cTiSysnw2p+vCGuBXPp6Y95QUM=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@next/swc-linux-arm64-gnu/-/@next/swc-linux-arm64-gnu-15.3.1.tgz}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [linux]
+    libc: [glibc]
+
+  '@next/swc-linux-arm64-musl@15.3.1':
+    resolution: {integrity: sha1-vOJ1M/nwRoAPhQqcIIMujBWxCVU=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@next/swc-linux-arm64-musl/-/@next/swc-linux-arm64-musl-15.3.1.tgz}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [linux]
+    libc: [musl]
+
+  '@next/swc-linux-x64-gnu@15.3.1':
+    resolution: {integrity: sha1-+QVY2TvCXgGwsnFyXikYYyhnU8Q=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@next/swc-linux-x64-gnu/-/@next/swc-linux-x64-gnu-15.3.1.tgz}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [linux]
+    libc: [glibc]
+
+  '@next/swc-linux-x64-musl@15.3.1':
+    resolution: {integrity: sha1-Y58UO9Dz/W4b3ks4PcbNio/xJig=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@next/swc-linux-x64-musl/-/@next/swc-linux-x64-musl-15.3.1.tgz}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [linux]
+    libc: [musl]
+
+  '@next/swc-win32-arm64-msvc@15.3.1':
+    resolution: {integrity: sha1-Uu4eY7GS/sjwIwyvg5z8MI0NRNE=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@next/swc-win32-arm64-msvc/-/@next/swc-win32-arm64-msvc-15.3.1.tgz}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [win32]
+
+  '@next/swc-win32-x64-msvc@15.3.1':
+    resolution: {integrity: sha1-31zrnDuXvw1hy26E95u/npGonSk=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@next/swc-win32-x64-msvc/-/@next/swc-win32-x64-msvc-15.3.1.tgz}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [win32]
+
+  '@swc/counter@0.1.3':
+    resolution: {integrity: sha1-zHRjvQKUlhHGMpWW/M0rDseCsOk=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@swc/counter/-/@swc/counter-0.1.3.tgz}
+
+  '@swc/helpers@0.5.15':
+    resolution: {integrity: sha1-ee+rNExYGez4OkPz+fgR/IS1Ftc=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@swc/helpers/-/@swc/helpers-0.5.15.tgz}
+
+  '@tailwindcss/node@4.1.5':
+    resolution: {integrity: sha1-P/KynGitSU5kkH48PFrcZ2wHRes=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/node/-/@tailwindcss/node-4.1.5.tgz}
+
+  '@tailwindcss/oxide-android-arm64@4.1.5':
+    resolution: {integrity: sha1-wPi/v1g5kKTrHSoUEnKtEXLFnAM=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide-android-arm64/-/@tailwindcss/oxide-android-arm64-4.1.5.tgz}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [android]
+
+  '@tailwindcss/oxide-darwin-arm64@4.1.5':
+    resolution: {integrity: sha1-1iEPZIUN9UJpO4KSVfzRlbaCz0Y=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide-darwin-arm64/-/@tailwindcss/oxide-darwin-arm64-4.1.5.tgz}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@tailwindcss/oxide-darwin-x64@4.1.5':
+    resolution: {integrity: sha1-gVWarI8KP+dGckF5oKr4DPkNtpA=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide-darwin-x64/-/@tailwindcss/oxide-darwin-x64-4.1.5.tgz}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [darwin]
+
+  '@tailwindcss/oxide-freebsd-x64@4.1.5':
+    resolution: {integrity: sha1-KCFYa56GX0hX9/gv5S/xvGTwDNI=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide-freebsd-x64/-/@tailwindcss/oxide-freebsd-x64-4.1.5.tgz}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [freebsd]
+
+  '@tailwindcss/oxide-linux-arm-gnueabihf@4.1.5':
+    resolution: {integrity: sha1-sB7J9vGriF6ICa7WyWzBNE60YZU=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide-linux-arm-gnueabihf/-/@tailwindcss/oxide-linux-arm-gnueabihf-4.1.5.tgz}
+    engines: {node: '>= 10'}
+    cpu: [arm]
+    os: [linux]
+
+  '@tailwindcss/oxide-linux-arm64-gnu@4.1.5':
+    resolution: {integrity: sha1-MSYZENRj/udP90f50BOJFXJF2O0=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide-linux-arm64-gnu/-/@tailwindcss/oxide-linux-arm64-gnu-4.1.5.tgz}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [linux]
+    libc: [glibc]
+
+  '@tailwindcss/oxide-linux-arm64-musl@4.1.5':
+    resolution: {integrity: sha1-gcxmpTc3x6VECdCAwblgMO0EcNM=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide-linux-arm64-musl/-/@tailwindcss/oxide-linux-arm64-musl-4.1.5.tgz}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [linux]
+    libc: [musl]
+
+  '@tailwindcss/oxide-linux-x64-gnu@4.1.5':
+    resolution: {integrity: sha1-WZgxmxIKt5WSlVOtQfvYdO01/K4=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide-linux-x64-gnu/-/@tailwindcss/oxide-linux-x64-gnu-4.1.5.tgz}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [linux]
+    libc: [glibc]
+
+  '@tailwindcss/oxide-linux-x64-musl@4.1.5':
+    resolution: {integrity: sha1-LGFYsSuIMlskrlkjW5YMCurOPZc=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide-linux-x64-musl/-/@tailwindcss/oxide-linux-x64-musl-4.1.5.tgz}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [linux]
+    libc: [musl]
+
+  '@tailwindcss/oxide-wasm32-wasi@4.1.5':
+    resolution: {integrity: sha1-a87Ke9ezh5Nrj+KSvjqzwwXaFpk=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide-wasm32-wasi/-/@tailwindcss/oxide-wasm32-wasi-4.1.5.tgz}
+    engines: {node: '>=14.0.0'}
+    cpu: [wasm32]
+    bundledDependencies:
+      - '@napi-rs/wasm-runtime'
+      - '@emnapi/core'
+      - '@emnapi/runtime'
+      - '@tybys/wasm-util'
+      - '@emnapi/wasi-threads'
+      - tslib
+
+  '@tailwindcss/oxide-win32-arm64-msvc@4.1.5':
+    resolution: {integrity: sha1-6+zhSI4oD0QHMkhCSJBZsb4Bqqk=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide-win32-arm64-msvc/-/@tailwindcss/oxide-win32-arm64-msvc-4.1.5.tgz}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [win32]
+
+  '@tailwindcss/oxide-win32-x64-msvc@4.1.5':
+    resolution: {integrity: sha1-C7d49LhX6ybVz+B/5eMkr+KDSh0=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide-win32-x64-msvc/-/@tailwindcss/oxide-win32-x64-msvc-4.1.5.tgz}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [win32]
+
+  '@tailwindcss/oxide@4.1.5':
+    resolution: {integrity: sha1-98Jb+poTVIpRUMNaUrS9v8wT/I4=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide/-/@tailwindcss/oxide-4.1.5.tgz}
+    engines: {node: '>= 10'}
+
+  '@tailwindcss/postcss@4.1.5':
+    resolution: {integrity: sha1-EIsy+BvdlNn0INzEDGBv7hiIHvE=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/postcss/-/@tailwindcss/postcss-4.1.5.tgz}
+
+  '@types/node@20.17.32':
+    resolution: {integrity: sha1-y5cDUUzY4XLBG+/1gsZgBmRMLYg=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@types/node/-/@types/node-20.17.32.tgz}
+
+  '@types/react-dom@19.1.3':
+    resolution: {integrity: sha1-PwxggERBvzTRn43Q1EQFwMDiG/o=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@types/react-dom/-/@types/react-dom-19.1.3.tgz}
+    peerDependencies:
+      '@types/react': ^19.0.0
+
+  '@types/react@19.1.2':
+    resolution: {integrity: sha1-Ed+G9m8YjyEskOy1NzJ+xov9WT8=, tarball: https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@types/react/-/@types/react-19.1.2.tgz}
+
+  busboy@1.6.0:
+    resolution: {integrity: sha1-lm6japUC5DzbkUaWJSO5L1MfaJM=}
+    engines: {node: '>=10.16.0'}
+
+  caniuse-lite@1.0.30001716:
+    resolution: {integrity: sha1-OSIN+8WMhdnUUZ5wkLZWqhHKS4U=}
+
+  client-only@0.0.1:
+    resolution: {integrity: sha1-OLul1APEGrFQv/ZKlchQE89zvKE=}
+
+  color-convert@2.0.1:
+    resolution: {integrity: sha1-ctOmjVmMm9s68q0ehPIdiWq9TeM=}
+    engines: {node: '>=7.0.0'}
+
+  color-name@1.1.4:
+    resolution: {integrity: sha1-wqCah6y95pVD3m9j+jmVyCbFNqI=}
+
+  color-string@1.9.1:
+    resolution: {integrity: sha1-RGf5FG8Db4Vbdk37W/hYK/NCx6Q=}
+
+  color@4.2.3:
+    resolution: {integrity: sha1-14HsteVyJO5D6pYnVgEHwODGRjo=}
+    engines: {node: '>=12.5.0'}
+
+  csstype@3.1.3:
+    resolution: {integrity: sha1-2A/ylNEU+w5qxQD7+FtgE31+/4E=}
+
+  detect-libc@2.0.4:
+    resolution: {integrity: sha1-8EcVuLqBXlO02BCWVbZQimhlp+g=}
+    engines: {node: '>=8'}
+
+  enhanced-resolve@5.18.1:
+    resolution: {integrity: sha1-coqwgvi3toNt5R8WN6q107lWj68=}
+    engines: {node: '>=10.13.0'}
+
+  graceful-fs@4.2.11:
+    resolution: {integrity: sha1-QYPk6L8Iu24Fu7L30uDI9xLKQOM=}
+
+  is-arrayish@0.3.2:
+    resolution: {integrity: sha1-RXSirlb3qyBolvtDHq7tBm/fjwM=}
+
+  jiti@2.4.2:
+    resolution: {integrity: sha1-0Zt3Muu2EWsG4gONp0pVNm+u9WA=}
+    hasBin: true
+
+  lightningcss-darwin-arm64@1.29.2:
+    resolution: {integrity: sha1-bO/ziwETSvSOhZOU4coh5dSfquY=}
+    engines: {node: '>= 12.0.0'}
+    cpu: [arm64]
+    os: [darwin]
+
+  lightningcss-darwin-x64@1.29.2:
+    resolution: {integrity: sha1-iRtvnldoLXlCI8M0Y8pm068/sDg=}
+    engines: {node: '>= 12.0.0'}
+    cpu: [x64]
+    os: [darwin]
+
+  lightningcss-freebsd-x64@1.29.2:
+    resolution: {integrity: sha1-ipX5q3OysrC+7+FZn6+osFiThJU=}
+    engines: {node: '>= 12.0.0'}
+    cpu: [x64]
+    os: [freebsd]
+
+  lightningcss-linux-arm-gnueabihf@1.29.2:
+    resolution: {integrity: sha1-XGC7+Ss51+1R42P3uYpxEb9ZFKE=}
+    engines: {node: '>= 12.0.0'}
+    cpu: [arm]
+    os: [linux]
+
+  lightningcss-linux-arm64-gnu@1.29.2:
+    resolution: {integrity: sha1-5z12CMTM4DTDZU5ei1O+dIRiJN4=}
+    engines: {node: '>= 12.0.0'}
+    cpu: [arm64]
+    os: [linux]
+    libc: [glibc]
+
+  lightningcss-linux-arm64-musl@1.29.2:
+    resolution: {integrity: sha1-qVoY1akJgxwJLgqNLeS5rBqNsVE=}
+    engines: {node: '>= 12.0.0'}
+    cpu: [arm64]
+    os: [linux]
+    libc: [musl]
+
+  lightningcss-linux-x64-gnu@1.29.2:
+    resolution: {integrity: sha1-VRygflZTlJKGQu3ukqzAQuVGy3g=}
+    engines: {node: '>= 12.0.0'}
+    cpu: [x64]
+    os: [linux]
+    libc: [glibc]
+
+  lightningcss-linux-x64-musl@1.29.2:
+    resolution: {integrity: sha1-L9FkVUNAgxvOUChbVxAYF4UN0lg=}
+    engines: {node: '>= 12.0.0'}
+    cpu: [x64]
+    os: [linux]
+    libc: [musl]
+
+  lightningcss-win32-arm64-msvc@1.29.2:
+    resolution: {integrity: sha1-2kPqSfr8XS3jjgFvGoU51e7Zgxg=}
+    engines: {node: '>= 12.0.0'}
+    cpu: [arm64]
+    os: [win32]
+
+  lightningcss-win32-x64-msvc@1.29.2:
+    resolution: {integrity: sha1-3e+qCZo5tyWy9bvcufxxhDXMl5c=}
+    engines: {node: '>= 12.0.0'}
+    cpu: [x64]
+    os: [win32]
+
+  lightningcss@1.29.2:
+    resolution: {integrity: sha1-9fD9bmMpKiMml+b+cJ2ltHYk3vM=}
+    engines: {node: '>= 12.0.0'}
+
+  nanoid@3.3.11:
+    resolution: {integrity: sha1-T08RLO++MDIC8hmYOBKJNiZtGFs=}
+    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
+    hasBin: true
+
+  next@15.3.1:
+    resolution: {integrity: sha1-ac8sEk5QTbZOFPx16ym9ZMDHh6c=}
+    engines: {node: ^18.18.0 || ^19.8.0 || >= 20.0.0}
+    hasBin: true
+    peerDependencies:
+      '@opentelemetry/api': ^1.1.0
+      '@playwright/test': ^1.41.2
+      babel-plugin-react-compiler: '*'
+      react: ^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0
+      react-dom: ^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0
+      sass: ^1.3.0
+    peerDependenciesMeta:
+      '@opentelemetry/api':
+        optional: true
+      '@playwright/test':
+        optional: true
+      babel-plugin-react-compiler:
+        optional: true
+      sass:
+        optional: true
+
+  picocolors@1.1.1:
+    resolution: {integrity: sha1-PTIa8+q5ObCDyPkpodEs2oHCa2s=}
+
+  postcss@8.4.31:
+    resolution: {integrity: sha1-krRRBQqfkU2mdVrzUr3AGSUIZW0=}
+    engines: {node: ^10 || ^12 || >=14}
+
+  postcss@8.5.3:
+    resolution: {integrity: sha1-FGO28cf7Fv4lhzbLopot41I36vs=}
+    engines: {node: ^10 || ^12 || >=14}
+
+  react-dom@19.1.0:
+    resolution: {integrity: sha1-EzVY3so3+h1oJwjfiQSyUYZ5NiM=}
+    peerDependencies:
+      react: ^19.1.0
+
+  react@19.1.0:
+    resolution: {integrity: sha1-kmhktsSNp2J/AEeV1szlDpB5O3U=}
+    engines: {node: '>=0.10.0'}
+
+  scheduler@0.26.0:
+    resolution: {integrity: sha1-TOiowqIJXxPqEb+aRFvlDFVdYzc=}
+
+  semver@7.7.1:
+    resolution: {integrity: sha1-q9UJjYKxjGyB9gdP8mR/0+ciDJ8=}
+    engines: {node: '>=10'}
+    hasBin: true
+
+  sharp@0.34.1:
+    resolution: {integrity: sha1-5ZIolLDMfd8Vnuq8bVZo5OixHWE=}
+    engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
+
+  simple-swizzle@0.2.2:
+    resolution: {integrity: sha1-pNprY1/8zMoz9w0Xy5JZLeleVXo=}
+
+  source-map-js@1.2.1:
+    resolution: {integrity: sha1-HOVlD93YerwJnto33P8CTCZnrkY=}
+    engines: {node: '>=0.10.0'}
+
+  streamsearch@1.1.0:
+    resolution: {integrity: sha1-QE3R4iR8qUr1VOhBqO8OqiONp2Q=}
+    engines: {node: '>=10.0.0'}
+
+  styled-jsx@5.1.6:
+    resolution: {integrity: sha1-g7kMB35saoD39eh4HQ8xGy/kFJk=}
+    engines: {node: '>= 12.0.0'}
+    peerDependencies:
+      '@babel/core': '*'
+      babel-plugin-macros: '*'
+      react: '>= 16.8.0 || 17.x.x || ^18.0.0-0 || ^19.0.0-0'
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      babel-plugin-macros:
+        optional: true
+
+  tailwindcss@4.1.5:
+    resolution: {integrity: sha1-01YH8aNRBRvSnNp+WassIiyo3rY=}
+
+  tapable@2.2.1:
+    resolution: {integrity: sha1-GWenPvQGCoLxKrlq+G1S/bdu7KA=}
+    engines: {node: '>=6'}
+
+  tslib@2.8.1:
+    resolution: {integrity: sha1-YS7+TtI11Wfoq6Xypfq3AoCt6D8=}
+
+  typescript@5.8.3:
+    resolution: {integrity: sha1-kvij5ePPSXNW9BeMNM1lp/XoRA4=}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
+  undici-types@6.19.8:
+    resolution: {integrity: sha1-NREcnRQ3q4OnzcCrri8m2I7aCgI=}
+
+snapshots:
+
+  '@alloc/quick-lru@5.2.0': {}
+
+  '@emnapi/runtime@1.4.3':
+    dependencies:
+      tslib: 2.8.1
+    optional: true
+
+  '@img/sharp-darwin-arm64@0.34.1':
+    optionalDependencies:
+      '@img/sharp-libvips-darwin-arm64': 1.1.0
+    optional: true
+
+  '@img/sharp-darwin-x64@0.34.1':
+    optionalDependencies:
+      '@img/sharp-libvips-darwin-x64': 1.1.0
+    optional: true
+
+  '@img/sharp-libvips-darwin-arm64@1.1.0':
+    optional: true
+
+  '@img/sharp-libvips-darwin-x64@1.1.0':
+    optional: true
+
+  '@img/sharp-libvips-linux-arm64@1.1.0':
+    optional: true
+
+  '@img/sharp-libvips-linux-arm@1.1.0':
+    optional: true
+
+  '@img/sharp-libvips-linux-ppc64@1.1.0':
+    optional: true
+
+  '@img/sharp-libvips-linux-s390x@1.1.0':
+    optional: true
+
+  '@img/sharp-libvips-linux-x64@1.1.0':
+    optional: true
+
+  '@img/sharp-libvips-linuxmusl-arm64@1.1.0':
+    optional: true
+
+  '@img/sharp-libvips-linuxmusl-x64@1.1.0':
+    optional: true
+
+  '@img/sharp-linux-arm64@0.34.1':
+    optionalDependencies:
+      '@img/sharp-libvips-linux-arm64': 1.1.0
+    optional: true
+
+  '@img/sharp-linux-arm@0.34.1':
+    optionalDependencies:
+      '@img/sharp-libvips-linux-arm': 1.1.0
+    optional: true
+
+  '@img/sharp-linux-s390x@0.34.1':
+    optionalDependencies:
+      '@img/sharp-libvips-linux-s390x': 1.1.0
+    optional: true
+
+  '@img/sharp-linux-x64@0.34.1':
+    optionalDependencies:
+      '@img/sharp-libvips-linux-x64': 1.1.0
+    optional: true
+
+  '@img/sharp-linuxmusl-arm64@0.34.1':
+    optionalDependencies:
+      '@img/sharp-libvips-linuxmusl-arm64': 1.1.0
+    optional: true
+
+  '@img/sharp-linuxmusl-x64@0.34.1':
+    optionalDependencies:
+      '@img/sharp-libvips-linuxmusl-x64': 1.1.0
+    optional: true
+
+  '@img/sharp-wasm32@0.34.1':
+    dependencies:
+      '@emnapi/runtime': 1.4.3
+    optional: true
+
+  '@img/sharp-win32-ia32@0.34.1':
+    optional: true
+
+  '@img/sharp-win32-x64@0.34.1':
+    optional: true
+
+  '@next/env@15.3.1': {}
+
+  '@next/swc-darwin-arm64@15.3.1':
+    optional: true
+
+  '@next/swc-darwin-x64@15.3.1':
+    optional: true
+
+  '@next/swc-linux-arm64-gnu@15.3.1':
+    optional: true
+
+  '@next/swc-linux-arm64-musl@15.3.1':
+    optional: true
+
+  '@next/swc-linux-x64-gnu@15.3.1':
+    optional: true
+
+  '@next/swc-linux-x64-musl@15.3.1':
+    optional: true
+
+  '@next/swc-win32-arm64-msvc@15.3.1':
+    optional: true
+
+  '@next/swc-win32-x64-msvc@15.3.1':
+    optional: true
+
+  '@swc/counter@0.1.3': {}
+
+  '@swc/helpers@0.5.15':
+    dependencies:
+      tslib: 2.8.1
+
+  '@tailwindcss/node@4.1.5':
+    dependencies:
+      enhanced-resolve: 5.18.1
+      jiti: 2.4.2
+      lightningcss: 1.29.2
+      tailwindcss: 4.1.5
+
+  '@tailwindcss/oxide-android-arm64@4.1.5':
+    optional: true
+
+  '@tailwindcss/oxide-darwin-arm64@4.1.5':
+    optional: true
+
+  '@tailwindcss/oxide-darwin-x64@4.1.5':
+    optional: true
+
+  '@tailwindcss/oxide-freebsd-x64@4.1.5':
+    optional: true
+
+  '@tailwindcss/oxide-linux-arm-gnueabihf@4.1.5':
+    optional: true
+
+  '@tailwindcss/oxide-linux-arm64-gnu@4.1.5':
+    optional: true
+
+  '@tailwindcss/oxide-linux-arm64-musl@4.1.5':
+    optional: true
+
+  '@tailwindcss/oxide-linux-x64-gnu@4.1.5':
+    optional: true
+
+  '@tailwindcss/oxide-linux-x64-musl@4.1.5':
+    optional: true
+
+  '@tailwindcss/oxide-wasm32-wasi@4.1.5':
+    optional: true
+
+  '@tailwindcss/oxide-win32-arm64-msvc@4.1.5':
+    optional: true
+
+  '@tailwindcss/oxide-win32-x64-msvc@4.1.5':
+    optional: true
+
+  '@tailwindcss/oxide@4.1.5':
+    optionalDependencies:
+      '@tailwindcss/oxide-android-arm64': 4.1.5
+      '@tailwindcss/oxide-darwin-arm64': 4.1.5
+      '@tailwindcss/oxide-darwin-x64': 4.1.5
+      '@tailwindcss/oxide-freebsd-x64': 4.1.5
+      '@tailwindcss/oxide-linux-arm-gnueabihf': 4.1.5
+      '@tailwindcss/oxide-linux-arm64-gnu': 4.1.5
+      '@tailwindcss/oxide-linux-arm64-musl': 4.1.5
+      '@tailwindcss/oxide-linux-x64-gnu': 4.1.5
+      '@tailwindcss/oxide-linux-x64-musl': 4.1.5
+      '@tailwindcss/oxide-wasm32-wasi': 4.1.5
+      '@tailwindcss/oxide-win32-arm64-msvc': 4.1.5
+      '@tailwindcss/oxide-win32-x64-msvc': 4.1.5
+
+  '@tailwindcss/postcss@4.1.5':
+    dependencies:
+      '@alloc/quick-lru': 5.2.0
+      '@tailwindcss/node': 4.1.5
+      '@tailwindcss/oxide': 4.1.5
+      postcss: 8.5.3
+      tailwindcss: 4.1.5
+
+  '@types/node@20.17.32':
+    dependencies:
+      undici-types: 6.19.8
+
+  '@types/react-dom@19.1.3(@types/react@19.1.2)':
+    dependencies:
+      '@types/react': 19.1.2
+
+  '@types/react@19.1.2':
+    dependencies:
+      csstype: 3.1.3
+
+  busboy@1.6.0:
+    dependencies:
+      streamsearch: 1.1.0
+
+  caniuse-lite@1.0.30001716: {}
+
+  client-only@0.0.1: {}
+
+  color-convert@2.0.1:
+    dependencies:
+      color-name: 1.1.4
+    optional: true
+
+  color-name@1.1.4:
+    optional: true
+
+  color-string@1.9.1:
+    dependencies:
+      color-name: 1.1.4
+      simple-swizzle: 0.2.2
+    optional: true
+
+  color@4.2.3:
+    dependencies:
+      color-convert: 2.0.1
+      color-string: 1.9.1
+    optional: true
+
+  csstype@3.1.3: {}
+
+  detect-libc@2.0.4: {}
+
+  enhanced-resolve@5.18.1:
+    dependencies:
+      graceful-fs: 4.2.11
+      tapable: 2.2.1
+
+  graceful-fs@4.2.11: {}
+
+  is-arrayish@0.3.2:
+    optional: true
+
+  jiti@2.4.2: {}
+
+  lightningcss-darwin-arm64@1.29.2:
+    optional: true
+
+  lightningcss-darwin-x64@1.29.2:
+    optional: true
+
+  lightningcss-freebsd-x64@1.29.2:
+    optional: true
+
+  lightningcss-linux-arm-gnueabihf@1.29.2:
+    optional: true
+
+  lightningcss-linux-arm64-gnu@1.29.2:
+    optional: true
+
+  lightningcss-linux-arm64-musl@1.29.2:
+    optional: true
+
+  lightningcss-linux-x64-gnu@1.29.2:
+    optional: true
+
+  lightningcss-linux-x64-musl@1.29.2:
+    optional: true
+
+  lightningcss-win32-arm64-msvc@1.29.2:
+    optional: true
+
+  lightningcss-win32-x64-msvc@1.29.2:
+    optional: true
+
+  lightningcss@1.29.2:
+    dependencies:
+      detect-libc: 2.0.4
+    optionalDependencies:
+      lightningcss-darwin-arm64: 1.29.2
+      lightningcss-darwin-x64: 1.29.2
+      lightningcss-freebsd-x64: 1.29.2
+      lightningcss-linux-arm-gnueabihf: 1.29.2
+      lightningcss-linux-arm64-gnu: 1.29.2
+      lightningcss-linux-arm64-musl: 1.29.2
+      lightningcss-linux-x64-gnu: 1.29.2
+      lightningcss-linux-x64-musl: 1.29.2
+      lightningcss-win32-arm64-msvc: 1.29.2
+      lightningcss-win32-x64-msvc: 1.29.2
+
+  nanoid@3.3.11: {}
+
+  next@15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+    dependencies:
+      '@next/env': 15.3.1
+      '@swc/counter': 0.1.3
+      '@swc/helpers': 0.5.15
+      busboy: 1.6.0
+      caniuse-lite: 1.0.30001716
+      postcss: 8.4.31
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
+      styled-jsx: 5.1.6(react@19.1.0)
+    optionalDependencies:
+      '@next/swc-darwin-arm64': 15.3.1
+      '@next/swc-darwin-x64': 15.3.1
+      '@next/swc-linux-arm64-gnu': 15.3.1
+      '@next/swc-linux-arm64-musl': 15.3.1
+      '@next/swc-linux-x64-gnu': 15.3.1
+      '@next/swc-linux-x64-musl': 15.3.1
+      '@next/swc-win32-arm64-msvc': 15.3.1
+      '@next/swc-win32-x64-msvc': 15.3.1
+      sharp: 0.34.1
+    transitivePeerDependencies:
+      - '@babel/core'
+      - babel-plugin-macros
+
+  picocolors@1.1.1: {}
+
+  postcss@8.4.31:
+    dependencies:
+      nanoid: 3.3.11
+      picocolors: 1.1.1
+      source-map-js: 1.2.1
+
+  postcss@8.5.3:
+    dependencies:
+      nanoid: 3.3.11
+      picocolors: 1.1.1
+      source-map-js: 1.2.1
+
+  react-dom@19.1.0(react@19.1.0):
+    dependencies:
+      react: 19.1.0
+      scheduler: 0.26.0
+
+  react@19.1.0: {}
+
+  scheduler@0.26.0: {}
+
+  semver@7.7.1:
+    optional: true
+
+  sharp@0.34.1:
+    dependencies:
+      color: 4.2.3
+      detect-libc: 2.0.4
+      semver: 7.7.1
+    optionalDependencies:
+      '@img/sharp-darwin-arm64': 0.34.1
+      '@img/sharp-darwin-x64': 0.34.1
+      '@img/sharp-libvips-darwin-arm64': 1.1.0
+      '@img/sharp-libvips-darwin-x64': 1.1.0
+      '@img/sharp-libvips-linux-arm': 1.1.0
+      '@img/sharp-libvips-linux-arm64': 1.1.0
+      '@img/sharp-libvips-linux-ppc64': 1.1.0
+      '@img/sharp-libvips-linux-s390x': 1.1.0
+      '@img/sharp-libvips-linux-x64': 1.1.0
+      '@img/sharp-libvips-linuxmusl-arm64': 1.1.0
+      '@img/sharp-libvips-linuxmusl-x64': 1.1.0
+      '@img/sharp-linux-arm': 0.34.1
+      '@img/sharp-linux-arm64': 0.34.1
+      '@img/sharp-linux-s390x': 0.34.1
+      '@img/sharp-linux-x64': 0.34.1
+      '@img/sharp-linuxmusl-arm64': 0.34.1
+      '@img/sharp-linuxmusl-x64': 0.34.1
+      '@img/sharp-wasm32': 0.34.1
+      '@img/sharp-win32-ia32': 0.34.1
+      '@img/sharp-win32-x64': 0.34.1
+    optional: true
+
+  simple-swizzle@0.2.2:
+    dependencies:
+      is-arrayish: 0.3.2
+    optional: true
+
+  source-map-js@1.2.1: {}
+
+  streamsearch@1.1.0: {}
+
+  styled-jsx@5.1.6(react@19.1.0):
+    dependencies:
+      client-only: 0.0.1
+      react: 19.1.0
+
+  tailwindcss@4.1.5: {}
+
+  tapable@2.2.1: {}
+
+  tslib@2.8.1: {}
+
+  typescript@5.8.3: {}
+
+  undici-types@6.19.8: {}
