@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function SkillsSection() {
   return (
     <section className="py-20 px-8 md:px-20">
-      <h2 className="text-3xl md:text-4xl mb-12 text-center font-[family-name:var(--font-nova-square)]">
+      <h2 className="heading text-3xl md:text-4xl mb-12 text-center">
         Skills
       </h2>
 
@@ -38,10 +38,12 @@ function SkillIcon({ icon, alt }: { icon: string; alt: string }) {
   const size = 48;
   return (
     <div className="flex flex-col items-center justify-center group">
+      {/* <Tooltip text={alt} /> */}
       <div className="transition-transform duration-200 transform group-hover:scale-175">
         <Image src={icon} alt={alt} width={size} height={size} />
       </div>
     </div>
   );
 }
+
 
