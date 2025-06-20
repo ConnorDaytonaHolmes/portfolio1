@@ -8,7 +8,7 @@ import FooterSection from "./components/FooterSection";
 export default function Home() {
   return (
     <>
-      <ScrollAnimations disabled />
+      <ScrollAnimations disabled={false} />
 
       <div className="flex flex-col min-h-screen">
         <HeroSection />
