@@ -38,7 +38,7 @@ function SkillIcon({ icon, alt }: { icon: string; alt: string }) {
   const size = 48;
   return (
     <div className="flex flex-col items-center justify-center group relative">
-      <div className="transition-transform duration-300 transform group-hover:scale-175">
+      <div className="transition-all duration-300 transform group-hover:scale-175 group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">
         <Image src={icon} alt={alt} width={size} height={size} />
       </div>
       <div className="absolute top-full mt-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm text-gray-300 text-center whitespace-nowrap">
