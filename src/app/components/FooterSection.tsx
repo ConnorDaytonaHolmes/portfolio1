@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 export default function FooterSection() {
+  console.log('admnikaod');
   return (
     <footer className="py-12 px-8 md:px-20 mt-auto bg-white/[0.02]">
       <div className="flex justify-center gap-8">

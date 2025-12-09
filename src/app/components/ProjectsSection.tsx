@@ -11,11 +11,11 @@ export default function ProjectsSection() {
         {/* Project 1 */}
         <div className="fade-in-section">
           <div className="bg-white/5 p-6 rounded-lg h-full">
-            <h3 className="text-xl mb-2">Project Title</h3>
-            <p className="opacity-80 mb-4">Project description placeholder. Replace with actual project details.</p>
+            <h3 className="text-xl mb-2"><a href='https://picardata.com' target='_blank'>Picardata</a></h3>
+            <p className="opacity-80 mb-4">Business analytics SaaS platform</p>
             <div className="flex gap-2">
               <Image src="/typescript.svg" alt="TypeScript" width={24} height={24} />
-              <Image src="/rust.svg" alt="Rust" width={24} height={24} />
+              <Image src="/csharp.svg" alt="C#" width={24} height={24} />
             </div>
           </div>
         </div>
