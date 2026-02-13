@@ -36,6 +36,7 @@ function ProjectCard({ title, link, children, isPersonal }: ProjectCardProps) {
                 width={20}
                 height={20}
                 className="opacity-60"
+                unoptimized
               />
               <div className="absolute top-full right-0 mt-1 px-2 py-1 bg-black/90 text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
                 At Redi Software
@@ -80,10 +81,10 @@ export default function ProjectsSection() {
                 <li>Built a modular UI featuring interactive, real-time widgets for weather, currency exchange, and stock market data</li>
               </ul>
               <div className="flex gap-2 mt-auto">
-                <Image src="skills/csharp.svg" alt="C#" width={24} height={24} />
-                <Image src="skills/typescript.svg" alt="TypeScript" width={24} height={24} />
-                <Image src="skills/react.svg" alt="React" width={24} height={24} />
-                <Image src="skills/azure.svg" alt="Azure" width={24} height={24} />
+                <Image src="skills/csharp.svg" alt="C#" width={24} height={24} unoptimized />
+                <Image src="skills/typescript.svg" alt="TypeScript" width={24} height={24} unoptimized />
+                <Image src="skills/react.svg" alt="React" width={24} height={24} unoptimized />
+                <Image src="skills/azure.svg" alt="Azure" width={24} height={24} unoptimized />
               </div>
             </ProjectCard>
 
@@ -99,9 +100,9 @@ export default function ProjectsSection() {
                 <li>Engineered a centralized .NET microservices backend to synchronize trainee performance data and session telemetry via RESTful APIs</li>
               </ul>
               <div className="flex gap-2 mt-auto">
-                <Image src="skills/csharp.svg" alt="C#" width={24} height={24} />
-                <Image src="skills/typescript.svg" alt="TypeScript" width={24} height={24} />
-                <Image src="skills/react.svg" alt="React" width={24} height={24} />
+                <Image src="skills/csharp.svg" alt="C#" width={24} height={24} unoptimized />
+                <Image src="skills/typescript.svg" alt="TypeScript" width={24} height={24} unoptimized />
+                <Image src="skills/react.svg" alt="React" width={24} height={24} unoptimized />
               </div>
             </ProjectCard>
 
@@ -117,10 +118,10 @@ export default function ProjectsSection() {
                 <li>Integrated Postmark API for automated email template deployment and configured full CI/CD pipelines for frontends and serverless functions</li>
               </ul>
               <div className="flex gap-2 mt-auto">
-                <Image src="skills/typescript.svg" alt="TypeScript" width={24} height={24} />
-                <Image src="skills/azure.svg" alt="Azure" width={24} height={24} />
-                <Image src="skills/bash.svg" alt="Bash" width={24} height={24} />
-                <Image src="skills/cloudflare.svg" alt="Cloudflare" width={24} height={24} />
+                <Image src="skills/typescript.svg" alt="TypeScript" width={24} height={24} unoptimized />
+                <Image src="skills/azure.svg" alt="Azure" width={24} height={24} unoptimized />
+                <Image src="skills/bash.svg" alt="Bash" width={24} height={24} unoptimized />
+                <Image src="skills/cloudflare.svg" alt="Cloudflare" width={24} height={24} unoptimized />
               </div>
             </ProjectCard>
 
@@ -137,9 +138,9 @@ export default function ProjectsSection() {
                 <li>Used performance profilers to find memory leaks and suboptimal coroutines to increase server-side runtime performance by 96%</li>
               </ul>
               <div className="flex gap-2 mt-auto">
-                <Image src="skills/csharp.svg" alt="C#" width={24} height={24} />
-                <Image src="skills/python.svg" alt="Python" width={24} height={24} />
-                <Image src="skills/cpp.svg" alt="C++" width={24} height={24} />
+                <Image src="skills/csharp.svg" alt="C#" width={24} height={24} unoptimized />
+                <Image src="skills/python.svg" alt="Python" width={24} height={24} unoptimized />
+                <Image src="skills/cpp.svg" alt="C++" width={24} height={24} unoptimized />
               </div>
             </ProjectCard>
         </div>
