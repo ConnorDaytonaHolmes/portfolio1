@@ -12,8 +12,8 @@ export default function Home() {
 
       <div className="flex flex-col min-h-screen">
         <HeroSection />
-        <ProjectsSection />
         <ExperienceSection />
+        <ProjectsSection />
         <SkillsSection />
         <FooterSection />
       </div>
