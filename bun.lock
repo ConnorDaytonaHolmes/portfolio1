@@ -1,0 +1,234 @@
+{
+  "lockfileVersion": 1,
+  "configVersion": 0,
+  "workspaces": {
+    "": {
+      "name": "portfolio1",
+      "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^7.2.0",
+        "@fortawesome/free-solid-svg-icons": "^7.2.0",
+        "@fortawesome/react-fontawesome": "^3.2.0",
+        "next": "^15.3.1",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+      },
+      "devDependencies": {
+        "@tailwindcss/postcss": "^4",
+        "@types/node": "^20",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "tailwindcss": "^4",
+        "typescript": "^5",
+      },
+    },
+  },
+  "packages": {
+    "@alloc/quick-lru": ["@alloc/quick-lru@5.2.0", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@alloc/quick-lru/-/@alloc/quick-lru-5.2.0.tgz", {}, "sha1-e/aLIMCjUPk2kV/K4G9Y4yAHzjA="],
+
+    "@emnapi/runtime": ["@emnapi/runtime@1.7.1", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@emnapi/runtime/-/@emnapi/runtime-1.7.1.tgz", { "dependencies": { "tslib": "^2.4.0" } }, "sha1-pzeE4j9dVyhzacgIGXKItSJ2t5E="],
+
+    "@fortawesome/fontawesome-common-types": ["@fortawesome/fontawesome-common-types@7.2.0", "", {}, "sha512-IpR0bER9FY25p+e7BmFH25MZKEwFHTfRAfhOyJubgiDnoJNsSvJ7nigLraHtp4VOG/cy8D7uiV0dLkHOne5Fhw=="],
+
+    "@fortawesome/fontawesome-svg-core": ["@fortawesome/fontawesome-svg-core@7.2.0", "", { "dependencies": { "@fortawesome/fontawesome-common-types": "7.2.0" } }, "sha512-6639htZMjEkwskf3J+e6/iar+4cTNM9qhoWuRfj9F3eJD6r7iCzV1SWnQr2Mdv0QT0suuqU8BoJCZUyCtP9R4Q=="],
+
+    "@fortawesome/free-solid-svg-icons": ["@fortawesome/free-solid-svg-icons@7.2.0", "", { "dependencies": { "@fortawesome/fontawesome-common-types": "7.2.0" } }, "sha512-YTVITFGN0/24PxzXrwqCgnyd7njDuzp5ZvaCx5nq/jg55kUYd94Nj8UTchBdBofi/L0nwRfjGOg0E41d2u9T1w=="],
+
+    "@fortawesome/react-fontawesome": ["@fortawesome/react-fontawesome@3.2.0", "", { "peerDependencies": { "@fortawesome/fontawesome-svg-core": "~6 || ~7", "react": "^18.0.0 || ^19.0.0" } }, "sha512-E9Gu1hqd6JussVO26EC4WqRZssXMnQr2ol7ZNWkkFOH8jZUaxDJ9Z9WF9wIVkC+kJGXUdY3tlffpDwEKfgQrQw=="],
+
+    "@img/colour": ["@img/colour@1.0.0", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/colour/-/@img/colour-1.0.0.tgz", {}, "sha1-0vq7IjRVp5O/O/nHDePShSaqgxE="],
+
+    "@img/sharp-darwin-arm64": ["@img/sharp-darwin-arm64@0.34.5", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-darwin-arm64/-/@img/sharp-darwin-arm64-0.34.5.tgz", { "optionalDependencies": { "@img/sharp-libvips-darwin-arm64": "1.2.4" }, "os": "darwin", "cpu": "arm64" }, "sha1-bgcy3K3hJrZnCveqFwYLkmg16oY="],
+
+    "@img/sharp-darwin-x64": ["@img/sharp-darwin-x64@0.34.5", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-darwin-x64/-/@img/sharp-darwin-x64-0.34.5.tgz", { "optionalDependencies": { "@img/sharp-libvips-darwin-x64": "1.2.4" }, "os": "darwin", "cpu": "x64" }, "sha1-Gbwd1uum1alig0mLnJ9AEYDunHs="],
+
+    "@img/sharp-libvips-darwin-arm64": ["@img/sharp-libvips-darwin-arm64@1.2.4", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-libvips-darwin-arm64/-/@img/sharp-libvips-darwin-arm64-1.2.4.tgz", { "os": "darwin", "cpu": "arm64" }, "sha1-KJTAy4fUInbDiJlC6OLbUXpJLEM="],
+
+    "@img/sharp-libvips-darwin-x64": ["@img/sharp-libvips-darwin-x64@1.2.4", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-libvips-darwin-x64/-/@img/sharp-libvips-darwin-x64-1.2.4.tgz", { "os": "darwin", "cpu": "x64" }, "sha1-5jaB9FOalK+c0XJG7YiBc0OG+Mw="],
+
+    "@img/sharp-libvips-linux-arm": ["@img/sharp-libvips-linux-arm@1.2.4", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-libvips-linux-arm/-/@img/sharp-libvips-linux-arm-1.2.4.tgz", { "os": "linux", "cpu": "arm" }, "sha1-uSYN0evm+eO9vL3KydKsEl81hS0="],
+
+    "@img/sharp-libvips-linux-arm64": ["@img/sharp-libvips-linux-arm64@1.2.4", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-libvips-linux-arm64/-/@img/sharp-libvips-linux-arm64-1.2.4.tgz", { "os": "linux", "cpu": "arm64" }, "sha1-sbKIs2hks7zlRa2R+m2tzxpK0xg="],
+
+    "@img/sharp-libvips-linux-ppc64": ["@img/sharp-libvips-linux-ppc64@1.2.4", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-libvips-linux-ppc64/-/@img/sharp-libvips-linux-ppc64-1.2.4.tgz", { "os": "linux", "cpu": "ppc64" }, "sha1-S4Ps8qgpBXIis4hIx7Ai57TQeqc="],
+
+    "@img/sharp-libvips-linux-riscv64": ["@img/sharp-libvips-linux-riscv64@1.2.4", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-libvips-linux-riscv64/-/@img/sharp-libvips-linux-riscv64-1.2.4.tgz", { "os": "linux", "cpu": "none" }, "sha1-iAtGeACeWiCArxkjMrALCq+KSN4="],
+
+    "@img/sharp-libvips-linux-s390x": ["@img/sharp-libvips-linux-s390x@1.2.4", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-libvips-linux-s390x/-/@img/sharp-libvips-linux-s390x-1.2.4.tgz", { "os": "linux", "cpu": "s390x" }, "sha1-dPNDyOEPrYIbOPdc7TBIiTncWew="],
+
+    "@img/sharp-libvips-linux-x64": ["@img/sharp-libvips-linux-x64@1.2.4", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-libvips-linux-x64/-/@img/sharp-libvips-linux-x64-1.2.4.tgz", { "os": "linux", "cpu": "x64" }, "sha1-30GD6L2EEPfWG2aFmjXt6rClMc4="],
+
+    "@img/sharp-libvips-linuxmusl-arm64": ["@img/sharp-libvips-linuxmusl-arm64@1.2.4", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-libvips-linuxmusl-arm64/-/@img/sharp-libvips-linuxmusl-arm64-1.2.4.tgz", { "os": "linux", "cpu": "arm64" }, "sha1-yNa0ghHfZxN1QQB+6NG3sfjKjgY="],
+
+    "@img/sharp-libvips-linuxmusl-x64": ["@img/sharp-libvips-linuxmusl-x64@1.2.4", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-libvips-linuxmusl-x64/-/@img/sharp-libvips-linuxmusl-x64-1.2.4.tgz", { "os": "linux", "cpu": "x64" }, "sha1-vhHHW+5bCAy+4xoVOod5RI+Rn3U="],
+
+    "@img/sharp-linux-arm": ["@img/sharp-linux-arm@0.34.5", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-linux-arm/-/@img/sharp-linux-arm-0.34.5.tgz", { "optionalDependencies": { "@img/sharp-libvips-linux-arm": "1.2.4" }, "os": "linux", "cpu": "arm" }, "sha1-X7DDaV3RJSLTnD/3pryBZGF4Cg0="],
+
+    "@img/sharp-linux-arm64": ["@img/sharp-linux-arm64@0.34.5", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-linux-arm64/-/@img/sharp-linux-arm64-0.34.5.tgz", { "optionalDependencies": { "@img/sharp-libvips-linux-arm64": "1.2.4" }, "os": "linux", "cpu": "arm64" }, "sha1-eqd2TvnAAfFeYQVG1C/OVpEXkMw="],
+
+    "@img/sharp-linux-ppc64": ["@img/sharp-linux-ppc64@0.34.5", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-linux-ppc64/-/@img/sharp-linux-ppc64-0.34.5.tgz", { "optionalDependencies": { "@img/sharp-libvips-linux-ppc64": "1.2.4" }, "os": "linux", "cpu": "ppc64" }, "sha1-nCE6gVIKIMr2aXjz1MB0Vv8uCBM="],
+
+    "@img/sharp-linux-riscv64": ["@img/sharp-linux-riscv64@0.34.5", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-linux-riscv64/-/@img/sharp-linux-riscv64-0.34.5.tgz", { "optionalDependencies": { "@img/sharp-libvips-linux-riscv64": "1.2.4" }, "os": "linux", "cpu": "none" }, "sha1-zdKBgndOrb4E9iZ1oWqrvMuDP2A="],
+
+    "@img/sharp-linux-s390x": ["@img/sharp-linux-s390x@0.34.5", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-linux-s390x/-/@img/sharp-linux-s390x-0.34.5.tgz", { "optionalDependencies": { "@img/sharp-libvips-linux-s390x": "1.2.4" }, "os": "linux", "cpu": "s390x" }, "sha1-k+rGAbnzKbsnkX4OGQmMci1jDfc="],
+
+    "@img/sharp-linux-x64": ["@img/sharp-linux-x64@0.34.5", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-linux-x64/-/@img/sharp-linux-x64-0.34.5.tgz", { "optionalDependencies": { "@img/sharp-libvips-linux-x64": "1.2.4" }, "os": "linux", "cpu": "x64" }, "sha1-VavHzXVP/KUAK2wrcZq9/IRoGag="],
+
+    "@img/sharp-linuxmusl-arm64": ["@img/sharp-linuxmusl-arm64@0.34.5", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-linuxmusl-arm64/-/@img/sharp-linuxmusl-arm64-0.34.5.tgz", { "optionalDependencies": { "@img/sharp-libvips-linuxmusl-arm64": "1.2.4" }, "os": "linux", "cpu": "arm64" }, "sha1-1lFe6XG7YvcwAaSCm52GWhG3cIY="],
+
+    "@img/sharp-linuxmusl-x64": ["@img/sharp-linuxmusl-x64@0.34.5", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-linuxmusl-x64/-/@img/sharp-linuxmusl-x64-0.34.5.tgz", { "optionalDependencies": { "@img/sharp-libvips-linuxmusl-x64": "1.2.4" }, "os": "linux", "cpu": "x64" }, "sha1-2Xl4rsfFIS+ZlxTy9bc2RX4S7p8="],
+
+    "@img/sharp-wasm32": ["@img/sharp-wasm32@0.34.5", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-wasm32/-/@img/sharp-wasm32-0.34.5.tgz", { "dependencies": { "@emnapi/runtime": "^1.7.0" }, "cpu": "none" }, "sha1-LxWAOqYm+MWd18nQu8dm8atSz6A="],
+
+    "@img/sharp-win32-arm64": ["@img/sharp-win32-arm64@0.34.5", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-win32-arm64/-/@img/sharp-win32-arm64-0.34.5.tgz", { "os": "win32", "cpu": "arm64" }, "sha1-Nwbp46w1/d/ByH+U6Enxt1MHzgo="],
+
+    "@img/sharp-win32-ia32": ["@img/sharp-win32-ia32@0.34.5", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-win32-ia32/-/@img/sharp-win32-ia32-0.34.5.tgz", { "os": "win32", "cpu": "ia32" }, "sha1-C3EWZZmwSeAy8IX7kmPgL05HiN4="],
+
+    "@img/sharp-win32-x64": ["@img/sharp-win32-x64@0.34.5", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@img/sharp-win32-x64/-/@img/sharp-win32-x64-0.34.5.tgz", { "os": "win32", "cpu": "x64" }, "sha1-qB/7AOaSZ80KHWJurtuKhDCysvg="],
+
+    "@jridgewell/gen-mapping": ["@jridgewell/gen-mapping@0.3.13", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@jridgewell/gen-mapping/-/@jridgewell/gen-mapping-0.3.13.tgz", { "dependencies": { "@jridgewell/sourcemap-codec": "^1.5.0", "@jridgewell/trace-mapping": "^0.3.24" } }, "sha1-Y0Khn0Q0dRjJPkOxrGnes8Rlah8="],
+
+    "@jridgewell/remapping": ["@jridgewell/remapping@2.3.5", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@jridgewell/remapping/-/@jridgewell/remapping-2.3.5.tgz", { "dependencies": { "@jridgewell/gen-mapping": "^0.3.5", "@jridgewell/trace-mapping": "^0.3.24" } }, "sha1-N1xHbRlylHhRuh4Vro8SMEdEWqE="],
+
+    "@jridgewell/resolve-uri": ["@jridgewell/resolve-uri@3.1.2", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@jridgewell/resolve-uri/-/@jridgewell/resolve-uri-3.1.2.tgz", {}, "sha1-eg7mAfYPmaIMfHxf8MgDiMEYm9Y="],
+
+    "@jridgewell/sourcemap-codec": ["@jridgewell/sourcemap-codec@1.5.5", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@jridgewell/sourcemap-codec/-/@jridgewell/sourcemap-codec-1.5.5.tgz", {}, "sha1-aRKwDSxjHA0Vzhp6tXzWV/Ko+Lo="],
+
+    "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.31", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@jridgewell/trace-mapping/-/@jridgewell/trace-mapping-0.3.31.tgz", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha1-2xXWeByTHzolGj2sOVAcmKYIL9A="],
+
+    "@next/env": ["@next/env@15.3.1", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@next/env/-/@next/env-15.3.1.tgz", {}, "sha1-/KmNy5DZLVVZcs2/A635qpguIRU="],
+
+    "@next/swc-darwin-arm64": ["@next/swc-darwin-arm64@15.3.1", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@next/swc-darwin-arm64/-/@next/swc-darwin-arm64-15.3.1.tgz", { "os": "darwin", "cpu": "arm64" }, "sha1-j5WJrtn2gWaHRAqjaoY3azoWr1g="],
+
+    "@next/swc-darwin-x64": ["@next/swc-darwin-x64@15.3.1", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@next/swc-darwin-x64/-/@next/swc-darwin-x64-15.3.1.tgz", { "os": "darwin", "cpu": "x64" }, "sha1-LfATIm2Eg5TtcwcYjBQfDm2kqz4="],
+
+    "@next/swc-linux-arm64-gnu": ["@next/swc-linux-arm64-gnu@15.3.1", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@next/swc-linux-arm64-gnu/-/@next/swc-linux-arm64-gnu-15.3.1.tgz", { "os": "linux", "cpu": "arm64" }, "sha1-0cTiSysnw2p+vCGuBXPp6Y95QUM="],
+
+    "@next/swc-linux-arm64-musl": ["@next/swc-linux-arm64-musl@15.3.1", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@next/swc-linux-arm64-musl/-/@next/swc-linux-arm64-musl-15.3.1.tgz", { "os": "linux", "cpu": "arm64" }, "sha1-vOJ1M/nwRoAPhQqcIIMujBWxCVU="],
+
+    "@next/swc-linux-x64-gnu": ["@next/swc-linux-x64-gnu@15.3.1", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@next/swc-linux-x64-gnu/-/@next/swc-linux-x64-gnu-15.3.1.tgz", { "os": "linux", "cpu": "x64" }, "sha1-+QVY2TvCXgGwsnFyXikYYyhnU8Q="],
+
+    "@next/swc-linux-x64-musl": ["@next/swc-linux-x64-musl@15.3.1", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@next/swc-linux-x64-musl/-/@next/swc-linux-x64-musl-15.3.1.tgz", { "os": "linux", "cpu": "x64" }, "sha1-Y58UO9Dz/W4b3ks4PcbNio/xJig="],
+
+    "@next/swc-win32-arm64-msvc": ["@next/swc-win32-arm64-msvc@15.3.1", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@next/swc-win32-arm64-msvc/-/@next/swc-win32-arm64-msvc-15.3.1.tgz", { "os": "win32", "cpu": "arm64" }, "sha1-Uu4eY7GS/sjwIwyvg5z8MI0NRNE="],
+
+    "@next/swc-win32-x64-msvc": ["@next/swc-win32-x64-msvc@15.3.1", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@next/swc-win32-x64-msvc/-/@next/swc-win32-x64-msvc-15.3.1.tgz", { "os": "win32", "cpu": "x64" }, "sha1-31zrnDuXvw1hy26E95u/npGonSk="],
+
+    "@swc/counter": ["@swc/counter@0.1.3", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@swc/counter/-/@swc/counter-0.1.3.tgz", {}, "sha1-zHRjvQKUlhHGMpWW/M0rDseCsOk="],
+
+    "@swc/helpers": ["@swc/helpers@0.5.15", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@swc/helpers/-/@swc/helpers-0.5.15.tgz", { "dependencies": { "tslib": "^2.8.0" } }, "sha1-ee+rNExYGez4OkPz+fgR/IS1Ftc="],
+
+    "@tailwindcss/node": ["@tailwindcss/node@4.1.17", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/node/-/@tailwindcss/node-4.1.17.tgz", { "dependencies": { "@jridgewell/remapping": "^2.3.4", "enhanced-resolve": "^5.18.3", "jiti": "^2.6.1", "lightningcss": "1.30.2", "magic-string": "^0.30.21", "source-map-js": "^1.2.1", "tailwindcss": "4.1.17" } }, "sha1-7ECjcpMkb07qstrADkQlr5Jy9gA="],
+
+    "@tailwindcss/oxide": ["@tailwindcss/oxide@4.1.17", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide/-/@tailwindcss/oxide-4.1.17.tgz", { "optionalDependencies": { "@tailwindcss/oxide-android-arm64": "4.1.17", "@tailwindcss/oxide-darwin-arm64": "4.1.17", "@tailwindcss/oxide-darwin-x64": "4.1.17", "@tailwindcss/oxide-freebsd-x64": "4.1.17", "@tailwindcss/oxide-linux-arm-gnueabihf": "4.1.17", "@tailwindcss/oxide-linux-arm64-gnu": "4.1.17", "@tailwindcss/oxide-linux-arm64-musl": "4.1.17", "@tailwindcss/oxide-linux-x64-gnu": "4.1.17", "@tailwindcss/oxide-linux-x64-musl": "4.1.17", "@tailwindcss/oxide-wasm32-wasi": "4.1.17", "@tailwindcss/oxide-win32-arm64-msvc": "4.1.17", "@tailwindcss/oxide-win32-x64-msvc": "4.1.17" } }, "sha1-bAY7QKAi9PvaxVfAWGz7muCKPf4="],
+
+    "@tailwindcss/oxide-android-arm64": ["@tailwindcss/oxide-android-arm64@4.1.17", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide-android-arm64/-/@tailwindcss/oxide-android-arm64-4.1.17.tgz", { "os": "android", "cpu": "arm64" }, "sha1-F/DckB+IqXnFv/YYGBvOWW3/WW0="],
+
+    "@tailwindcss/oxide-darwin-arm64": ["@tailwindcss/oxide-darwin-arm64@4.1.17", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide-darwin-arm64/-/@tailwindcss/oxide-darwin-arm64-4.1.17.tgz", { "os": "darwin", "cpu": "arm64" }, "sha1-Y+EuYrg/aUnbsQtaf25EFgaDXvw="],
+
+    "@tailwindcss/oxide-darwin-x64": ["@tailwindcss/oxide-darwin-x64@4.1.17", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide-darwin-x64/-/@tailwindcss/oxide-darwin-x64-4.1.17.tgz", { "os": "darwin", "cpu": "x64" }, "sha1-ba0nDSd3UI9V4rc+yg6u9iW8Rac="],
+
+    "@tailwindcss/oxide-freebsd-x64": ["@tailwindcss/oxide-freebsd-x64@4.1.17", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide-freebsd-x64/-/@tailwindcss/oxide-freebsd-x64-4.1.17.tgz", { "os": "freebsd", "cpu": "x64" }, "sha1-52KLRgKsfXPBGpki7Lg8JDN+/1U="],
+
+    "@tailwindcss/oxide-linux-arm-gnueabihf": ["@tailwindcss/oxide-linux-arm-gnueabihf@4.1.17", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide-linux-arm-gnueabihf/-/@tailwindcss/oxide-linux-arm-gnueabihf-4.1.17.tgz", { "os": "linux", "cpu": "arm" }, "sha1-TZam/kx+0g56ATEB7kb0bKyiIz4="],
+
+    "@tailwindcss/oxide-linux-arm64-gnu": ["@tailwindcss/oxide-linux-arm64-gnu@4.1.17", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide-linux-arm64-gnu/-/@tailwindcss/oxide-linux-arm64-gnu-4.1.17.tgz", { "os": "linux", "cpu": "arm64" }, "sha1-rcPAHNc2EIcL/CHbVxNXHgj7IhA="],
+
+    "@tailwindcss/oxide-linux-arm64-musl": ["@tailwindcss/oxide-linux-arm64-musl@4.1.17", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide-linux-arm64-musl/-/@tailwindcss/oxide-linux-arm64-musl-4.1.17.tgz", { "os": "linux", "cpu": "arm64" }, "sha1-Oc7aMEB69Woe4SWyxc6FbG0pJQ8="],
+
+    "@tailwindcss/oxide-linux-x64-gnu": ["@tailwindcss/oxide-linux-x64-gnu@4.1.17", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide-linux-x64-gnu/-/@tailwindcss/oxide-linux-x64-gnu-4.1.17.tgz", { "os": "linux", "cpu": "x64" }, "sha1-o9S9h2wE0JhWrww5T1CV+8iisUw="],
+
+    "@tailwindcss/oxide-linux-x64-musl": ["@tailwindcss/oxide-linux-x64-musl@4.1.17", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide-linux-x64-musl/-/@tailwindcss/oxide-linux-x64-musl-4.1.17.tgz", { "os": "linux", "cpu": "x64" }, "sha1-vcIKpPstKMySjyz///epzQOlHVs="],
+
+    "@tailwindcss/oxide-wasm32-wasi": ["@tailwindcss/oxide-wasm32-wasi@4.1.17", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide-wasm32-wasi/-/@tailwindcss/oxide-wasm32-wasi-4.1.17.tgz", { "cpu": "none" }, "sha1-fAgEdIk1kodRg4+G/0+HnDj4ptc="],
+
+    "@tailwindcss/oxide-win32-arm64-msvc": ["@tailwindcss/oxide-win32-arm64-msvc@4.1.17", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide-win32-arm64-msvc/-/@tailwindcss/oxide-win32-arm64-msvc-4.1.17.tgz", { "os": "win32", "cpu": "arm64" }, "sha1-ciL8LO7p1F6+WuvzhwfumDOiBHU="],
+
+    "@tailwindcss/oxide-win32-x64-msvc": ["@tailwindcss/oxide-win32-x64-msvc@4.1.17", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/oxide-win32-x64-msvc/-/@tailwindcss/oxide-win32-x64-msvc-4.1.17.tgz", { "os": "win32", "cpu": "x64" }, "sha1-rHkIf0Ud/NXDCZWJAnpXMrBFo78="],
+
+    "@tailwindcss/postcss": ["@tailwindcss/postcss@4.1.17", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@tailwindcss/postcss/-/@tailwindcss/postcss-4.1.17.tgz", { "dependencies": { "@alloc/quick-lru": "^5.2.0", "@tailwindcss/node": "4.1.17", "@tailwindcss/oxide": "4.1.17", "postcss": "^8.4.41", "tailwindcss": "4.1.17" } }, "sha1-mDtCM5IKnXCDzQ1IjVzcJU8wT2s="],
+
+    "@types/node": ["@types/node@20.19.26", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@types/node/-/@types/node-20.19.26.tgz", { "dependencies": { "undici-types": "~6.21.0" } }, "sha1-LoCFtJOk+LnmHisanVmiGb3A43M="],
+
+    "@types/react": ["@types/react@19.2.7", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@types/react/-/@types/react-19.2.7.tgz", { "dependencies": { "csstype": "^3.2.2" } }, "sha1-hOYsDyPo5OWsLK3Oof/qzMrn9i8="],
+
+    "@types/react-dom": ["@types/react-dom@19.2.3", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@types/react-dom/-/@types/react-dom-19.2.3.tgz", { "peerDependencies": { "@types/react": "^19.2.0" } }, "sha1-weMF0VpSo+UI1U3Kdw0gLLY6vyw="],
+
+    "busboy": ["busboy@1.6.0", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/busboy/-/busboy-1.6.0.tgz", { "dependencies": { "streamsearch": "^1.1.0" } }, "sha1-lm6japUC5DzbkUaWJSO5L1MfaJM="],
+
+    "caniuse-lite": ["caniuse-lite@1.0.30001760", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/caniuse-lite/-/caniuse-lite-1.0.30001760.tgz", {}, "sha1-vdGWD6/t+NXwT/FugUYFBv+beY8="],
+
+    "client-only": ["client-only@0.0.1", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/client-only/-/client-only-0.0.1.tgz", {}, "sha1-OLul1APEGrFQv/ZKlchQE89zvKE="],
+
+    "csstype": ["csstype@3.2.3", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/csstype/-/csstype-3.2.3.tgz", {}, "sha1-7EjA8+mT5QZIyG2lWeJhCZXPmJo="],
+
+    "detect-libc": ["detect-libc@2.1.2", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/detect-libc/-/detect-libc-2.1.2.tgz", {}, "sha1-aJxdzcGQDvVYOky59te0c3QgdK0="],
+
+    "enhanced-resolve": ["enhanced-resolve@5.18.3", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/enhanced-resolve/-/enhanced-resolve-5.18.3.tgz", { "dependencies": { "graceful-fs": "^4.2.4", "tapable": "^2.2.0" } }, "sha1-m19MXAdrh4fHj+VAOSznaoiFW0Q="],
+
+    "graceful-fs": ["graceful-fs@4.2.11", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/graceful-fs/-/graceful-fs-4.2.11.tgz", {}, "sha1-QYPk6L8Iu24Fu7L30uDI9xLKQOM="],
+
+    "jiti": ["jiti@2.6.1", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/jiti/-/jiti-2.6.1.tgz", { "bin": "lib/jiti-cli.mjs" }, "sha1-F47y/JoaWUJIwgYnzYIBh6TXjZI="],
+
+    "lightningcss": ["lightningcss@1.30.2", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/lightningcss/-/lightningcss-1.30.2.tgz", { "dependencies": { "detect-libc": "^2.0.3" }, "optionalDependencies": { "lightningcss-android-arm64": "1.30.2", "lightningcss-darwin-arm64": "1.30.2", "lightningcss-darwin-x64": "1.30.2", "lightningcss-freebsd-x64": "1.30.2", "lightningcss-linux-arm-gnueabihf": "1.30.2", "lightningcss-linux-arm64-gnu": "1.30.2", "lightningcss-linux-arm64-musl": "1.30.2", "lightningcss-linux-x64-gnu": "1.30.2", "lightningcss-linux-x64-musl": "1.30.2", "lightningcss-win32-arm64-msvc": "1.30.2", "lightningcss-win32-x64-msvc": "1.30.2" } }, "sha1-St4pXyXRQPSH03JW9M1A3GB2ltA="],
+
+    "lightningcss-android-arm64": ["lightningcss-android-arm64@1.30.2", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/lightningcss-android-arm64/-/lightningcss-android-arm64-1.30.2.tgz", { "os": "android", "cpu": "arm64" }, "sha1-aWa3Ak05yUmUAItUi3GrNg6zowc="],
+
+    "lightningcss-darwin-arm64": ["lightningcss-darwin-arm64@1.30.2", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/lightningcss-darwin-arm64/-/lightningcss-darwin-arm64-1.30.2.tgz", { "os": "darwin", "cpu": "arm64" }, "sha1-pfqUbSfAKeSMf/kp5uckp95G6yw="],
+
+    "lightningcss-darwin-x64": ["lightningcss-darwin-x64@1.30.2", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/lightningcss-darwin-x64/-/lightningcss-darwin-x64-1.30.2.tgz", { "os": "darwin", "cpu": "x64" }, "sha1-XOh+nNfE8tzBtxP16O4YXIjZt80="],
+
+    "lightningcss-freebsd-x64": ["lightningcss-freebsd-x64@1.30.2", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/lightningcss-freebsd-x64/-/lightningcss-freebsd-x64-1.30.2.tgz", { "os": "freebsd", "cpu": "x64" }, "sha1-auHV53PJeWHfXP9XuFGAfvM2kqU="],
+
+    "lightningcss-linux-arm-gnueabihf": ["lightningcss-linux-arm-gnueabihf@1.30.2", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/lightningcss-linux-arm-gnueabihf/-/lightningcss-linux-arm-gnueabihf-1.30.2.tgz", { "os": "linux", "cpu": "arm" }, "sha1-YsSJYQwEJBUaYSH6mdd3MVNs2us="],
+
+    "lightningcss-linux-arm64-gnu": ["lightningcss-linux-arm64-gnu@1.30.2", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/lightningcss-linux-arm64-gnu/-/lightningcss-linux-arm64-gnu-1.30.2.tgz", { "os": "linux", "cpu": "arm64" }, "sha1-KjZhtW/pWgyvrpC+Am/gWQ0Ikpg="],
+
+    "lightningcss-linux-arm64-musl": ["lightningcss-linux-arm64-musl@1.30.2", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/lightningcss-linux-arm64-musl/-/lightningcss-linux-arm64-musl-1.30.2.tgz", { "os": "linux", "cpu": "arm64" }, "sha1-193WsmlZJF4Ca8GtnraqmDqpDms="],
+
+    "lightningcss-linux-x64-gnu": ["lightningcss-linux-x64-gnu@1.30.2", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/lightningcss-linux-x64-gnu/-/lightningcss-linux-x64-gnu-1.30.2.tgz", { "os": "linux", "cpu": "x64" }, "sha1-WomBTI5jITpZZcPRZt/4PDYVKxo="],
+
+    "lightningcss-linux-x64-musl": ["lightningcss-linux-x64-musl@1.30.2", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/lightningcss-linux-x64-musl/-/lightningcss-linux-x64-musl-1.30.2.tgz", { "os": "linux", "cpu": "x64" }, "sha1-gIwukc4L9dCvDoZ8YVLlN4wElyg="],
+
+    "lightningcss-win32-arm64-msvc": ["lightningcss-win32-arm64-msvc@1.30.2", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/lightningcss-win32-arm64-msvc/-/lightningcss-win32-arm64-msvc-1.30.2.tgz", { "os": "win32", "cpu": "arm64" }, "sha1-q0qKii5qgqRTHou7a/D/Fh7mYlo="],
+
+    "lightningcss-win32-x64-msvc": ["lightningcss-win32-x64-msvc@1.30.2", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/lightningcss-win32-x64-msvc/-/lightningcss-win32-x64-msvc-1.30.2.tgz", { "os": "win32", "cpu": "x64" }, "sha1-8B84LI4KJ+HAGLC+4xbSEOrEO24="],
+
+    "magic-string": ["magic-string@0.30.21", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/magic-string/-/magic-string-0.30.21.tgz", { "dependencies": { "@jridgewell/sourcemap-codec": "^1.5.5" } }, "sha1-VnY+wJoPqAkd8nh5/ZTRkHjADZE="],
+
+    "nanoid": ["nanoid@3.3.11", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/nanoid/-/nanoid-3.3.11.tgz", { "bin": "bin/nanoid.cjs" }, "sha1-T08RLO++MDIC8hmYOBKJNiZtGFs="],
+
+    "next": ["next@15.3.1", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/next/-/next-15.3.1.tgz", { "dependencies": { "@next/env": "15.3.1", "@swc/counter": "0.1.3", "@swc/helpers": "0.5.15", "busboy": "1.6.0", "caniuse-lite": "^1.0.30001579", "postcss": "8.4.31", "styled-jsx": "5.1.6" }, "optionalDependencies": { "@next/swc-darwin-arm64": "15.3.1", "@next/swc-darwin-x64": "15.3.1", "@next/swc-linux-arm64-gnu": "15.3.1", "@next/swc-linux-arm64-musl": "15.3.1", "@next/swc-linux-x64-gnu": "15.3.1", "@next/swc-linux-x64-musl": "15.3.1", "@next/swc-win32-arm64-msvc": "15.3.1", "@next/swc-win32-x64-msvc": "15.3.1", "sharp": "^0.34.1" }, "peerDependencies": { "@opentelemetry/api": "^1.1.0", "@playwright/test": "^1.41.2", "babel-plugin-react-compiler": "*", "react": "^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0", "react-dom": "^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0", "sass": "^1.3.0" }, "optionalPeers": ["@opentelemetry/api", "@playwright/test", "babel-plugin-react-compiler", "sass"], "bin": "dist/bin/next" }, "sha1-ac8sEk5QTbZOFPx16ym9ZMDHh6c="],
+
+    "picocolors": ["picocolors@1.1.1", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/picocolors/-/picocolors-1.1.1.tgz", {}, "sha1-PTIa8+q5ObCDyPkpodEs2oHCa2s="],
+
+    "postcss": ["postcss@8.5.6", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/postcss/-/postcss-8.5.6.tgz", { "dependencies": { "nanoid": "^3.3.11", "picocolors": "^1.1.1", "source-map-js": "^1.2.1" } }, "sha1-KCUAZhWmGbT2Kp50JswSCzSajzw="],
+
+    "react": ["react@19.2.1", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/react/-/react-19.2.1.tgz", {}, "sha1-hgD6IF5Y4ugH9u9DHJ9kklkaJwA="],
+
+    "react-dom": ["react-dom@19.2.1", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/react-dom/-/react-dom-19.2.1.tgz", { "dependencies": { "scheduler": "^0.27.0" }, "peerDependencies": { "react": "^19.2.1" } }, "sha1-zjUnVgvaT5l+R9ENq3VIJbMGH1k="],
+
+    "scheduler": ["scheduler@0.27.0", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/scheduler/-/scheduler-0.27.0.tgz", {}, "sha1-DE74LWfR5cHjWej8dtOofwRf5b0="],
+
+    "semver": ["semver@7.7.3", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/semver/-/semver-7.7.3.tgz", { "bin": "bin/semver.js" }, "sha1-S19BQ9AHYzqNxnHNCm75FHuLuUY="],
+
+    "sharp": ["sharp@0.34.5", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/sharp/-/sharp-0.34.5.tgz", { "dependencies": { "@img/colour": "^1.0.0", "detect-libc": "^2.1.2", "semver": "^7.7.3" }, "optionalDependencies": { "@img/sharp-darwin-arm64": "0.34.5", "@img/sharp-darwin-x64": "0.34.5", "@img/sharp-libvips-darwin-arm64": "1.2.4", "@img/sharp-libvips-darwin-x64": "1.2.4", "@img/sharp-libvips-linux-arm": "1.2.4", "@img/sharp-libvips-linux-arm64": "1.2.4", "@img/sharp-libvips-linux-ppc64": "1.2.4", "@img/sharp-libvips-linux-riscv64": "1.2.4", "@img/sharp-libvips-linux-s390x": "1.2.4", "@img/sharp-libvips-linux-x64": "1.2.4", "@img/sharp-libvips-linuxmusl-arm64": "1.2.4", "@img/sharp-libvips-linuxmusl-x64": "1.2.4", "@img/sharp-linux-arm": "0.34.5", "@img/sharp-linux-arm64": "0.34.5", "@img/sharp-linux-ppc64": "0.34.5", "@img/sharp-linux-riscv64": "0.34.5", "@img/sharp-linux-s390x": "0.34.5", "@img/sharp-linux-x64": "0.34.5", "@img/sharp-linuxmusl-arm64": "0.34.5", "@img/sharp-linuxmusl-x64": "0.34.5", "@img/sharp-wasm32": "0.34.5", "@img/sharp-win32-arm64": "0.34.5", "@img/sharp-win32-ia32": "0.34.5", "@img/sharp-win32-x64": "0.34.5" } }, "sha1-tvFI5LjGHxeXveEanRz+u64sV7A="],
+
+    "source-map-js": ["source-map-js@1.2.1", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/source-map-js/-/source-map-js-1.2.1.tgz", {}, "sha1-HOVlD93YerwJnto33P8CTCZnrkY="],
+
+    "streamsearch": ["streamsearch@1.1.0", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/streamsearch/-/streamsearch-1.1.0.tgz", {}, "sha1-QE3R4iR8qUr1VOhBqO8OqiONp2Q="],
+
+    "styled-jsx": ["styled-jsx@5.1.6", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/styled-jsx/-/styled-jsx-5.1.6.tgz", { "dependencies": { "client-only": "0.0.1" }, "peerDependencies": { "react": ">= 16.8.0 || 17.x.x || ^18.0.0-0 || ^19.0.0-0" } }, "sha1-g7kMB35saoD39eh4HQ8xGy/kFJk="],
+
+    "tailwindcss": ["tailwindcss@4.1.17", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/tailwindcss/-/tailwindcss-4.1.17.tgz", {}, "sha1-5ty3qcYM73UiFptfIH/+wv1lIoY="],
+
+    "tapable": ["tapable@2.3.0", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/tapable/-/tapable-2.3.0.tgz", {}, "sha1-fj6m1coxuo4Hi1YPDYPOmhSqi+Y="],
+
+    "tslib": ["tslib@2.8.1", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/tslib/-/tslib-2.8.1.tgz", {}, "sha1-YS7+TtI11Wfoq6Xypfq3AoCt6D8="],
+
+    "typescript": ["typescript@5.9.3", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/typescript/-/typescript-5.9.3.tgz", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha1-W09Z4VMQqxeiFvXWz1PuR27eZw8="],
+
+    "undici-types": ["undici-types@6.21.0", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/undici-types/-/undici-types-6.21.0.tgz", {}, "sha1-aR0ArzkJvpOn+qE75hs6W1DvEss="],
+
+    "next/postcss": ["postcss@8.4.31", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/postcss/-/postcss-8.4.31.tgz", { "dependencies": { "nanoid": "^3.3.6", "picocolors": "^1.0.0", "source-map-js": "^1.0.2" } }, "sha1-krRRBQqfkU2mdVrzUr3AGSUIZW0="],
+  }
+}

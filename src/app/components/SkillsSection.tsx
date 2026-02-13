@@ -10,24 +10,24 @@ export default function SkillsSection() {
       <div className="max-w-3xl mx-auto flex flex-col gap-16">
         { /* Programming Languages */ }
         <div className="fade-in-section flex flex-wrap justify-center gap-8">
-          <SkillIcon icon='/typescript.svg' alt='TypeScript' />
-          <SkillIcon icon="/csharp.svg" alt="C#" />
-          <SkillIcon icon="/sql.svg" alt="SQL" />
-          <SkillIcon icon="/python.svg" alt="Python" />
-          <SkillIcon icon="/react.svg" alt="React" />
-          <SkillIcon icon="/bash.svg" alt="Bash" />
-          <SkillIcon icon="/java.svg" alt="Java" />
-          <SkillIcon icon="/rust.svg" alt="Rust" />
-          <SkillIcon icon="/go.svg" alt="Go" />
-          <SkillIcon icon="/cpp.svg" alt="C++" />
+          <SkillIcon icon='skills/typescript.svg' alt='TypeScript' />
+          <SkillIcon icon="skills/csharp.svg" alt="C#" />
+          <SkillIcon icon="skills/sql.svg" alt="SQL" />
+          <SkillIcon icon="skills/python.svg" alt="Python" />
+          <SkillIcon icon="skills/react.svg" alt="React" />
+          <SkillIcon icon="skills/bash.svg" alt="Bash" />
+          <SkillIcon icon="skills/java.svg" alt="Java" />
+          <SkillIcon icon="skills/rust.svg" alt="Rust" />
+          <SkillIcon icon="skills/go.svg" alt="Go" />
+          <SkillIcon icon="skills/cpp.svg" alt="C++" />
         </div>
         <hr className='fade-in-section delay-100 bg-gray-200'/>
         { /* Other Technologies */ }
         <div className="fade-in-section delay-200 flex flex-wrap justify-center gap-8">
-          <SkillIcon icon="/git.svg" alt="Git" />
-          <SkillIcon icon='/azure.svg' alt='Azure' />
-          <SkillIcon icon="/docker.svg" alt="Docker" />
-          <SkillIcon icon="/jira.svg" alt="Jira" />
+          <SkillIcon icon="skills/git.svg" alt="Git" />
+          <SkillIcon icon='skills/azure.svg' alt='Azure' />
+          <SkillIcon icon="skills/docker.svg" alt="Docker" />
+          <SkillIcon icon="skills/jira.svg" alt="Jira" />
         </div>
       </div>
     </section>

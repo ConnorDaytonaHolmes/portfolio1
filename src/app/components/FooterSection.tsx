@@ -12,7 +12,7 @@ export default function FooterSection() {
           rel="noopener noreferrer"
           className="opacity-70 hover:opacity-100 transition-all duration-200 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]"
         >
-          <Image src="/github.svg" alt="GitHub" width={48} height={48} />
+          <Image src="icons/github.svg" alt="GitHub" width={48} height={48} />
         </a> }
         
         { /* LINKEDIN PROFILE */ }
@@ -22,7 +22,7 @@ export default function FooterSection() {
           rel="noopener noreferrer"
           className="opacity-70 hover:opacity-100 transition-all duration-200 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]"
         >
-          <Image src="/linkedin.svg" alt="LinkedIn" width={48} height={48} />
+          <Image src="icons/linkedin.svg" alt="LinkedIn" width={48} height={48} />
         </a> }
       </div>
     </footer>
