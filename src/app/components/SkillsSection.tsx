@@ -41,13 +41,10 @@ const techPositions = techSkills.map((_, index) => {
 export default function SkillsSection() {
 
   return (
-    <section className="flex flex-col items-center justify-center relative" id='skills' style={{ height: 'calc(100vh - 144px)' }}>
-      <img className="absolute w-screen -z-999 brightness-15"
+    <section className="flex flex-col items-center w-screen" id='skills' style={{ height: 'calc(100vh - 144px)' }}>
+      <img className="absolute w-screen h-screen -z-999 brightness-15 left-0"
         src="bg2.png" 
-        alt="Background"
-        style={{
-          height: 'calc(100vh - 144px)'
-        }}/>
+        alt="Background"/>
       <h2 className="heading text-4xl md:text-8xl mb-16 text-center mt-20">
         Skills
       </h2>
