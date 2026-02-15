@@ -99,7 +99,7 @@ function ExperienceItem({ icon, title, description, side }: ExperienceItemProps)
 
 function ExperienceSection() {
   return (
-    <section className="py-20 bg-white/[0.02] h-screen color-red-500" id='experience'>
+    <section className="py-20 h-screen" id='experience'>
       <h2 className="heading text-8xl md:text-8xl mb-6 text-center px-8 md:px-20">
         Experience
       </h2>

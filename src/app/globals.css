@@ -37,7 +37,7 @@ html {
 }
 
 /* Font utility classes */
-.heading {
+:is(h1,h2,h3,h4) {
   font-family: var(--font-nova-square);
 }
 
@@ -57,3 +57,29 @@ html {
   }
 }
 
+/* Spinning animations for skills section */
+@keyframes spin-slow-clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-slow-counter {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.animate-spin-slow-clockwise {
+  animation: spin-slow-clockwise 60s linear infinite;
+}
+
+.animate-spin-slow-counter {
+  animation: spin-slow-counter 60s linear infinite;
+}
