@@ -99,8 +99,12 @@ function ExperienceItem({ icon, title, description, side }: ExperienceItemProps)
 
 function ExperienceSection() {
   return (
-    <section className="py-20 h-screen" id='experience'>
-      <h2 className="heading text-8xl md:text-8xl mb-6 text-center px-8 md:px-20">
+    <section className="h-screen" id='experience'>
+      <img className="absolute w-screen h-screen -z-999 brightness-15" 
+        src="bg2.png" 
+        alt="Background"/>
+
+      <h2 className="heading text-8xl md:text-8xl mb-6 text-center px-8 md:px-20 mt-20">
         Experience
       </h2>
 

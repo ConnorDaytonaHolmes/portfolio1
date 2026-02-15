@@ -45,7 +45,7 @@ function ProjectCard({ title, subtitle, link, children, isPersonal, state, onCli
             <ProjectIcon isPersonal={isPersonal} size={32} position="top-8 right-8" />
 
             {/* Title */}
-            <h5 className="font-semibold pr-12 transition-all duration-700 text-3xl md:text-4xl mb-6">
+            <h5 className="font-semibold pr-12 transition-all duration-700 text-3xl md:text-4xl mb-2">
               {link ? (
                 <a href={link} target='_blank' className="hover:opacity-80 transition-opacity">
                   {title}
@@ -55,8 +55,13 @@ function ProjectCard({ title, subtitle, link, children, isPersonal, state, onCli
               )}
             </h5>
 
+            { /* Subtitle */ }
+            <h6 className="italic text-lg opacity-50">
+              {subtitle}
+            </h6>
+
             {/* Content */}
-            <div className="transition-all duration-700 opacity-100 max-h-[2000px] flex flex-col flex-grow">
+            <div className="transition-all duration-700 opacity-100 max-h-[2000px] flex flex-col flex-grow mt-8">
               {children}
             </div>
           </div>
@@ -140,8 +145,11 @@ export default function ProjectsSection() {
   const gridTemplate = getGridTemplate();
 
   return (
-    <section className="py-20 px-8 md:px-20 h-screen" id='projects'>
-      <h2 className={`heading text-8xl md:text-8xl mb-12 text-center transition-opacity duration-700`}>
+    <section className="h-screen" id='projects'>
+      <img className="absolute w-screen h-screen -z-999 brightness-15" 
+        src="bg1.webp" 
+        alt="Background"/>
+      <h2 className={`heading text-8xl md:text-8xl mb-12 text-center transition-opacity duration-700 mt-20`}>
         Projects
       </h2>
 
@@ -207,7 +215,7 @@ export default function ProjectsSection() {
             state={getCardState(2)}
             onClick={() => handleCardClick(2)}
           >
-              <ul className="list-disc list-inside space-y-3 opacity-80 mb-6 flex-grow text-lg md:columns-2 md:gap-8">
+              <ul className="list-disc list-inside space-y-3 opacity-80 mb-6 flex-grow text-lg md:gap-8">
                 <li>Spearheaded and architectured an automated "Zero-to-Deployed" provisioning tool that reduced new client project setup time from several days to under 30 minutes</li>
                 <li>Developed a configurable and component-driven wizard allowing engineers to dynamically select infrastructure requirements including CRMs, microservices, and notification (e-mail, SMS) layers</li>
                 <li>Developed scripts to programmatically provision Azure resources, manage repository forks, and configure DNS records and proxies</li>
