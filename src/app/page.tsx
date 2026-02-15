@@ -15,7 +15,7 @@ export default function Home() {
     <>
       <ScrollAnimations disabled={false} />
 
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen scroll-smooth">
         <HeroSection nextSectionRef={experienceSectionRef} />
         <ExperienceSection ref={experienceSectionRef} />
         <ProjectsSection />

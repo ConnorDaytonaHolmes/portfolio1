@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 interface HeroSectionProps {
-  nextSectionRef?: React.RefObject<HTMLElement>;
+  nextSectionRef?: React.RefObject<HTMLElement | null>;
 }
 
 export default function HeroSection({ nextSectionRef }: HeroSectionProps) {

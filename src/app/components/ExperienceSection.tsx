@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef } from 'react';
+import { forwardRef, useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -24,53 +24,68 @@ interface ExperienceItemProps {
 }
 
 function ExperienceItem({ icon, title, description, side }: ExperienceItemProps) {
-  const halfHeight = 72;
+  const halfHeightMap = {
+    '2xl': 60,
+    'xl': 56,
+    'md': 56,
+  };
+
+  const getHalfHeight = () => {
+    if (typeof window === 'undefined') return 56;
+    return window.innerWidth > 1535 ? halfHeightMap['2xl'] : window.innerWidth > 1280 ? halfHeightMap['xl'] : halfHeightMap['md'];
+  };
+
+  const [halfHeight, setHalfHeight] = useState(getHalfHeight());
+
+  useEffect(() => {
+    const handleResize = () => {
+      setHalfHeight(getHalfHeight());
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup listener on unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <div className="group relative">
-      {/* Collapsed state - chevron shape */}
+      {/* Combined chevron and description box with morphing polygon */}
       <div
         className={`
-          relative flex items-center p-6 cursor-pointer z-2
+          relative cursor-pointer
           bg-gray-800 group-hover:bg-gray-700 transition-all duration-450
-          ${side === 'left'
-            ? 'clip-path-chevron-left pr-12 -mr-8 justify-end'
-            : 'clip-path-chevron-right pl-12 -ml-8 justify-start'
-          }
+          overflow-hidden          
+          ${side === 'left' ? '-mr-6' : '-ml-6'}
         `}
         style={{
           clipPath: side === 'left'
-            ? `polygon(0 0, calc(100% - ${halfHeight}px) 0, 100% 50%, calc(100% - ${halfHeight}px) 100%, 0 100%)`
-            : `polygon(${halfHeight}px 0, 100% 0, 100% 100%, ${halfHeight}px 100%, 0 50%)`
+            ? `polygon(0 0, calc(100% - ${halfHeight}px) 0, 100% ${halfHeight}px, 100% calc(100% - ${halfHeight}px), calc(100% - ${halfHeight}px) 100%, 0 100%)`
+            : `polygon(100% 0, ${halfHeight}px 0, 0 ${halfHeight}px, 0 calc(100% - ${halfHeight}px), ${halfHeight}px 100%, 100% 100%)`
         }}
       >
-        <div className={`flex gap-6 items-center opacity-70 group-hover:opacity-100 transition-opacity
-          ${side === 'right' ? 'flex-row' : 'flex-row-reverse'}`}>
-          <FontAwesomeIcon icon={icon} className="w-8 h-8" />
-          <h4 className="text-8xl font-medium opacity-80 group-hover:opacity-100 transition-opacity">
-            {title}
-          </h4>
+        {/* Header section */}
+        <div className={`flex items-center p-6 ${side === 'left' ? 'pr-12 justify-end' : 'pl-12 justify-start'}`}>
+          <div className={`flex gap-6 items-center opacity-70 group-hover:opacity-100 transition-opacity
+            ${side === 'right' ? 'flex-row' : 'flex-row-reverse'}`}>
+            <FontAwesomeIcon icon={icon} size='4x' />
+            <h4 className="2xl:text-7xl xl:text-5xl md:text-3xl font-medium opacity-80 group-hover:opacity-100 transition-opacity">
+              {title}
+            </h4>
+          </div>
         </div>
-      </div>
 
-      {/* Expanded state on hover */}
-      <div className={`transition-all duration-450 ease-in-out overflow-hidden
-        max-h-0 group-hover:max-h-96 group-hover:-mt-9
-        -translate-y-9 group-hover:-translate-y-0.5
-      `}>
-        <div
-          className={`pt-8 pb-6 bg-gray-800 group-hover:bg-gray-700 transition-all duration-450 ease-in-out
-            ${side === 'left' ? 'pr-12 pl-6 -mr-8' : 'pl-12 pr-6 -ml-8'}
-          `}
-          style={{
-            clipPath: side === 'left'
-              ? `polygon(0 0, 100% 0, 100% calc(100% - ${halfHeight}px), calc(100% - ${halfHeight}px) 100%, 0 100%)`
-              : `polygon(0 0, 100% 0, 100% 100%, ${halfHeight}px 100%, 0 calc(100% - ${halfHeight}px))`
-          }}
-        >
-          <p className="opacity-70 leading-relaxed text-2xl">
-            {description}
-          </p>
+        {/* Description section - expands on hover */}
+        <div className={`transition-all duration-450 ease-in-out overflow-hidden max-h-0 group-hover:max-h-200`}>
+          <div className={`pt-8 pb-6 ${side === 'left' ? 'pr-12 pl-6' : 'pl-12 pr-6'}`}>
+            <p className="opacity-70 leading-relaxed text-2xl">
+              {description}
+            </p>
+          </div>
         </div>
+
       </div>
     </div>
   );
@@ -78,7 +93,7 @@ function ExperienceItem({ icon, title, description, side }: ExperienceItemProps)
 
 const ExperienceSection = forwardRef<HTMLElement>(function ExperienceSection(props, ref) {
   return (
-    <section ref={ref} className="py-20 bg-white/[0.02]">
+    <section ref={ref} className="py-20 bg-white/[0.02] h-screen color-red-500">
       <h2 className="heading text-8xl md:text-8xl mb-12 text-center px-8 md:px-20">
         Experience
       </h2>
@@ -105,7 +120,7 @@ const ExperienceSection = forwardRef<HTMLElement>(function ExperienceSection(pro
 
       {/* Full-width chevron items container */}
       <div className="w-full">
-        <div className="flex flex-col -space-y-17">
+        <div className="flex flex-col 2xl:-space-y-14 xl:-space-y-13 md:-space-y-13 ">
           {/* Row 1 - Left side */}
           <div className="grid grid-cols-1 md:grid-cols-2">
             <ExperienceItem
