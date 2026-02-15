@@ -62,7 +62,7 @@ function ProjectCard({ title, link, children, isPersonal }: ProjectCardProps) {
 
 export default function ProjectsSection() {
   return (
-    <section className="py-20 px-8 md:px-20">
+    <section className="py-20 px-8 md:px-20" id='projects'>
       <h2 className="heading text-3xl md:text-4xl mb-12 text-center">
         Projects
       </h2>

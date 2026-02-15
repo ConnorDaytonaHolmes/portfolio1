@@ -35,9 +35,12 @@ function ExperienceItem({ icon, title, description, side }: ExperienceItemProps)
     return window.innerWidth > 1535 ? halfHeightMap['2xl'] : window.innerWidth > 1280 ? halfHeightMap['xl'] : halfHeightMap['md'];
   };
 
-  const [halfHeight, setHalfHeight] = useState(getHalfHeight());
+  const [halfHeight, setHalfHeight] = useState(56);
 
   useEffect(() => {
+    // Set initial state on mount
+    setHalfHeight(getHalfHeight());
+
     const handleResize = () => {
       setHalfHeight(getHalfHeight());
     };
@@ -55,23 +58,25 @@ function ExperienceItem({ icon, title, description, side }: ExperienceItemProps)
       {/* Combined chevron and description box with morphing polygon */}
       <div
         className={`
+          experience-item-container
           relative cursor-pointer
           bg-gray-800 group-hover:bg-gray-700 transition-all duration-450
-          overflow-hidden          
-          ${side === 'left' ? '-mr-6' : '-ml-6'}
+          overflow-hidden
+          mx-0 rounded-lg
+          ${side === 'left' ? '2xl:-mr-6.5 md:-mr-6 md:rounded-none' : '2xl:-ml-6.5 md:-ml-6 md:rounded-none'}
         `}
         style={{
-          clipPath: side === 'left'
+          '--clip-path-polygon': side === 'left'
             ? `polygon(0 0, calc(100% - ${halfHeight}px) 0, 100% ${halfHeight}px, 100% calc(100% - ${halfHeight}px), calc(100% - ${halfHeight}px) 100%, 0 100%)`
             : `polygon(100% 0, ${halfHeight}px 0, 0 ${halfHeight}px, 0 calc(100% - ${halfHeight}px), ${halfHeight}px 100%, 100% 100%)`
-        }}
+        } as React.CSSProperties}
       >
         {/* Header section */}
-        <div className={`flex items-center p-6 ${side === 'left' ? 'pr-12 justify-end' : 'pl-12 justify-start'}`}>
-          <div className={`flex gap-6 items-center opacity-70 group-hover:opacity-100 transition-opacity
-            ${side === 'right' ? 'flex-row' : 'flex-row-reverse'}`}>
+        <div className={`flex items-center p-6 ${side === 'left' ? 'md:pr-12 md:justify-end' : 'md:pl-12 md:justify-start'}`}>
+          <div className={`flex gap-6 items-center opacity-70 group-hover:opacity-100 transition-opacity flex-row-reverse
+            ${side === 'right' ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
             <FontAwesomeIcon icon={icon} size='4x' />
-            <h4 className="2xl:text-7xl xl:text-5xl md:text-3xl font-medium opacity-80 group-hover:opacity-100 transition-opacity">
+            <h4 className="2xl:text-7xl xl:text-5xl text-3xl font-medium opacity-80 group-hover:opacity-100 transition-opacity">
               {title}
             </h4>
           </div>
@@ -79,7 +84,7 @@ function ExperienceItem({ icon, title, description, side }: ExperienceItemProps)
 
         {/* Description section - expands on hover */}
         <div className={`transition-all duration-450 ease-in-out overflow-hidden max-h-0 group-hover:max-h-200`}>
-          <div className={`pt-8 pb-6 ${side === 'left' ? 'pr-12 pl-6' : 'pl-12 pr-6'}`}>
+          <div className={`pt-8 pb-6 ${side === 'left' ? 'md:pr-12 md:pl-6' : 'md:pl-12 md:pr-6'}`}>
             <p className="opacity-70 leading-relaxed text-2xl">
               {description}
             </p>
@@ -91,14 +96,14 @@ function ExperienceItem({ icon, title, description, side }: ExperienceItemProps)
   );
 }
 
-const ExperienceSection = forwardRef<HTMLElement>(function ExperienceSection(props, ref) {
+function ExperienceSection() {
   return (
-    <section ref={ref} className="py-20 bg-white/[0.02] h-screen color-red-500">
-      <h2 className="heading text-8xl md:text-8xl mb-12 text-center px-8 md:px-20">
+    <section className="py-20 bg-white/[0.02] h-screen color-red-500" id='experience'>
+      <h2 className="heading text-8xl md:text-8xl mb-6 text-center px-8 md:px-20">
         Experience
       </h2>
 
-      <div className="max-wfull mx-auto px-8 md:px-20 mb-12 justify-self-start">
+      <div className="max-wfull mx-auto px-8 md:px-20 mb-6 justify-self-start">
         <div className="fade-in-section flex flex-row gap-16 items-center">
           <div className='flex gap-12 items-center flex-row mb-2'>
             <Image
@@ -122,7 +127,7 @@ const ExperienceSection = forwardRef<HTMLElement>(function ExperienceSection(pro
       <div className="w-full">
         <div className="flex flex-col 2xl:-space-y-14 xl:-space-y-13 md:-space-y-13 ">
           {/* Row 1 - Left side */}
-          <div className="grid grid-cols-1 md:grid-cols-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-start">
             <ExperienceItem
               icon={faPalette}
               title="UI/UX"
@@ -133,7 +138,7 @@ const ExperienceSection = forwardRef<HTMLElement>(function ExperienceSection(pro
           </div>
 
           {/* Row 2 - Right side */}
-          <div className="grid grid-cols-1 md:grid-cols-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-end md:items-start">
             <div></div>
             <ExperienceItem
               icon={faInfinity}
@@ -144,7 +149,7 @@ const ExperienceSection = forwardRef<HTMLElement>(function ExperienceSection(pro
           </div>
 
           {/* Row 3 - Left side */}
-          <div className="grid grid-cols-1 md:grid-cols-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-start">
             <ExperienceItem
               icon={faDatabase}
               title="Database"
@@ -155,7 +160,7 @@ const ExperienceSection = forwardRef<HTMLElement>(function ExperienceSection(pro
           </div>
 
           {/* Row 4 - Right side */}
-          <div className="grid grid-cols-1 md:grid-cols-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-end md:items-start">
             <div></div>
             <ExperienceItem
               icon={faShield}
@@ -166,7 +171,7 @@ const ExperienceSection = forwardRef<HTMLElement>(function ExperienceSection(pro
           </div>
 
           {/* Row 5 - Left side */}
-          <div className="grid grid-cols-1 md:grid-cols-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-start">
             <ExperienceItem
               icon={faUserLock}
               title="Authentication"
@@ -177,7 +182,7 @@ const ExperienceSection = forwardRef<HTMLElement>(function ExperienceSection(pro
           </div>
 
           {/* Row 6 - Right side */}
-          <div className="grid grid-cols-1 md:grid-cols-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-end md:items-start">
             <div></div>
             <ExperienceItem
               icon={faServer}
@@ -188,7 +193,7 @@ const ExperienceSection = forwardRef<HTMLElement>(function ExperienceSection(pro
           </div>
 
           {/* Row 7 - Left side */}
-          <div className="grid grid-cols-1 md:grid-cols-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-start">
             <ExperienceItem
               icon={faUsers}
               title="Mentoring"
@@ -199,7 +204,7 @@ const ExperienceSection = forwardRef<HTMLElement>(function ExperienceSection(pro
           </div>
 
           {/* Row 8 - Right side */}
-          <div className="grid grid-cols-1 md:grid-cols-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-end md:items-start">
             <div></div>
             <ExperienceItem
               icon={faChartLine}
@@ -210,7 +215,7 @@ const ExperienceSection = forwardRef<HTMLElement>(function ExperienceSection(pro
           </div>
 
           {/* Row 9 - Left side */}
-          <div className="grid grid-cols-1 md:grid-cols-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-start">
             <ExperienceItem
               icon={faKey}
               title="OAuth 2.0"
@@ -219,10 +224,12 @@ const ExperienceSection = forwardRef<HTMLElement>(function ExperienceSection(pro
             />
             <div></div>
           </div>
+
+
         </div>
       </div>
     </section>
   );
-});
+};
 
 export default ExperienceSection;

@@ -9,15 +9,13 @@ import SkillsSection from "./components/SkillsSection";
 import FooterSection from "./components/FooterSection";
 
 export default function Home() {
-  const experienceSectionRef = useRef<HTMLElement>(null);
-
   return (
     <>
       <ScrollAnimations disabled={false} />
 
-      <div className="flex flex-col min-h-screen scroll-smooth">
-        <HeroSection nextSectionRef={experienceSectionRef} />
-        <ExperienceSection ref={experienceSectionRef} />
+      <div className="flex flex-col min-h-screen overflow-hidden">
+        <HeroSection />
+        <ExperienceSection />
         <ProjectsSection />
         <SkillsSection />
         <FooterSection />

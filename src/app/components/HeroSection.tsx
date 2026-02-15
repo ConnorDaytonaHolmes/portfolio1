@@ -1,15 +1,12 @@
 import React, { useEffect } from "react";
 
-interface HeroSectionProps {
-  nextSectionRef?: React.RefObject<HTMLElement | null>;
-}
-
-export default function HeroSection({ nextSectionRef }: HeroSectionProps) {
+export default function HeroSection() {
   const [isButtonDisabled, setIsButtonDisabled] = React.useState(true);
 
   const scrollToNextSection = () => {
-    if (nextSectionRef?.current) {
-      nextSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    const experienceSection = document.getElementById('experience');
+    if (experienceSection) {
+      experienceSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 

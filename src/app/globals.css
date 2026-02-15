@@ -45,4 +45,15 @@ html {
   font-family: var(--font-geist-mono);
 }
 
+/* Experience item clip-path - mobile uses no clip-path (rectangle) */
+.experience-item-container {
+  clip-path: none;
+}
+
+/* Desktop uses polygon clip-path (chevron) */
+@media (min-width: 768px) {
+  .experience-item-container {
+    clip-path: var(--clip-path-polygon);
+  }
+}
 
