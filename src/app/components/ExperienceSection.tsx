@@ -3,6 +3,7 @@
 import { forwardRef, useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import ScrollButton from './ScrollButton';
 import {
   faPalette,
   faInfinity,
@@ -228,6 +229,8 @@ function ExperienceSection() {
 
         </div>
       </div>
+
+      <ScrollButton target="projects" />
     </section>
   );
 };

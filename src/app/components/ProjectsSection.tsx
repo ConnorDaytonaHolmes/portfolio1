@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ReactNode } from "react";
+import ScrollButton from "./ScrollButton";
 
 interface ProjectCardProps {
   title: string;
@@ -62,8 +63,8 @@ function ProjectCard({ title, link, children, isPersonal }: ProjectCardProps) {
 
 export default function ProjectsSection() {
   return (
-    <section className="py-20 px-8 md:px-20" id='projects'>
-      <h2 className="heading text-3xl md:text-4xl mb-12 text-center">
+    <section className="py-20 px-8 md:px-20 h-screen" id='projects'>
+      <h2 className="heading text-8xl md:text-8xl mb-12 text-center">
         Projects
       </h2>
 
@@ -145,6 +146,8 @@ export default function ProjectsSection() {
             </ProjectCard>
         </div>
       </div>
+
+      <ScrollButton target="skills" />
     </section>
   );
 }
