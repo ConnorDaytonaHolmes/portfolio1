@@ -96,7 +96,7 @@ function ExperienceItem({ icon, title, description, side }: ExperienceItemProps)
 
         {/* Description section - expands on hover */}
         <div className={`transition-all duration-450 ease-in-out overflow-hidden max-h-0 group-hover:max-h-200`}>
-          <div className={`pt-8 pb-6 ${side === 'left' ? 'md:pr-12 md:pl-6' : 'md:pl-12 md:pr-6'}`}>
+          <div className={`p-4 ${side === 'left' ? 'md:pr-12 md:pl-6' : 'md:pl-12 md:pr-6'}`}>
             <p className="opacity-70 leading-relaxed text-xl">
               {description}
             </p>
