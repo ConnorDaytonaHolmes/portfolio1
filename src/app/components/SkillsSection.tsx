@@ -45,13 +45,69 @@ export default function SkillsSection() {
       <img className="absolute w-screen h-screen -z-999 brightness-15 left-0"
         src="bg2.png" 
         alt="Background"/>
-      <h2 className="heading text-4xl md:text-8xl mb-6 text-center 3xl:mt-20 mt-10">
+      <h2 className="heading text-6xl md:text-8xl mb-6 text-center 3xl:mt-20 mt-10">
         Skills
       </h2>
 
-      <div className="relative w-full h-full flex items-center justify-center">
+      { /* MOBILE */ }
+      <div className="flex flex-col gap-8 md:hidden py-10 justify-center flex-grow-1">
+        <div className="flex flex-col w-full overflow-hidden gap-y-12">
+          
+          {/* Row 1 */}
+          <div className="flex animate-marquee-infinite whitespace-nowrap gap-8 justify-center">
+            {/* We duplicate the array to create a seamless loop */}
+            {codeSkills.slice(0, 3).map((skill, i) => {
+              return (
+                <div key={`${0}-${i}`} className="flex-shrink-0">
+                  <SkillIcon icon={skill.icon} alt={skill.alt} />
+                </div>
+              );
+            })}
+          </div>
+          
+          {/* Row 2 */}
+          <div className="flex animate-marquee-infinite whitespace-nowrap gap-8 justify-center">
+            {/* We duplicate the array to create a seamless loop */}
+            {codeSkills.slice(3, 7).map((skill, i) => {
+              return (
+                <div key={`${0}-${i}`} className="flex-shrink-0">
+                  <SkillIcon icon={skill.icon} alt={skill.alt} />
+                </div>
+              );
+            })}
+          </div>
+          
+          {/* Row 3 */}
+          <div className="flex animate-marquee-infinite whitespace-nowrap gap-8 justify-center">
+            {/* We duplicate the array to create a seamless loop */}
+            {codeSkills.slice(7).map((skill, i) => {
+              return (
+                <div key={`${0}-${i}`} className="flex-shrink-0">
+                  <SkillIcon icon={skill.icon} alt={skill.alt} />
+                </div>
+              );
+            })}
+          </div>
+          
+          {/* Row 4 */}
+          <div className="flex animate-marquee-infinite whitespace-nowrap gap-8 justify-center">
+            {/* We duplicate the array to create a seamless loop */}
+            {techSkills.map((skill, i) => {
+              return (
+                <div key={`${0}-${i}`} className="flex-shrink-0">
+                  <SkillIcon icon={skill.icon} alt={skill.alt} />
+                </div>
+              );
+            })}
+          </div>       
+        </div>
+      </div>
+      
+      { /* DESKTOP */ }
+      <div className="relative w-full h-full items-center justify-center hidden md:flex">
         {/* CODE Skills - Outer Circle (60% of screen height) */}
-        <div className="absolute animate-spin-slow-clockwise border-1 border-gray-200/10 rounded-full" style={{ width: '60vh', height: '60vh' }}>
+        <div className="absolute animate-spin-slow-clockwise border-1 border-gray-200/10 rounded-full
+          w-[60vh] h-[60vh]">
           {codeSkills.map((skill, index) => {
             const { x, y } = codePositions[index];
             return (
@@ -73,7 +129,7 @@ export default function SkillsSection() {
         </div>
 
         {/* TECH Skills - Inner Circle (30% of screen height, half the size) */}
-        <div className="absolute animate-spin-slow-counter  border-1 border-gray-200/10 rounded-full" style={{ width: '30vh', height: '30vh' }}>
+        <div className="absolute animate-spin-slow-counter  border-1 border-gray-200/10 rounded-full w-[30vh] h-[30vh]">
           {techSkills.map((skill, index) => {
             const { x, y } = techPositions[index];
             return (

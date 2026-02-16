@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import ScrollButton from "./ScrollButton";
 import ProjectIcon from "./ProjectIcon";
 
@@ -24,13 +24,13 @@ function ProjectCard({ title, subtitle, link, children, isPersonal, state, onCli
       return (
         <div className="transition-all duration-700 overflow-hidden cursor-pointer">
           <div
-            className="bg-white/5 rounded-lg flex flex-col relative transition-all duration-700 h-full justify-center p-8 cursor-pointer hover:bg-white/10"
+            className="bg-white/10 rounded-lg flex flex-col relative transition-all duration-700 h-full justify-center p-8 cursor-pointer hover:bg-white/15"
             onClick={onClick}
           >
             <ProjectIcon isPersonal={isPersonal} size={24} />
 
             {/* Title */}
-            <h5 className="font-semibold pr-12 transition-all duration-700 text-center text-6xl md:text-6xl mb-0">
+            <h5 className="font-semibold pr-12 transition-all duration-700 text-center text-3xl md:text-6xl mb-0">
               {title}
             </h5>
           </div>
@@ -41,11 +41,11 @@ function ProjectCard({ title, subtitle, link, children, isPersonal, state, onCli
       // Expanded state - showing full content
       return (
         <div className="transition-all duration-700 overflow-hidden cursor-pointer">
-          <div className="bg-white/5 rounded-lg flex flex-col relative transition-all duration-700 h-full p-12 cursor-pointer hover:bg-white/10" onClick={onClick}>
+          <div className="bg-white/10 rounded-lg flex flex-col relative transition-all duration-700 h-full p-12 cursor-pointer hover:bg-white/15" onClick={onClick}>
             <ProjectIcon isPersonal={isPersonal} size={32} position="top-8 right-8" />
 
             {/* Title */}
-            <h5 className="font-semibold pr-12 transition-all duration-700 text-3xl md:text-4xl mb-2">
+            <h5 className="font-semibold pr-12 transition-all duration-700 text-2xl md:text-4xl mb-2">
               {link ? (
                 <a href={link} target='_blank' className="hover:opacity-80 transition-opacity">
                   {title}
@@ -55,8 +55,8 @@ function ProjectCard({ title, subtitle, link, children, isPersonal, state, onCli
               )}
             </h5>
 
-            { /* Subtitle */ }
-            <h6 className="italic text-lg opacity-50">
+            { /* Subtitle */}
+            <h6 className="italic text-sm md:text-lg opacity-50">
               {subtitle}
             </h6>
 
@@ -72,7 +72,7 @@ function ProjectCard({ title, subtitle, link, children, isPersonal, state, onCli
       // Thin state - same row or column as expanded
       return (
         <div className="transition-all duration-700 overflow-hidden cursor-pointer">
-          <div className="bg-white/5 rounded-lg flex flex-col relative transition-all duration-700 h-full p-2 overflow-hidden hover:bg-white/10" onClick={onClick}>
+          <div className="bg-white/10 rounded-lg flex flex-col relative transition-all duration-700 h-full p-2 overflow-hidden hover:bg-white/15" onClick={onClick}>
             <ProjectIcon isPersonal={isPersonal} size={24} opacity="opacity-0" />
 
             {/* Title hidden */}
@@ -87,7 +87,7 @@ function ProjectCard({ title, subtitle, link, children, isPersonal, state, onCli
       // Corner state - diagonal from expanded (small square)
       return (
         <div className="transition-all duration-700 overflow-hidden cursor-pointer">
-          <div className="bg-white/5 rounded-lg flex flex-col relative transition-all duration-700 h-full p-2 overflow-hidden hover:bg-white/10" onClick={onClick}>
+          <div className="bg-white/10 rounded-lg flex flex-col relative transition-all duration-700 h-full p-2 overflow-hidden hover:bg-white/15" onClick={onClick}>
             {/* Completely hidden content */}
           </div>
         </div>
@@ -100,15 +100,35 @@ function ProjectCard({ title, subtitle, link, children, isPersonal, state, onCli
 
 export default function ProjectsSection() {
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
-
   const handleCardClick = (index: number) => {
     setExpandedCard(expandedCard === index ? null : index);
   };
+
+  const [isMobileView, setIsMobileView] = useState(false);
+  
+  useEffect(() => {
+    if(typeof window === 'undefined') return;
+    const getIsMobileView = () => {
+      if (typeof window === 'undefined') return false;
+      return window && window?.innerWidth < 1280;
+    };
+    const handleResize = () => {
+      setIsMobileView(getIsMobileView());
+    };
+    window?.addEventListener('resize', handleResize);
+    handleResize();
+    return () => {
+      window?.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   // Simple grid template based on which card is expanded
   // Card positions: 0=top-left, 1=top-right, 2=bottom-left, 3=bottom-right
   // Using calc to account for gap: total height/width - gap - thin size
   const getGridTemplate = () => {
+    if (isMobileView) {
+      return { rows: '1fr', cols: '1fr' };
+    }
     switch (expandedCard) {
       case 0: return { rows: 'calc(100% - 2rem - 20px) 20px', cols: 'calc(100% - 2rem - 20px) 20px' }; // top-left
       case 1: return { rows: 'calc(100% - 2rem - 20px) 20px', cols: '20px calc(100% - 2rem - 20px)' }; // top-right
@@ -146,16 +166,16 @@ export default function ProjectsSection() {
 
   return (
     <section className="min-h-screen" id='projects'>
-      <img className="absolute w-screen h-screen -z-999 brightness-15" 
-        src="bg1.webp" 
-        alt="Background"/>
-      <h2 className={`heading text-8xl md:text-8xl mb-12 text-center transition-opacity duration-700 3xl:mt-20 mt-10`}>
+      <img className="absolute w-screen h-screen -z-999 brightness-15"
+        src="bg1.webp"
+        alt="Background" />
+      <h2 className="heading text-6xl md:text-8xl mb-6 text-center md:px-20 3xl:mt-20 mt-10">
         Projects
       </h2>
 
-      <div className="max-w-6xl mx-auto h-[600px]">
+      <div className="max-w-6xl mx-auto md:h-[600px]">
         <div
-          className="grid h-full"
+          className="grid h-full grid-cols-1 md:grid-cols-2"
           style={{
             gridTemplateRows: gridTemplate.rows,
             gridTemplateColumns: gridTemplate.cols,
@@ -172,18 +192,18 @@ export default function ProjectsSection() {
             state={getCardState(0)}
             onClick={() => handleCardClick(0)}
           >
-              <ul className="list-disc list-inside space-y-3 opacity-80 mb-6 flex-grow text-lg">
-                <li>Designed and implemented a custom utility to programmatically transform live dashboard views into formatted PowerPoint (PPTX) presentations, saving stakeholders hours of manual reporting</li>
-                <li>Engineered a comprehensive localization framework to support a multilingual user base, managing dynamic translations across the platform</li>
-                <li>Built a modular UI featuring interactive, real-time widgets for weather, currency exchange, and stock market data</li>
-              </ul>
-              <div className="flex gap-3 mt-auto">
-                <Image src="skills/csharp.svg" alt="C#" width={36} height={36} unoptimized />
-                <Image src="skills/typescript.svg" alt="TypeScript" width={36} height={36} unoptimized />
-                <Image src="skills/react.svg" alt="React" width={36} height={36} unoptimized />
-                <Image src="skills/azure.svg" alt="Azure" width={36} height={36} unoptimized />
-              </div>
-            </ProjectCard>
+            <ul className="list-disc list-inside space-y-3 opacity-80 md:mb-6 mb-2 flex-grow text-sm md:text-lg">
+              <li>Designed and implemented a custom utility to programmatically transform live dashboard views into formatted PowerPoint (PPTX) presentations, saving stakeholders hours of manual reporting</li>
+              <li>Engineered a comprehensive localization framework to support a multilingual user base, managing dynamic translations across the platform</li>
+              <li>Built a modular UI featuring interactive, real-time widgets for weather, currency exchange, and stock market data</li>
+            </ul>
+            <div className="flex gap-3 mt-auto">
+              <Image src="skills/csharp.svg" alt="C#" width={36} height={36} unoptimized />
+              <Image src="skills/typescript.svg" alt="TypeScript" width={36} height={36} unoptimized />
+              <Image src="skills/react.svg" alt="React" width={36} height={36} unoptimized />
+              <Image src="skills/azure.svg" alt="Azure" width={36} height={36} unoptimized />
+            </div>
+          </ProjectCard>
 
           {/* I-VADE */}
           <ProjectCard
@@ -194,18 +214,18 @@ export default function ProjectsSection() {
             state={getCardState(1)}
             onClick={() => handleCardClick(1)}
           >
-              <ul className="list-disc list-inside space-y-3 opacity-80 mb-6 flex-grow text-lg">
-                <li>Acted as project lead and lead developer</li>
-                <li>Developed a React-based administrative dashboard for user management</li>
-                <li>Built a .NET WPF desktop application to orchestrate and launch localized VR scenarios</li>
-                <li>Engineered a centralized .NET microservices backend to synchronize trainee performance data and session telemetry via RESTful APIs</li>
-              </ul>
-              <div className="flex gap-3 mt-auto">
-                <Image src="skills/csharp.svg" alt="C#" width={36} height={36} unoptimized />
-                <Image src="skills/typescript.svg" alt="TypeScript" width={36} height={36} unoptimized />
-                <Image src="skills/react.svg" alt="React" width={36} height={36} unoptimized />
-              </div>
-            </ProjectCard>
+            <ul className="list-disc list-inside space-y-3 opacity-80 md:mb-6 mb-2 flex-grow text-sm md:text-lg">
+              <li>Acted as project lead and lead developer</li>
+              <li>Developed a React-based administrative dashboard for user management</li>
+              <li>Built a .NET WPF desktop application to orchestrate and launch localized VR scenarios</li>
+              <li>Engineered a centralized .NET microservices backend to synchronize trainee performance data and session telemetry via RESTful APIs</li>
+            </ul>
+            <div className="flex gap-3 mt-auto">
+              <Image src="skills/csharp.svg" alt="C#" width={36} height={36} unoptimized />
+              <Image src="skills/typescript.svg" alt="TypeScript" width={36} height={36} unoptimized />
+              <Image src="skills/react.svg" alt="React" width={36} height={36} unoptimized />
+            </div>
+          </ProjectCard>
 
           {/* Pronto */}
           <ProjectCard
@@ -215,19 +235,19 @@ export default function ProjectsSection() {
             state={getCardState(2)}
             onClick={() => handleCardClick(2)}
           >
-              <ul className="list-disc list-inside space-y-3 opacity-80 mb-6 flex-grow text-lg md:gap-8">
-                <li>Spearheaded and architectured an automated "Zero-to-Deployed" provisioning tool that reduced new client project setup time from several days to under 30 minutes</li>
-                <li>Developed a configurable and component-driven wizard allowing engineers to dynamically select infrastructure requirements including CRMs, microservices, and notification (e-mail, SMS) layers</li>
-                <li>Developed scripts to programmatically provision Azure resources, manage repository forks, and configure DNS records and proxies</li>
-                <li>Integrated Postmark API for automated email template deployment and configured full CI/CD pipelines for frontends and serverless functions</li>
-              </ul>
-              <div className="flex gap-3 mt-auto">
-                <Image src="skills/typescript.svg" alt="TypeScript" width={36} height={36} unoptimized />
-                <Image src="skills/azure.svg" alt="Azure" width={36} height={36} unoptimized />
-                <Image src="skills/bash.svg" alt="Bash" width={36} height={36} unoptimized />
-                <Image src="skills/cloudflare.svg" alt="Cloudflare" width={36} height={36} unoptimized />
-              </div>
-            </ProjectCard>
+            <ul className="list-disc list-inside space-y-3 opacity-80 md:mb-6 mb-2 flex-grow text-xs md:text-lg md:gap-8">
+              <li>Spearheaded and architectured an automated "Zero-to-Deployed" provisioning tool that reduced new client project setup time from several days to under 30 minutes</li>
+              <li>Developed a configurable and component-driven wizard allowing engineers to dynamically select infrastructure requirements including CRMs, microservices, and notification (e-mail, SMS) layers</li>
+              <li>Developed scripts to programmatically provision Azure resources, manage repository forks, and configure DNS records and proxies</li>
+              <li>Integrated Postmark API for automated email template deployment and configured full CI/CD pipelines for frontends and serverless functions</li>
+            </ul>
+            <div className="flex gap-3 mt-auto">
+              <Image src="skills/typescript.svg" alt="TypeScript" width={36} height={36} unoptimized />
+              <Image src="skills/azure.svg" alt="Azure" width={36} height={36} unoptimized />
+              <Image src="skills/bash.svg" alt="Bash" width={36} height={36} unoptimized />
+              <Image src="skills/cloudflare.svg" alt="Cloudflare" width={36} height={36} unoptimized />
+            </div>
+          </ProjectCard>
 
           {/* Mul-Ty-Player */}
           <ProjectCard
@@ -238,18 +258,18 @@ export default function ProjectsSection() {
             state={getCardState(3)}
             onClick={() => handleCardClick(3)}
           >
-              <ul className="list-disc list-inside space-y-3 opacity-80 mb-6 flex-grow text-lg">
-                <li>Collaborated with a small team to build a .NET WPF app to transform a single player game (Ty the Tasmanian Tiger) into a fully featured multiplayer experience</li>
-                <li>Employed process & memory manipulation, DLL injection and server-client socket connections to allow players to host, join and play with friends in custom environments and game-modes</li>
-                <li>Implemented client-side prediction and server-side reconciliation algorithms to minimize perceived latency and ensure state synchronization across all clients</li>
-                <li>Used performance profilers to find memory leaks and suboptimal coroutines to increase server-side runtime performance by 96%</li>
-              </ul>
-              <div className="flex gap-3 mt-auto">
-                <Image src="skills/csharp.svg" alt="C#" width={36} height={36} unoptimized />
-                <Image src="skills/python.svg" alt="Python" width={36} height={36} unoptimized />
-                <Image src="skills/cpp.svg" alt="C++" width={36} height={36} unoptimized />
-              </div>
-            </ProjectCard>
+            <ul className="list-disc list-inside md:space-y-3 opacity-80 md:mb-6 mb-2 flex-grow text-xs md:text-lg">
+              <li>Collaborated with a small team to build a .NET WPF app to transform a single player game (Ty the Tasmanian Tiger) into a fully featured multiplayer experience</li>
+              <li>Employed process & memory manipulation, DLL injection and server-client socket connections to allow players to host, join and play with friends in custom environments and game-modes</li>
+              <li>Implemented client-side prediction and server-side reconciliation algorithms to minimize perceived latency and ensure state synchronization across all clients</li>
+              <li>Used performance profilers to find memory leaks and suboptimal coroutines to increase server-side runtime performance by 96%</li>
+            </ul>
+            <div className="flex gap-3 mt-auto">
+              <Image src="skills/csharp.svg" alt="C#" width={36} height={36} unoptimized />
+              <Image src="skills/python.svg" alt="Python" width={36} height={36} unoptimized />
+              <Image src="skills/cpp.svg" alt="C++" width={36} height={36} unoptimized />
+            </div>
+          </ProjectCard>
         </div>
       </div>
 

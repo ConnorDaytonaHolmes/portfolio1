@@ -7,7 +7,7 @@ interface ProjectIconProps {
   opacity?: string;
 }
 
-export default function ProjectIcon({ isPersonal, size = 24, position = "top-6 right-6", opacity = "opacity-100" }: ProjectIconProps) {
+export default function ProjectIcon({ isPersonal, size = 24, position = "md:top-6 right-6", opacity = "opacity-100" }: ProjectIconProps) {
   return (
     <div className={`absolute ${position} group transition-all duration-700 ${opacity}`}>
       {isPersonal ? (

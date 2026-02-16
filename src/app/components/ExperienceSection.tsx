@@ -2,7 +2,7 @@
 
 import { forwardRef, useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { IconDefinition, SizeProp } from '@fortawesome/fontawesome-svg-core';
 import ScrollButton from './ScrollButton';
 import {
   faPalette,
@@ -37,26 +37,33 @@ function ExperienceItem({ icon, title, description, side }: ExperienceItemProps)
   // };
 
   // const [halfHeight, setHalfHeight] = useState(56);
+  const getIconSize: () => SizeProp = () => {
+    if (typeof window === 'undefined') return '2x';
+    return window.innerWidth > 1535 ? '4x' : window.innerWidth > 1280 ? '3x' : '2x';
+  };
   
-  // useEffect(() => {
-  //   // Set initial state on mount
-  //   setHalfHeight(getHalfHeight());
+  const [iconSize, setIconSize] = useState<SizeProp>('2x');
+  useEffect(() => {
+    
+    // Set initial state on mount
+    setIconSize(getIconSize());
 
-  //   const handleResize = () => {
-  //     setHalfHeight(getHalfHeight());
-  //   };
+    const handleResize = () => {
+      setIconSize(getIconSize());
+    };
 
-  //   window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize);
 
-  //   // Cleanup listener on unmount
-  //   return () => {
-  //     window.removeEventListener('resize', handleResize);
-  //   };
-  // }, []);
+    // Cleanup listener on unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   
   const halfHeight = 48;
 
-
+  
+  
   return (
     <div className="group relative">
       {/* Combined chevron and description box with morphing polygon */}
@@ -64,9 +71,10 @@ function ExperienceItem({ icon, title, description, side }: ExperienceItemProps)
         className={`
           experience-item-container
           relative cursor-pointer
-          bg-gray-800 group-hover:bg-gray-700 transition-all duration-450
+          h-[6.5vh] md:h-auto
+          md:bg-gray-800 group-hover:bg-gray-700 transition-all duration-450
           overflow-hidden
-          mx-0 rounded-lg
+          mx-0 md:rounded-lg bg-linear-to-b from-gray-700 to-gray-800
           ${side === 'left' ? 'md:-mr-5 md:rounded-none' : 'md:-ml-5 md:rounded-none'}
         `}
         style={{
@@ -76,11 +84,11 @@ function ExperienceItem({ icon, title, description, side }: ExperienceItemProps)
         } as React.CSSProperties}
       >
         {/* Header section */}
-        <div className={`flex items-center p-4 ${side === 'left' ? 'md:pr-12 md:justify-end' : 'md:pl-12 md:justify-start'}`}>
+        <div className={`flex items-center p-3 md:p-4 justify-center ${side === 'left' ? 'md:pr-12 md:justify-end' : 'md:pl-12 md:justify-start'}`}>
           <div className={`flex gap-6 items-center opacity-70 group-hover:opacity-100 transition-opacity flex-row-reverse
             ${side === 'right' ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-            <FontAwesomeIcon icon={icon} size='4x' />
-            <h4 className="xl:text-5xl text-3xl font-medium opacity-80 group-hover:opacity-100 transition-opacity">
+            <FontAwesomeIcon icon={icon} size={iconSize} />
+            <h4 className="xl:text-5xl text-xl font-medium opacity-80 group-hover:opacity-100 transition-opacity">
               {title}
             </h4>
           </div>
@@ -102,17 +110,17 @@ function ExperienceItem({ icon, title, description, side }: ExperienceItemProps)
 
 function ExperienceSection() {
   return (
-    <section className="h-screen" id='experience'>
+    <section className="min-h-screen" id='experience'>
       <img className="absolute w-screen min-h-screen -z-999 brightness-15" 
         src="bg2.png" 
         alt="Background"/>
 
-      <h2 className="heading text-8xl md:text-8xl mb-6 text-center px-8 md:px-20 3xl:mt-20 mt-10">
+      <h2 className="heading text-6xl md:text-8xl mb-6 text-center md:px-20 3xl:mt-20 mt-10">
         Experience
       </h2>
 
       <div className="max-wfull mx-auto px-8 md:px-20 mb-6 justify-self-start">
-        <div className="fade-in-section flex flex-row gap-16 items-center">
+        <div className="flex md:gap-16 items-center md:flex-row flex-col">
           <div className='flex gap-12 items-center flex-row mb-2'>
             <Image
               src='icons/redisoftware.svg'
@@ -122,11 +130,11 @@ function ExperienceSection() {
               unoptimized
               priority
             />
-            <h3 className="text-3xl 2xl:text-5xl">Redi Software, Perth</h3>
+            <h3 className="text-xl 2xl:text-5xl">Redi Software, Perth</h3>
           </div>
           <div>
-            <p className="text-xl opacity-50">Intern <i className='ml-4'>Feb 2024 - May 2024</i></p>
-            <p className="text-xl opacity-80">Junior Software Developer <i className='ml-4'>August 2024 - PRESENT</i></p>
+            <p className="text-xs md:text-xl opacity-50">Intern <i className='ml-4'>Feb 2024 - May 2024</i></p>
+            <p className="text-xs md:text-xl opacity-80">Junior Software Developer <i className='ml-4'>August 2024 - PRESENT</i></p>
           </div>
         </div>
       </div>
