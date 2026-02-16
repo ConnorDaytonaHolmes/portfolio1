@@ -71,7 +71,6 @@ function ExperienceItem({ icon, title, description, side }: ExperienceItemProps)
         className={`
           experience-item-container
           relative cursor-pointer
-          h-[6.5vh] md:h-auto
           md:bg-gray-800 group-hover:bg-gray-700 transition-all duration-450
           overflow-hidden
           mx-0 md:rounded-lg bg-linear-to-b from-gray-700 to-gray-800
@@ -84,7 +83,8 @@ function ExperienceItem({ icon, title, description, side }: ExperienceItemProps)
         } as React.CSSProperties}
       >
         {/* Header section */}
-        <div className={`flex items-center p-3 md:p-4 justify-center ${side === 'left' ? 'md:pr-12 md:justify-end' : 'md:pl-12 md:justify-start'}`}>
+        <div className={`flex items-center p-3 md:p-4 
+          h-[6.5vh] md:h-auto justify-center ${side === 'left' ? 'md:pr-12 md:justify-end' : 'md:pl-12 md:justify-start'}`}>
           <div className={`flex gap-6 items-center opacity-70 group-hover:opacity-100 transition-opacity flex-row-reverse
             ${side === 'right' ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
             <FontAwesomeIcon icon={icon} size={iconSize} />
