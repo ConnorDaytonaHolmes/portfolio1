@@ -145,11 +145,11 @@ export default function ProjectsSection() {
   const gridTemplate = getGridTemplate();
 
   return (
-    <section className="h-screen" id='projects'>
+    <section className="min-h-screen" id='projects'>
       <img className="absolute w-screen h-screen -z-999 brightness-15" 
         src="bg1.webp" 
         alt="Background"/>
-      <h2 className={`heading text-8xl md:text-8xl mb-12 text-center transition-opacity duration-700 mt-20`}>
+      <h2 className={`heading text-8xl md:text-8xl mb-12 text-center transition-opacity duration-700 3xl:mt-20 mt-10`}>
         Projects
       </h2>
 

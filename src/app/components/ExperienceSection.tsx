@@ -25,34 +25,37 @@ interface ExperienceItemProps {
 }
 
 function ExperienceItem({ icon, title, description, side }: ExperienceItemProps) {
-  const halfHeightMap = {
-    '2xl': 60,
-    'xl': 56,
-    'md': 56,
-  };
+  // const halfHeightMap = {
+  //   '2xl': 56,
+  //   'xl': 56,
+  //   'md': 56,
+  // };
 
-  const getHalfHeight = () => {
-    if (typeof window === 'undefined') return 56;
-    return window.innerWidth > 1535 ? halfHeightMap['2xl'] : window.innerWidth > 1280 ? halfHeightMap['xl'] : halfHeightMap['md'];
-  };
+  // const getHalfHeight = () => {
+  //   if (typeof window === 'undefined') return 56;
+  //   return window.innerWidth > 1535 ? halfHeightMap['2xl'] : window.innerWidth > 1280 ? halfHeightMap['xl'] : halfHeightMap['md'];
+  // };
 
-  const [halfHeight, setHalfHeight] = useState(56);
+  // const [halfHeight, setHalfHeight] = useState(56);
+  
+  // useEffect(() => {
+  //   // Set initial state on mount
+  //   setHalfHeight(getHalfHeight());
 
-  useEffect(() => {
-    // Set initial state on mount
-    setHalfHeight(getHalfHeight());
+  //   const handleResize = () => {
+  //     setHalfHeight(getHalfHeight());
+  //   };
 
-    const handleResize = () => {
-      setHalfHeight(getHalfHeight());
-    };
+  //   window.addEventListener('resize', handleResize);
 
-    window.addEventListener('resize', handleResize);
+  //   // Cleanup listener on unmount
+  //   return () => {
+  //     window.removeEventListener('resize', handleResize);
+  //   };
+  // }, []);
+  
+  const halfHeight = 48;
 
-    // Cleanup listener on unmount
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   return (
     <div className="group relative">
@@ -64,7 +67,7 @@ function ExperienceItem({ icon, title, description, side }: ExperienceItemProps)
           bg-gray-800 group-hover:bg-gray-700 transition-all duration-450
           overflow-hidden
           mx-0 rounded-lg
-          ${side === 'left' ? '2xl:-mr-6.5 md:-mr-6 md:rounded-none' : '2xl:-ml-6.5 md:-ml-6 md:rounded-none'}
+          ${side === 'left' ? 'md:-mr-5 md:rounded-none' : 'md:-ml-5 md:rounded-none'}
         `}
         style={{
           '--clip-path-polygon': side === 'left'
@@ -73,11 +76,11 @@ function ExperienceItem({ icon, title, description, side }: ExperienceItemProps)
         } as React.CSSProperties}
       >
         {/* Header section */}
-        <div className={`flex items-center p-6 ${side === 'left' ? 'md:pr-12 md:justify-end' : 'md:pl-12 md:justify-start'}`}>
+        <div className={`flex items-center p-4 ${side === 'left' ? 'md:pr-12 md:justify-end' : 'md:pl-12 md:justify-start'}`}>
           <div className={`flex gap-6 items-center opacity-70 group-hover:opacity-100 transition-opacity flex-row-reverse
             ${side === 'right' ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
             <FontAwesomeIcon icon={icon} size='4x' />
-            <h4 className="2xl:text-7xl xl:text-5xl text-3xl font-medium opacity-80 group-hover:opacity-100 transition-opacity">
+            <h4 className="xl:text-5xl text-3xl font-medium opacity-80 group-hover:opacity-100 transition-opacity">
               {title}
             </h4>
           </div>
@@ -86,7 +89,7 @@ function ExperienceItem({ icon, title, description, side }: ExperienceItemProps)
         {/* Description section - expands on hover */}
         <div className={`transition-all duration-450 ease-in-out overflow-hidden max-h-0 group-hover:max-h-200`}>
           <div className={`pt-8 pb-6 ${side === 'left' ? 'md:pr-12 md:pl-6' : 'md:pl-12 md:pr-6'}`}>
-            <p className="opacity-70 leading-relaxed text-2xl">
+            <p className="opacity-70 leading-relaxed text-xl">
               {description}
             </p>
           </div>
@@ -100,11 +103,11 @@ function ExperienceItem({ icon, title, description, side }: ExperienceItemProps)
 function ExperienceSection() {
   return (
     <section className="h-screen" id='experience'>
-      <img className="absolute w-screen h-screen -z-999 brightness-15" 
+      <img className="absolute w-screen min-h-screen -z-999 brightness-15" 
         src="bg2.png" 
         alt="Background"/>
 
-      <h2 className="heading text-8xl md:text-8xl mb-6 text-center px-8 md:px-20 mt-20">
+      <h2 className="heading text-8xl md:text-8xl mb-6 text-center px-8 md:px-20 3xl:mt-20 mt-10">
         Experience
       </h2>
 
@@ -114,12 +117,12 @@ function ExperienceSection() {
             <Image
               src='icons/redisoftware.svg'
               alt="Redi Software"
-              width={86}
-              height={86}
+              width={72}
+              height={72}
               unoptimized
               priority
             />
-            <h3 className="text-5xl">Redi Software, Perth</h3>
+            <h3 className="text-3xl 2xl:text-5xl">Redi Software, Perth</h3>
           </div>
           <div>
             <p className="text-xl opacity-50">Intern <i className='ml-4'>Feb 2024 - May 2024</i></p>
@@ -130,7 +133,7 @@ function ExperienceSection() {
 
       {/* Full-width chevron items container */}
       <div className="w-full">
-        <div className="flex flex-col 2xl:-space-y-14 xl:-space-y-13 md:-space-y-13 ">
+        <div className="flex flex-col xl:-space-y-11 md:-space-y-11 ">
           {/* Row 1 - Left side */}
           <div className="grid grid-cols-1 md:grid-cols-2 items-start">
             <ExperienceItem

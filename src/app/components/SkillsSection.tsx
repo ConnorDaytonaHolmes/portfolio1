@@ -25,8 +25,8 @@ const techSkills = [
 const codePositions = codeSkills.map((_, index) => {
   const angle = (index / codeSkills.length) * 2 * Math.PI;
   return {
-    x: Math.cos(angle) * 50,
-    y: Math.sin(angle) * 50,
+    x: Math.round(1000 * Math.cos(angle) * 50) / 1000,
+    y: Math.round(1000 * Math.sin(angle) * 50) / 1000,
   };
 });
 
@@ -45,7 +45,7 @@ export default function SkillsSection() {
       <img className="absolute w-screen h-screen -z-999 brightness-15 left-0"
         src="bg2.png" 
         alt="Background"/>
-      <h2 className="heading text-4xl md:text-8xl mb-16 text-center mt-20">
+      <h2 className="heading text-4xl md:text-8xl mb-6 text-center 3xl:mt-20 mt-10">
         Skills
       </h2>
 
