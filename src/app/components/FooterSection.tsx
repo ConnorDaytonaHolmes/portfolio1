@@ -8,7 +8,6 @@ import EmailFormModal from "./EmailFormModal";
 
 export default function FooterSection() {
   const [emailFormOpen, setIsEmailFormOpen] = useState<boolean>(false);
-  const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
 
   const onEmailClicked = () => {
     setIsEmailFormOpen(e => !e);
