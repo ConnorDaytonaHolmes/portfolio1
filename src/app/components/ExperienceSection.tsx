@@ -1,9 +1,6 @@
 "use client";
 
-import { forwardRef, useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IconDefinition, SizeProp } from '@fortawesome/fontawesome-svg-core';
-import ScrollButton from './ScrollButton';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPalette,
   faInfinity,
@@ -13,241 +10,249 @@ import {
   faServer,
   faUsers,
   faChartLine,
-  faKey
-} from '@fortawesome/free-solid-svg-icons';
-import Image from 'next/image';
+  faKey,
+} from "@fortawesome/free-solid-svg-icons";
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import Image from "next/image";
+import ScrollButton from "./ScrollButton";
 
-interface ExperienceItemProps {
+interface Experience {
   icon: IconDefinition;
   title: string;
   description: string;
-  side: 'left' | 'right';
+  side: "left" | "right";
 }
 
-function ExperienceItem({ icon, title, description, side }: ExperienceItemProps) {
-  // const halfHeightMap = {
-  //   '2xl': 56,
-  //   'xl': 56,
-  //   'md': 56,
-  // };
+const EXPERIENCES: Experience[] = [
+  {
+    icon: faPalette,
+    title: "UI / UX",
+    description:
+      "Design and build polished, responsive user interfaces using React and CSS media queries, ensuring cross-browser compatibility and accessibility on desktop, tablet and mobile devices.",
+    side: "left",
+  },
+  {
+    icon: faInfinity,
+    title: "CI / CD",
+    description:
+      "Optimise CI/CD deployment pipelines using custom Docker images, caching and parallelisation to reduce build times and compute costs by up to 30%.",
+    side: "right",
+  },
+  {
+    icon: faDatabase,
+    title: "Database",
+    description:
+      "Architect relational database schemas, write performant T-SQL queries and stored procedures, and create indexes for optimised query performance in high-throughput applications.",
+    side: "left",
+  },
+  {
+    icon: faShield,
+    title: "Security",
+    description:
+      "Manage cloud resource security via Azure RBAC, configuring Managed Identities and Service Principals to enforce least-privilege across development and production environments.",
+    side: "right",
+  },
+  {
+    icon: faUserLock,
+    title: "Authentication",
+    description:
+      "Implement robust authentication and authorisation frameworks using .NET Identity and JWT bearer tokens, defining granular role-based claims and custom security policies.",
+    side: "left",
+  },
+  {
+    icon: faServer,
+    title: "Microservices",
+    description:
+      "Architect and maintain scalable RESTful microservices using ASP.NET Core, implementing efficient controller patterns and middleware for complex business logic in high-traffic applications.",
+    side: "right",
+  },
+  {
+    icon: faUsers,
+    title: "Mentoring",
+    description:
+      "Onboard interns, conduct thorough code reviews, and deliver constructive feedback and performance reports to help junior engineers grow.",
+    side: "left",
+  },
+  {
+    icon: faChartLine,
+    title: "Azure Functions",
+    description:
+      "Engineered 20+ queue-triggered Azure Functions to synchronise data from third-party APIs (HubSpot, Google Ads, PayPal) into a centralised BI platform, with async processing for high-volume ingestion.",
+    side: "right",
+  },
+  {
+    icon: faKey,
+    title: "OAuth 2.0",
+    description:
+      "Developed a sophisticated OAuth 2.0 & API Key management system including the full three-legged authorisation flow and a 'base' function architecture automating Azure Key Vault token retrieval and state validation.",
+    side: "left",
+  },
+];
 
-  // const getHalfHeight = () => {
-  //   if (typeof window === 'undefined') return 56;
-  //   return window.innerWidth > 1535 ? halfHeightMap['2xl'] : window.innerWidth > 1280 ? halfHeightMap['xl'] : halfHeightMap['md'];
-  // };
-
-  // const [halfHeight, setHalfHeight] = useState(56);
-  const getIconSize: () => SizeProp = () => {
-    if (typeof window === 'undefined') return '2x';
-    return window.innerWidth > 1535 ? '4x' : window.innerWidth > 1280 ? '3x' : '2x';
-  };
-  
-  const [iconSize, setIconSize] = useState<SizeProp>('2x');
-  useEffect(() => {
-    
-    // Set initial state on mount
-    setIconSize(getIconSize());
-
-    const handleResize = () => {
-      setIconSize(getIconSize());
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    // Cleanup listener on unmount
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-  
-  const halfHeight = 48;
-
-  
-  
+function TimelineCard({
+  icon,
+  title,
+  description,
+  index,
+  side,
+}: Experience & { index: number }) {
   return (
-    <div className="group relative">
-      {/* Combined chevron and description box with morphing polygon */}
-      <div
-        className={`
-          experience-item-container
-          relative cursor-pointer
-          md:bg-gray-800 group-hover:bg-gray-700 transition-all duration-450
-          overflow-hidden
-          mx-0 md:rounded-lg bg-linear-to-b from-gray-700 to-gray-800
-          ${side === 'left' ? 'md:-mr-5 md:rounded-none' : 'md:-ml-5 md:rounded-none'}
-        `}
-        style={{
-          '--clip-path-polygon': side === 'left'
-            ? `polygon(0 0, calc(100% - ${halfHeight}px) 0, 100% ${halfHeight}px, 100% calc(100% - ${halfHeight}px), calc(100% - ${halfHeight}px) 100%, 0 100%)`
-            : `polygon(100% 0, ${halfHeight}px 0, 0 ${halfHeight}px, 0 calc(100% - ${halfHeight}px), ${halfHeight}px 100%, 100% 100%)`
-        } as React.CSSProperties}
-      >
-        {/* Header section */}
-        <div className={`flex items-center p-3 md:p-4 
-          h-[6.5vh] md:h-auto justify-center ${side === 'left' ? 'md:pr-12 md:justify-end' : 'md:pl-12 md:justify-start'}`}>
-          <div className={`flex gap-6 items-center opacity-70 group-hover:opacity-100 transition-opacity flex-row-reverse
-            ${side === 'right' ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-            <FontAwesomeIcon icon={icon} size={iconSize} />
-            <h4 className="xl:text-5xl text-xl font-medium opacity-80 group-hover:opacity-100 transition-opacity">
-              {title}
-            </h4>
-          </div>
+    <div
+      className="glass glass-hover rounded-xl p-5 md:p-6 fade-in-section"
+      style={{ transitionDelay: `${(index % 5) * 80}ms` }}
+    >
+      {/* Header */}
+      <div className="flex items-center gap-3 mb-3">
+        <div
+          className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+          style={{ background: "var(--teal-dim)" }}
+        >
+          <FontAwesomeIcon icon={icon} style={{ color: "var(--teal)" }} />
         </div>
-
-        {/* Description section - expands on hover */}
-        <div className={`transition-all duration-450 ease-in-out overflow-hidden max-h-0 group-hover:max-h-200`}>
-          <div className={`p-4 ${side === 'left' ? 'md:pr-12 md:pl-6' : 'md:pl-12 md:pr-6'}`}>
-            <p className="opacity-70 leading-relaxed text-xl">
-              {description}
-            </p>
-          </div>
-        </div>
-
+        <h4 className="heading text-base md:text-lg font-semibold leading-tight">
+          {title}
+        </h4>
       </div>
+
+      {/* Description */}
+      <p className="text-sm leading-relaxed" style={{ color: "var(--text-bright)" }}>
+        {description}
+      </p>
     </div>
   );
 }
 
-function ExperienceSection() {
+export default function ExperienceSection() {
   return (
-    <section className="min-h-screen" id='experience'>
-      <img className="absolute w-screen min-h-screen -z-999 brightness-15" 
-        src="bg2.png" 
-        alt="Background"/>
+    <section className="min-h-screen py-24 px-6 md:px-16 relative" id="experience">
+      {/* Subtle top gradient */}
+      <div
+        className="absolute inset-x-0 top-0 h-px"
+        style={{ background: "linear-gradient(to right, transparent, var(--teal), transparent)" }}
+        aria-hidden="true"
+      />
 
-      <h2 className="heading text-6xl md:text-8xl mb-6 text-center md:px-20 3xl:mt-20 mt-10">
-        Experience
-      </h2>
+      <div className="max-w-6xl mx-auto">
+        {/* ── Section header ── */}
+        <div className="mb-14 fade-in-section">
+          <p className="mono text-xs tracking-[0.25em] uppercase text-[var(--teal)] mb-3">
+            01 / Experience
+          </p>
+          <h2 className="heading text-5xl md:text-7xl leading-none">Experience</h2>
+        </div>
 
-      <div className="max-wfull mx-auto px-8 md:px-20 mb-6 justify-self-start">
-        <div className="flex md:gap-16 items-center md:flex-row flex-col">
-          <div className='flex gap-12 items-center flex-row mb-2'>
+        {/* ── Company badge ── */}
+        <div
+          className="flex flex-wrap items-center gap-6 mb-14 p-5 rounded-2xl fade-in-section delay-100"
+          style={{
+            background: "var(--bg-card)",
+            border: "1px solid var(--border)",
+          }}
+        >
+          <div className="flex items-center gap-4">
             <Image
-              src='icons/redisoftware.svg'
+              src="icons/redisoftware.svg"
               alt="Redi Software"
-              width={72}
-              height={72}
+              width={48}
+              height={48}
               unoptimized
               priority
             />
-            <h3 className="text-xl 2xl:text-5xl">Redi Software, Perth</h3>
+            <div>
+              <h3 className="text-lg md:text-xl font-semibold">Redi Software</h3>
+              <p className="mono text-xs text-[var(--text-muted)] tracking-wider">
+                Perth, Western Australia
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="text-xs md:text-xl opacity-50">Intern <i className='ml-4'>Feb 2024 - May 2024</i></p>
-            <p className="text-xs md:text-xl opacity-80">Junior Software Developer <i className='ml-4'>August 2024 - PRESENT</i></p>
+
+          <div className="flex flex-col gap-1 md:ml-auto text-sm">
+            <span style={{ color: "var(--text-muted)", fontSize: "0.75rem" }}>
+              Intern
+              <i className="ml-3 mono" style={{ color: "var(--text-bright)" }}>
+                Feb 2024 – May 2024
+              </i>
+            </span>
+            <span style={{ color: "var(--text)", fontSize: "0.85rem" }}>
+              Junior Software Developer
+              <i className="ml-3 mono text-xs" style={{ color: "var(--teal)" }}>
+                Aug 2024 – Present
+              </i>
+            </span>
           </div>
         </div>
-      </div>
 
-      {/* Full-width chevron items container */}
-      <div className="w-full">
-        <div className="flex flex-col xl:-space-y-11 md:-space-y-11 ">
-          {/* Row 1 - Left side */}
-          <div className="grid grid-cols-1 md:grid-cols-2 items-start">
-            <ExperienceItem
-              icon={faPalette}
-              title="UI/UX"
-              description="Design and build polished, responsive user interfaces using React and CSS media queries, ensuring cross-browser compatibility and accessibility on desktop, tablet and mobile devices"
-              side="left"
-            />
-            <div></div>
+        {/* ── Timeline ── */}
+        <div className="relative">
+          {/* Center vertical line (desktop) */}
+          <div
+            className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 hidden md:block timeline-center"
+            aria-hidden="true"
+          />
+
+          <div className="flex flex-col gap-8">
+            {EXPERIENCES.map((exp, i) => (
+              <div key={exp.title} className="relative">
+
+                {/* Mobile: single column with left accent */}
+                <div
+                  className="md:hidden pl-6 relative fade-in-section"
+                  style={{ transitionDelay: `${(i % 5) * 90}ms` }}
+                >
+                  {/* vertical left line */}
+                  <div
+                    className="absolute left-0 top-0 bottom-0 w-[1.5px]"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom, transparent, var(--teal) 20%, var(--teal) 80%, transparent)",
+                    }}
+                    aria-hidden="true"
+                  />
+                  {/* dot */}
+                  <div
+                    className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[calc(50%-0.75px)] w-2.5 h-2.5 rounded-full"
+                    style={{
+                      background: "var(--teal)",
+                      boxShadow: "0 0 10px rgba(45,212,191,0.6)",
+                    }}
+                    aria-hidden="true"
+                  />
+                  <TimelineCard {...exp} index={i} />
+                </div>
+
+                {/* Desktop: alternating L/R */}
+                <div className="hidden md:grid md:grid-cols-2 md:gap-12">
+                  {/* Left column */}
+                  <div className="pr-8">
+                    {exp.side === "left" && (
+                      <TimelineCard {...exp} index={i} />
+                    )}
+                  </div>
+
+                  {/* Right column */}
+                  <div className="pl-8">
+                    {exp.side === "right" && (
+                      <TimelineCard {...exp} index={i} />
+                    )}
+                  </div>
+
+                  {/* Dot on center line */}
+                  <div
+                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-3 h-3 rounded-full"
+                    style={{
+                      background: "var(--teal)",
+                      boxShadow: "0 0 12px rgba(45,212,191,0.7)",
+                    }}
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+            ))}
           </div>
-
-          {/* Row 2 - Right side */}
-          <div className="grid grid-cols-1 md:grid-cols-2 items-end md:items-start">
-            <div></div>
-            <ExperienceItem
-              icon={faInfinity}
-              title="CI/CD"
-              description="Optimise CI/CD deployment pipelines using custom Docker images, caching and parallelization to reduce build times and compute costs by up to 30%"
-              side="right"
-            />
-          </div>
-
-          {/* Row 3 - Left side */}
-          <div className="grid grid-cols-1 md:grid-cols-2 items-start">
-            <ExperienceItem
-              icon={faDatabase}
-              title="Database"
-              description="Architect relational database schemas, write performant T-SQL queries and stored procedures, create and monitor indexes for optimised query performance for high-throughput applications"
-              side="left"
-            />
-            <div></div>
-          </div>
-
-          {/* Row 4 - Right side */}
-          <div className="grid grid-cols-1 md:grid-cols-2 items-end md:items-start">
-            <div></div>
-            <ExperienceItem
-              icon={faShield}
-              title="Security"
-              description="Manage cloud resource security via Azure RBAC, configuring Managed Identities and Service Principals to enforce the principle of least privilege across development and production environments"
-              side="right"
-            />
-          </div>
-
-          {/* Row 5 - Left side */}
-          <div className="grid grid-cols-1 md:grid-cols-2 items-start">
-            <ExperienceItem
-              icon={faUserLock}
-              title="Authentication"
-              description="Implement robust authentication and authorization frameworks using .NET Identity and JWT bearer tokens, defining granular role-based claims and custom security policies to secure sensitive API endpoints"
-              side="left"
-            />
-            <div></div>
-          </div>
-
-          {/* Row 6 - Right side */}
-          <div className="grid grid-cols-1 md:grid-cols-2 items-end md:items-start">
-            <div></div>
-            <ExperienceItem
-              icon={faServer}
-              title="Microservices"
-              description="Architect and maintain scalable RESTful microservices using ASP.NET Core, implementing efficient controller patterns and middleware to handle complex business logic for high-traffic applications"
-              side="right"
-            />
-          </div>
-
-          {/* Row 7 - Left side */}
-          <div className="grid grid-cols-1 md:grid-cols-2 items-start">
-            <ExperienceItem
-              icon={faUsers}
-              title="Mentoring"
-              description="Onboard interns, conduct code reviews and give constructive feedback & performance reports"
-              side="left"
-            />
-            <div></div>
-          </div>
-
-          {/* Row 8 - Right side */}
-          <div className="grid grid-cols-1 md:grid-cols-2 items-end md:items-start">
-            <div></div>
-            <ExperienceItem
-              icon={faChartLine}
-              title="Azure Functions"
-              description="Engineered a suite of over 20 queue-triggered Azure Functions to synchronize data from third-party APIs (including HubSpot, Google Ads, PayPal) into a centralized BI platform (Picardata); implemented asynchronous processing to handle high-volume data ingestion reliably"
-              side="right"
-            />
-          </div>
-
-          {/* Row 9 - Left side */}
-          <div className="grid grid-cols-1 md:grid-cols-2 items-start">
-            <ExperienceItem
-              icon={faKey}
-              title="OAuth 2.0"
-              description="Developed a sophisticated OAuth 2.0 & API Key management system, including the full three-legged authorization flow and a 'base' function architecture that automated Azure Key Vault token retrieval, state validation, and dynamic header/query parameter configuration"
-              side="left"
-            />
-            <div></div>
-          </div>
-
-
         </div>
       </div>
 
       <ScrollButton target="projects" />
     </section>
   );
-};
-
-export default ExperienceSection;
+}

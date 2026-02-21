@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface ScrollButtonProps {
   target: string;
@@ -8,54 +8,44 @@ interface ScrollButtonProps {
 }
 
 export default function ScrollButton({ target, delayed = false }: ScrollButtonProps) {
-  const [isButtonDisabled, setIsButtonDisabled] = useState(delayed);
+  const [visible, setVisible] = useState(!delayed);
 
-  const scrollToTarget = () => {
-    const targetSection = document.getElementById(target);
-    if (targetSection) {
-      targetSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const showJumpButton = () => {
-    const button = document.getElementById(`jump-to-${target}-button`);
-    if (button) {
-      button.classList.add('opacity-100', 'hover:opacity-70');
-      button.style.cursor = 'pointer';
-      setIsButtonDisabled(false);
-
-      setTimeout(() => {
-        button.classList.remove('duration-2000');
-        button.classList.add('duration-400');
-      }, 2000);
-    }
+  const scrollTo = () => {
+    document.getElementById(target)?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
-    if (delayed) {
-      setTimeout(showJumpButton, 2000);
-    }
+    if (!delayed) return;
+    const t = setTimeout(() => setVisible(true), 2200);
+    return () => clearTimeout(t);
   }, [delayed]);
 
   return (
-    <div className='mt-8 flex justify-center'>
+    <div className="mt-8 flex justify-center">
       <button
-        onClick={scrollToTarget}
-        className={`animate-bounce transition-opacity cursor-pointer bg-transparent border-none pb-4 ${
-          delayed ? 'opacity-0 duration-2000' : 'opacity-100 hover:opacity-70'
-        }`}
+        onClick={scrollTo}
+        disabled={!visible}
         aria-label={`Scroll to ${target} section`}
-        id={`jump-to-${target}-button`}
-        disabled={isButtonDisabled}
-        style={delayed ? { cursor: 'default' } : undefined}
+        className="animate-bounce cursor-pointer border-none bg-transparent transition-opacity duration-[1200ms]"
+        style={{
+          opacity: visible ? 0.5 : 0,
+          color: "var(--teal)",
+          cursor: visible ? "pointer" : "default",
+        }}
+        onMouseEnter={(e) => {
+          if (visible) (e.currentTarget as HTMLButtonElement).style.opacity = "1";
+        }}
+        onMouseLeave={(e) => {
+          if (visible) (e.currentTarget as HTMLButtonElement).style.opacity = "0.5";
+        }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          strokeWidth={2}
+          strokeWidth={1.5}
           stroke="currentColor"
-          className="w-8 h-8"
+          className="w-7 h-7"
         >
           <path
             strokeLinecap="round"
@@ -67,4 +57,3 @@ export default function ScrollButton({ target, delayed = false }: ScrollButtonPr
     </div>
   );
 }
-

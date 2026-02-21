@@ -1,70 +1,174 @@
+"use client";
+
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FormEvent } from "react";
-import EmailTemplate from "./email/EmailTemplate";
+import { FormEvent, useState } from "react";
 
 interface EmailFormModalProps {
-    open: boolean;
-    onClose: () => void;
+  open: boolean;
+  onClose: () => void;
 }
 
+const inputStyle: React.CSSProperties = {
+  background: "rgba(255,255,255,0.05)",
+  border: "1px solid var(--border)",
+  borderRadius: "8px",
+  padding: "10px 14px",
+  color: "var(--text)",
+  width: "100%",
+  fontSize: "0.875rem",
+  outline: "none",
+  transition: "border-color 0.2s",
+  fontFamily: "var(--font-geist-sans)",
+};
+
 export default function EmailFormModal({ open, onClose }: EmailFormModalProps) {
-    
-    const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-        // this is cringe but i cant figure out forms rn and i want to go to bed
-        const getInputValue = (index: number) => ((e.target as HTMLFormElement)[index] as HTMLInputElement).value;
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("sending");
 
-        const name = getInputValue(0);
-        const email = getInputValue(1);
-        const phone = getInputValue(2);
-        const message = getInputValue(3);
-        
-        try {
-          const response = await fetch('/api/sendemail', {
-            method: 'POST',
-            body: JSON.stringify({ name, email, phone, message }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          });
-          
-          if (response.ok) {
-            onClose();
-          } else {
-            console.error("Failed to send email:", await response.json());
-          }
-        } catch (error) {
-          console.error("Failed to send email:", error);
-        }
-        
+    const getVal = (i: number) =>
+      ((e.target as HTMLFormElement)[i] as HTMLInputElement).value;
+
+    const name    = getVal(0);
+    const email   = getVal(1);
+    const phone   = getVal(2);
+    const message = getVal(3);
+
+    try {
+      const res = await fetch("/api/sendemail", {
+        method: "POST",
+        body: JSON.stringify({ name, email, phone, message }),
+        headers: { "Content-Type": "application/json" },
+      });
+      if (res.ok) {
+        localStorage.setItem("visitor_name", name);
+        setStatus("sent");
+        setTimeout(() => { setStatus("idle"); onClose(); }, 1500);
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
     }
-    
-    return (
-        <div className={`fixed top-0 left-0 w-screen h-screen bg-black/50 z-50 flex flex-col items-center justify-center ${open ? '' : 'hidden'}`}>
-            <div className='relative w-4/5 md:w-1/3 h-auto bg-gray-800 rounded-lg p-8 border-2 border-gray-600' id='email-form-modal'>
-                { /* HEADER */ }
-                <div className='flex justify-between m-4 mb-12 items-center'>
-                    <h1 className='text-lg md:text-2xl font-bold'>Contact Me</h1>
-                    <FontAwesomeIcon icon={faClose} onClick={onClose}/>
-                </div>
-                
-                { /* FORM */ }
-                <form onSubmit={onSubmit}>
-                    <div className='flex flex-col m-4 gap-4'>
-                        <input className='bg-white/10 p-2' type='text' placeholder="Name" name='name' required />
-                        <input className='bg-white/10 p-2' type='email' placeholder="Email" name='email' required />
-                        <input className='bg-white/10 p-2' type='text' placeholder="Phone Number" name='phone' />
-                        <textarea className='bg-white/10 p-2' placeholder="Message" rows={4} name='message' required />
-                        <button type='submit' className='bg-linear-to-b from-gray-600 to-gray-700 p-2 rounded-lg mt-8 w-60 self-center duration-500 hover:from-gray-500 hover:to-gray-600 transition-all'>
-                            Send
-                        </button>
-                    </div>
-                </form>
-                
-                <EmailTemplate name="Jeff" email="jeff@jmail.com" phone="0400 000 000" message="Hello, I'm interested in your work!"/>
-            </div>
+  };
+
+  const focusStyle = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    (e.currentTarget as HTMLElement).style.borderColor = "var(--border-bright)";
+    (e.currentTarget as HTMLElement).style.boxShadow   = "0 0 0 2px rgba(45,212,191,0.1)";
+  };
+  const blurStyle  = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
+    (e.currentTarget as HTMLElement).style.boxShadow   = "none";
+  };
+
+  if (!open) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-[60] flex items-center justify-center"
+      style={{ background: "rgba(6,9,16,0.75)", backdropFilter: "blur(8px)" }}
+      onClick={(e) => e.target === e.currentTarget && onClose()}
+    >
+      <div
+        className="relative w-[92vw] max-w-md rounded-2xl p-8"
+        style={{
+          background: "#0c0f1c",
+          border: "1px solid var(--border)",
+          boxShadow: "0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(45,212,191,0.08)",
+        }}
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <h2 className="heading text-xl font-semibold mb-0.5">Get in Touch</h2>
+            <p className="mono text-[10px] tracking-widest" style={{ color: "var(--text-muted)" }}>
+              SEND A MESSAGE
+            </p>
+          </div>
+          <button
+            onClick={onClose}
+            className="w-8 h-8 flex items-center justify-center rounded-lg transition-colors cursor-pointer glass glass-hover"
+            aria-label="Close"
+          >
+            <FontAwesomeIcon icon={faClose} style={{ width: 14, color: "var(--text-bright)" }} />
+          </button>
         </div>
-    );
+
+        {/* Form */}
+        <form onSubmit={onSubmit} className="flex flex-col gap-4">
+          <input
+            style={inputStyle}
+            type="text"
+            placeholder="Your name"
+            name="name"
+            required
+            onFocus={focusStyle}
+            onBlur={blurStyle}
+          />
+          <input
+            style={inputStyle}
+            type="email"
+            placeholder="Email address"
+            name="email"
+            required
+            onFocus={focusStyle}
+            onBlur={blurStyle}
+          />
+          <input
+            style={inputStyle}
+            type="text"
+            placeholder="Phone (optional)"
+            name="phone"
+            onFocus={focusStyle}
+            onBlur={blurStyle}
+          />
+          <textarea
+            style={{ ...inputStyle, resize: "vertical", minHeight: "110px" } as React.CSSProperties}
+            placeholder="Your message"
+            name="message"
+            required
+            rows={4}
+            onFocus={focusStyle as unknown as React.FocusEventHandler<HTMLTextAreaElement>}
+            onBlur={blurStyle as unknown as React.FocusEventHandler<HTMLTextAreaElement>}
+          />
+
+          <button
+            type="submit"
+            disabled={status === "sending" || status === "sent"}
+            className="mt-3 py-3 rounded-xl mono text-sm tracking-wider font-semibold transition-all duration-300 cursor-pointer disabled:opacity-60"
+            style={{
+              background: status === "sent" ? "rgba(45,212,191,0.2)" : "var(--teal)",
+              color: status === "sent" ? "var(--teal)" : "#060910",
+              border: status === "sent" ? "1px solid var(--border-bright)" : "none",
+            }}
+            onMouseEnter={(e) => {
+              if (status === "idle")
+                (e.currentTarget as HTMLButtonElement).style.boxShadow =
+                  "0 0 24px rgba(45,212,191,0.35)";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.boxShadow = "none";
+            }}
+          >
+            {status === "sending"
+              ? "Sending…"
+              : status === "sent"
+              ? "✓ Sent!"
+              : status === "error"
+              ? "Try Again"
+              : "Send Message"}
+          </button>
+
+          {status === "error" && (
+            <p className="text-center text-xs" style={{ color: "#ff7b72" }}>
+              Something went wrong. Please try again.
+            </p>
+          )}
+        </form>
+      </div>
+    </div>
+  );
 }

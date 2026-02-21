@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import ScrollButton from "./ScrollButton";
 import ProjectIcon from "./ProjectIcon";
 
-type CardState = 'title' | 'expanded' | 'thin' | 'corner';
+type CardState = "title" | "expanded" | "thin" | "corner";
 
 interface ProjectCardProps {
   title: string;
@@ -17,265 +17,309 @@ interface ProjectCardProps {
   onClick: () => void;
 }
 
-function ProjectCard({ title, subtitle, link, children, isPersonal, state, onClick }: ProjectCardProps) {
-  switch (state) {
-    case 'title':
-      // Normal state - showing only title
-      return (
-        <div className="transition-all duration-700 overflow-hidden cursor-pointer">
-          <div
-            className="bg-white/10 rounded-lg flex flex-col relative transition-all duration-700 h-full justify-center p-8 cursor-pointer hover:bg-white/15"
-            onClick={onClick}
-          >
-            <ProjectIcon isPersonal={isPersonal} size={24} />
+/* 3-D tilt effect helper */
+function useTilt() {
+  const ref = useRef<HTMLDivElement>(null);
 
-            {/* Title */}
-            <h5 className="font-semibold pr-12 transition-all duration-700 text-center text-3xl md:text-6xl mb-0">
-              {title}
-            </h5>
-          </div>
-        </div>
-      );
+  const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const el = ref.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const x = ((e.clientX - r.left) / r.width - 0.5) * 14;
+    const y = ((e.clientY - r.top)  / r.height - 0.5) * -14;
+    el.style.transform = `perspective(900px) rotateX(${y}deg) rotateY(${x}deg)`;
+    el.style.boxShadow = `${-x * 0.8}px ${y * 0.8}px 30px rgba(45,212,191,0.12)`;
+  };
 
-    case 'expanded':
-      // Expanded state - showing full content
-      return (
-        <div className="transition-all duration-700 overflow-hidden cursor-pointer">
-          <div className="bg-white/10 rounded-lg flex flex-col relative transition-all duration-700 h-full p-12 cursor-pointer hover:bg-white/15" onClick={onClick}>
-            <ProjectIcon isPersonal={isPersonal} size={32} position="top-8 right-8" />
+  const onLeave = () => {
+    const el = ref.current;
+    if (!el) return;
+    el.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg)";
+    el.style.boxShadow = "none";
+  };
 
-            {/* Title */}
-            <h5 className="font-semibold pr-12 transition-all duration-700 text-2xl md:text-4xl mb-2">
-              {link ? (
-                <a href={link} target='_blank' className="hover:opacity-80 transition-opacity">
-                  {title}
-                </a>
-              ) : (
-                title
-              )}
-            </h5>
-
-            { /* Subtitle */}
-            <h6 className="italic text-sm md:text-lg opacity-50">
-              {subtitle}
-            </h6>
-
-            {/* Content */}
-            <div className="transition-all duration-700 opacity-100 max-h-[2000px] flex flex-col flex-grow mt-8">
-              {children}
-            </div>
-          </div>
-        </div>
-      );
-
-    case 'thin':
-      // Thin state - same row or column as expanded
-      return (
-        <div className="transition-all duration-700 overflow-hidden cursor-pointer">
-          <div className="bg-white/10 rounded-lg flex flex-col relative transition-all duration-700 h-full p-2 overflow-hidden hover:bg-white/15" onClick={onClick}>
-            <ProjectIcon isPersonal={isPersonal} size={24} opacity="opacity-0" />
-
-            {/* Title hidden */}
-            <h5 className="font-semibold pr-12 transition-all duration-700 text-xs opacity-0">
-              {title}
-            </h5>
-          </div>
-        </div>
-      );
-
-    case 'corner':
-      // Corner state - diagonal from expanded (small square)
-      return (
-        <div className="transition-all duration-700 overflow-hidden cursor-pointer">
-          <div className="bg-white/10 rounded-lg flex flex-col relative transition-all duration-700 h-full p-2 overflow-hidden hover:bg-white/15" onClick={onClick}>
-            {/* Completely hidden content */}
-          </div>
-        </div>
-      );
-
-    default:
-      return null;
-  }
+  return { ref, onMove, onLeave };
 }
 
-export default function ProjectsSection() {
-  const [expandedCard, setExpandedCard] = useState<number | null>(null);
-  const handleCardClick = (index: number) => {
-    setExpandedCard(expandedCard === index ? null : index);
-  };
+function TechBadge({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div
+      className="flex items-center gap-1.5 px-2.5 py-1 rounded-md mono text-xs"
+      style={{
+        background: "rgba(45,212,191,0.08)",
+        border: "1px solid rgba(45,212,191,0.18)",
+        color: "var(--text-bright)",
+      }}
+    >
+      <Image src={src} alt={alt} width={14} height={14} unoptimized />
+      {alt}
+    </div>
+  );
+}
 
-  const [isMobileView, setIsMobileView] = useState(false);
-  
+function ProjectCard({
+  title,
+  subtitle,
+  link,
+  children,
+  isPersonal,
+  state,
+  onClick,
+}: ProjectCardProps) {
+  const tilt = useTilt();
+
+  if (state === "corner" || state === "thin") {
+    return (
+      <div
+        className="rounded-2xl cursor-pointer transition-all duration-700 overflow-hidden"
+        style={{ background: "var(--bg-card)", border: "1px solid var(--border)" }}
+        onClick={onClick}
+      />
+    );
+  }
+
+  if (state === "title") {
+    return (
+      <div
+        ref={tilt.ref}
+        onMouseMove={tilt.onMove}
+        onMouseLeave={tilt.onLeave}
+        onClick={onClick}
+        className="rounded-2xl cursor-pointer transition-all duration-300 overflow-hidden h-full flex flex-col items-center justify-center p-8 relative group"
+        style={{
+          background: "var(--bg-card)",
+          border: "1px solid var(--border)",
+          transition: "transform 0.15s ease, box-shadow 0.15s ease, border-color 0.3s ease",
+        }}
+        onMouseEnter={(e) => {
+          (e.currentTarget as HTMLDivElement).style.borderColor =
+            "rgba(45,212,191,0.25)";
+        }}
+      >
+        <ProjectIcon isPersonal={isPersonal} size={22} />
+        <h5
+          className="heading text-center text-2xl md:text-4xl lg:text-5xl leading-tight"
+          style={{ color: "var(--text)" }}
+        >
+          {title}
+        </h5>
+      </div>
+    );
+  }
+
+  /* expanded */
+  return (
+    <div
+      onClick={onClick}
+      className="rounded-2xl cursor-pointer transition-all duration-700 overflow-hidden h-full flex flex-col p-7 md:p-9 relative group"
+      style={{
+        background: "var(--bg-card-hover)",
+        border: "1px solid var(--border-bright)",
+        boxShadow: "var(--teal-glow)",
+      }}
+    >
+      <ProjectIcon isPersonal={isPersonal} size={28} />
+
+      <h5 className="heading text-xl md:text-3xl mb-2 pr-10">
+        {link ? (
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[var(--teal)] transition-colors duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {title} ↗
+          </a>
+        ) : (
+          title
+        )}
+      </h5>
+
+      <p className="mono text-xs tracking-wider mb-5" style={{ color: "var(--text-muted)" }}>
+        {subtitle}
+      </p>
+
+      <div className="flex-grow overflow-auto">{children}</div>
+    </div>
+  );
+}
+
+/* ── Project data ── */
+interface ProjectData {
+  title: string;
+  subtitle: string;
+  link?: string;
+  isPersonal: boolean;
+  bullets: string[];
+  tech: { src: string; alt: string }[];
+}
+
+const PROJECTS: ProjectData[] = [
+  {
+    title: "Picardata",
+    subtitle: "Business Intelligence & Analytics Platform",
+    link: "https://picardata.com",
+    isPersonal: false,
+    bullets: [
+      "Built a utility to programmatically transform live dashboard views into formatted PPTX presentations, saving stakeholders hours of manual reporting.",
+      "Engineered a comprehensive localisation framework supporting a multilingual user base with dynamic translations across the platform.",
+      "Developed a modular UI featuring interactive real-time widgets for weather, currency, and stock market data.",
+    ],
+    tech: [
+      { src: "skills/csharp.svg",     alt: "C#" },
+      { src: "skills/typescript.svg", alt: "TypeScript" },
+      { src: "skills/react.svg",      alt: "React" },
+      { src: "skills/azure.svg",      alt: "Azure" },
+    ],
+  },
+  {
+    title: "I-VADE",
+    subtitle: "VR Aggression De-escalation Training",
+    link: "https://research.csiro.au/onalumni/i-vade/",
+    isPersonal: false,
+    bullets: [
+      "Acted as project lead and lead developer across the full system.",
+      "Built a React-based admin dashboard for user management and session oversight.",
+      "Developed a .NET WPF desktop app to orchestrate and launch localised VR scenarios.",
+      "Engineered a centralised .NET microservices backend to sync trainee performance data via RESTful APIs.",
+    ],
+    tech: [
+      { src: "skills/csharp.svg",     alt: "C#" },
+      { src: "skills/typescript.svg", alt: "TypeScript" },
+      { src: "skills/react.svg",      alt: "React" },
+    ],
+  },
+  {
+    title: "Pronto",
+    subtitle: "Project Scaffolding Engine (Internal Tool)",
+    isPersonal: false,
+    bullets: [
+      "Spearheaded an automated 'Zero-to-Deployed' provisioning tool that cut new client project setup from days to under 30 minutes.",
+      "Built a configurable wizard for engineers to select infrastructure including CRMs, microservices, and notification layers.",
+      "Scripted provisioning of Azure resources, repo forks, DNS records and proxies.",
+      "Integrated Postmark API for automated email template deployment with full CI/CD pipelines.",
+    ],
+    tech: [
+      { src: "skills/typescript.svg", alt: "TypeScript" },
+      { src: "skills/azure.svg",      alt: "Azure" },
+      { src: "skills/bash.svg",       alt: "Bash" },
+      { src: "skills/cloudflare.svg", alt: "Cloudflare" },
+    ],
+  },
+  {
+    title: "Mul-Ty-Player",
+    subtitle: "Video Game Mod",
+    link: "https://github.com/xMcacutt/Mul-Ty-Player",
+    isPersonal: true,
+    bullets: [
+      "Collaborated with a small team to transform a single-player game into a fully-featured multiplayer experience using .NET WPF.",
+      "Used process & memory manipulation, DLL injection, and socket connections for host/join/play functionality.",
+      "Implemented client-side prediction and server-side reconciliation to minimise latency.",
+      "Used performance profilers to resolve memory leaks and increase server-side runtime performance by 96%.",
+    ],
+    tech: [
+      { src: "skills/csharp.svg",  alt: "C#" },
+      { src: "skills/python.svg",  alt: "Python" },
+      { src: "skills/cpp.svg",     alt: "C++" },
+    ],
+  },
+];
+
+export default function ProjectsSection() {
+  const [expanded, setExpanded] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
-    if(typeof window === 'undefined') return;
-    const getIsMobileView = () => {
-      if (typeof window === 'undefined') return false;
-      return window && window?.innerWidth < 1280;
-    };
-    const handleResize = () => {
-      setIsMobileView(getIsMobileView());
-    };
-    window?.addEventListener('resize', handleResize);
-    handleResize();
-    return () => {
-      window?.removeEventListener('resize', handleResize);
-    };
+    const check = () => setIsMobile(window.innerWidth < 1024);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
   }, []);
 
-  // Simple grid template based on which card is expanded
-  // Card positions: 0=top-left, 1=top-right, 2=bottom-left, 3=bottom-right
-  // Using calc to account for gap: total height/width - gap - thin size
-  const getGridTemplate = () => {
-    if (isMobileView) {
-      return { rows: '1fr', cols: '1fr' };
-    }
-    switch (expandedCard) {
-      case 0: return { rows: 'calc(100% - 2rem - 20px) 20px', cols: 'calc(100% - 2rem - 20px) 20px' }; // top-left
-      case 1: return { rows: 'calc(100% - 2rem - 20px) 20px', cols: '20px calc(100% - 2rem - 20px)' }; // top-right
-      case 2: return { rows: '20px calc(100% - 2rem - 20px)', cols: 'calc(100% - 2rem - 20px) 20px' }; // bottom-left
-      case 3: return { rows: '20px calc(100% - 2rem - 20px)', cols: '20px calc(100% - 2rem - 20px)' }; // bottom-right
-      default: return { rows: 'calc(50% - 1rem) calc(50% - 1rem)', cols: 'calc(50% - 1rem) calc(50% - 1rem)' }; // none expanded
+  const toggle = (i: number) => setExpanded(expanded === i ? null : i);
+
+  const getTemplate = () => {
+    if (isMobile) return { rows: "1fr", cols: "1fr" };
+    const thin = "56px";
+    const big = `calc(100% - 2rem - ${thin})`;
+    switch (expanded) {
+      case 0: return { rows: `${big} ${thin}`, cols: `${big} ${thin}` };
+      case 1: return { rows: `${big} ${thin}`, cols: `${thin} ${big}` };
+      case 2: return { rows: `${thin} ${big}`, cols: `${big} ${thin}` };
+      case 3: return { rows: `${thin} ${big}`, cols: `${thin} ${big}` };
+      default: return { rows: "1fr 1fr", cols: "1fr 1fr" };
     }
   };
 
-  const getCardState = (index: number): CardState => {
-    if (expandedCard === null) {
-      return 'title';
-    }
-
-    if (expandedCard === index) {
-      return 'expanded';
-    }
-
-    const row = Math.floor(index / 2);
-    const col = index % 2;
-    const expandedRow = Math.floor(expandedCard / 2);
-    const expandedCol = expandedCard % 2;
-
-    const isSameRow = row === expandedRow;
-    const isSameCol = col === expandedCol;
-
-    if (isSameRow || isSameCol) {
-      return 'thin';
-    }
-
-    return 'corner';
+  const getState = (i: number): CardState => {
+    if (expanded === null) return "title";
+    if (expanded === i) return "expanded";
+    const row = Math.floor(i / 2);
+    const col = i % 2;
+    const er = Math.floor(expanded / 2);
+    const ec = expanded % 2;
+    return row === er || col === ec ? "thin" : "corner";
   };
 
-  const gridTemplate = getGridTemplate();
+  const tmpl = getTemplate();
 
   return (
-    <section className="min-h-screen" id='projects'>
-      <img className="absolute w-screen h-screen -z-999 brightness-15"
-        src="bg1.webp"
-        alt="Background" />
-      <h2 className="heading text-6xl md:text-8xl mb-6 text-center md:px-20 3xl:mt-20 mt-10">
-        Projects
-      </h2>
+    <section className="min-h-screen py-24 px-6 md:px-16 relative" id="projects">
+      <div
+        className="absolute inset-x-0 top-0 h-px"
+        style={{ background: "linear-gradient(to right, transparent, var(--teal), transparent)" }}
+        aria-hidden="true"
+      />
 
-      <div className="max-w-6xl mx-auto md:h-[600px]">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="mb-12 fade-in-section">
+          <p className="mono text-xs tracking-[0.25em] uppercase text-[var(--teal)] mb-3">
+            02 / Projects
+          </p>
+          <h2 className="heading text-5xl md:text-7xl leading-none">Projects</h2>
+        </div>
+
+        {/* Grid */}
         <div
-          className="grid h-full grid-cols-1 md:grid-cols-2"
+          className="grid lg:h-[640px] gap-8 fade-in-section delay-100"
           style={{
-            gridTemplateRows: gridTemplate.rows,
-            gridTemplateColumns: gridTemplate.cols,
-            gap: '2rem',
-            transition: 'grid-template-rows 0.7s cubic-bezier(0.4, 0, 0.2, 1), grid-template-columns 0.7s cubic-bezier(0.4, 0, 0.2, 1)'
+            gridTemplateRows: tmpl.rows,
+            gridTemplateColumns: tmpl.cols,
+            transition:
+              "grid-template-rows 0.7s cubic-bezier(0.4,0,0.2,1), grid-template-columns 0.7s cubic-bezier(0.4,0,0.2,1)",
           }}
         >
-          {/* Picardata */}
-          <ProjectCard
-            title="Picardata"
-            subtitle="Business Intelligence & Analytics Platform"
-            link="https://picardata.com"
-            isPersonal={false}
-            state={getCardState(0)}
-            onClick={() => handleCardClick(0)}
-          >
-            <ul className="list-disc list-inside space-y-3 opacity-80 md:mb-6 mb-2 flex-grow text-sm md:text-lg">
-              <li>Designed and implemented a custom utility to programmatically transform live dashboard views into formatted PowerPoint (PPTX) presentations, saving stakeholders hours of manual reporting</li>
-              <li>Engineered a comprehensive localization framework to support a multilingual user base, managing dynamic translations across the platform</li>
-              <li>Built a modular UI featuring interactive, real-time widgets for weather, currency exchange, and stock market data</li>
-            </ul>
-            <div className="flex gap-3 mt-auto">
-              <Image src="skills/csharp.svg" alt="C#" width={36} height={36} unoptimized />
-              <Image src="skills/typescript.svg" alt="TypeScript" width={36} height={36} unoptimized />
-              <Image src="skills/react.svg" alt="React" width={36} height={36} unoptimized />
-              <Image src="skills/azure.svg" alt="Azure" width={36} height={36} unoptimized />
-            </div>
-          </ProjectCard>
-
-          {/* I-VADE */}
-          <ProjectCard
-            title="I-VADE"
-            subtitle="VR Aggression De-escalation Training"
-            link="https://research.csiro.au/onalumni/i-vade/"
-            isPersonal={false}
-            state={getCardState(1)}
-            onClick={() => handleCardClick(1)}
-          >
-            <ul className="list-disc list-inside space-y-3 opacity-80 md:mb-6 mb-2 flex-grow text-sm md:text-lg">
-              <li>Acted as project lead and lead developer</li>
-              <li>Developed a React-based administrative dashboard for user management</li>
-              <li>Built a .NET WPF desktop application to orchestrate and launch localized VR scenarios</li>
-              <li>Engineered a centralized .NET microservices backend to synchronize trainee performance data and session telemetry via RESTful APIs</li>
-            </ul>
-            <div className="flex gap-3 mt-auto">
-              <Image src="skills/csharp.svg" alt="C#" width={36} height={36} unoptimized />
-              <Image src="skills/typescript.svg" alt="TypeScript" width={36} height={36} unoptimized />
-              <Image src="skills/react.svg" alt="React" width={36} height={36} unoptimized />
-            </div>
-          </ProjectCard>
-
-          {/* Pronto */}
-          <ProjectCard
-            title="Pronto"
-            subtitle="Project Scaffolding Engine (Internal tool)"
-            isPersonal={false}
-            state={getCardState(2)}
-            onClick={() => handleCardClick(2)}
-          >
-            <ul className="list-disc list-inside space-y-3 opacity-80 md:mb-6 mb-2 flex-grow text-xs md:text-lg md:gap-8">
-              <li>Spearheaded and architectured an automated "Zero-to-Deployed" provisioning tool that reduced new client project setup time from several days to under 30 minutes</li>
-              <li>Developed a configurable and component-driven wizard allowing engineers to dynamically select infrastructure requirements including CRMs, microservices, and notification (e-mail, SMS) layers</li>
-              <li>Developed scripts to programmatically provision Azure resources, manage repository forks, and configure DNS records and proxies</li>
-              <li>Integrated Postmark API for automated email template deployment and configured full CI/CD pipelines for frontends and serverless functions</li>
-            </ul>
-            <div className="flex gap-3 mt-auto">
-              <Image src="skills/typescript.svg" alt="TypeScript" width={36} height={36} unoptimized />
-              <Image src="skills/azure.svg" alt="Azure" width={36} height={36} unoptimized />
-              <Image src="skills/bash.svg" alt="Bash" width={36} height={36} unoptimized />
-              <Image src="skills/cloudflare.svg" alt="Cloudflare" width={36} height={36} unoptimized />
-            </div>
-          </ProjectCard>
-
-          {/* Mul-Ty-Player */}
-          <ProjectCard
-            title="Mul-Ty-Player"
-            subtitle="Video Game Mod"
-            link="https://github.com/xMcacutt/Mul-Ty-Player"
-            isPersonal={true}
-            state={getCardState(3)}
-            onClick={() => handleCardClick(3)}
-          >
-            <ul className="list-disc list-inside md:space-y-3 opacity-80 md:mb-6 mb-2 flex-grow text-xs md:text-lg">
-              <li>Collaborated with a small team to build a .NET WPF app to transform a single player game (Ty the Tasmanian Tiger) into a fully featured multiplayer experience</li>
-              <li>Employed process & memory manipulation, DLL injection and server-client socket connections to allow players to host, join and play with friends in custom environments and game-modes</li>
-              <li>Implemented client-side prediction and server-side reconciliation algorithms to minimize perceived latency and ensure state synchronization across all clients</li>
-              <li>Used performance profilers to find memory leaks and suboptimal coroutines to increase server-side runtime performance by 96%</li>
-            </ul>
-            <div className="flex gap-3 mt-auto">
-              <Image src="skills/csharp.svg" alt="C#" width={36} height={36} unoptimized />
-              <Image src="skills/python.svg" alt="Python" width={36} height={36} unoptimized />
-              <Image src="skills/cpp.svg" alt="C++" width={36} height={36} unoptimized />
-            </div>
-          </ProjectCard>
+          {PROJECTS.map((p, i) => (
+            <ProjectCard
+              key={p.title}
+              title={p.title}
+              subtitle={p.subtitle}
+              link={p.link}
+              isPersonal={p.isPersonal}
+              state={isMobile ? "expanded" : getState(i)}
+              onClick={() => toggle(i)}
+            >
+              <ul className="flex flex-col gap-2.5 mb-5 flex-grow">
+                {p.bullets.map((b, j) => (
+                  <li key={j} className="flex gap-2 text-sm leading-relaxed">
+                    <span style={{ color: "var(--teal)", marginTop: "2px", flexShrink: 0 }}>›</span>
+                    <span style={{ color: "var(--text-bright)" }}>{b}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-wrap gap-2 mt-auto">
+                {p.tech.map((t) => (
+                  <TechBadge key={t.alt} {...t} />
+                ))}
+              </div>
+            </ProjectCard>
+          ))}
         </div>
       </div>
 
-      <div className={`transition-opacity duration-700`}>
-        <ScrollButton target="skills" />
-      </div>
+      <ScrollButton target="skills" />
     </section>
   );
 }

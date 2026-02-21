@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd /d/dev/projects/portfolio1 && git stash pop 2>&1)"
+    ]
+  }
+}
