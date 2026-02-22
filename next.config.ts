@@ -15,12 +15,14 @@ const nextConfig: NextConfig = {
     ];
   },
   async rewrites() {
-    return [
-      {
-        source: '/:path*',
-        destination: '/index.html',
-      },
-    ];
+    return {
+      fallback: [
+        {
+          source: '/:path*',
+          destination: '/index.html',
+        },
+      ]
+    };
   },
 };
 
