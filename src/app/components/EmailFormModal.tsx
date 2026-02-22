@@ -48,6 +48,7 @@ export default function EmailFormModal({ open, onClose }: EmailFormModalProps) {
         setStatus("sent");
         setTimeout(() => { setStatus("idle"); onClose(); }, 1500);
       } else {
+        console.error(res.json());
         setStatus("error");
       }
     } catch {
