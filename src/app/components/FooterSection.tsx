@@ -42,40 +42,44 @@ export default function FooterSection({ onContact }: FooterSectionProps) {
         {/* Social links */}
         <div className="flex items-center gap-6 fade-in-section delay-100">
           {/* GitHub */}
-          <a
-            href="https://github.com/ConnorDaytonaHolmes"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group p-3 rounded-xl transition-all duration-300 glass glass-hover"
-            aria-label="GitHub profile"
-          >
-            <Image
-              src="icons/github.svg"
-              alt="GitHub"
-              width={28}
-              height={28}
-              unoptimized
-              className="opacity-70 group-hover:opacity-100 transition-opacity"
-            />
-          </a>
+          {process.env.NEXT_PUBLIC_GITHUB_URL && (
+            <a
+              href={process.env.NEXT_PUBLIC_GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-3 rounded-xl transition-all duration-300 glass glass-hover"
+              aria-label="GitHub profile"
+            >
+              <Image
+                src="icons/github.svg"
+                alt="GitHub"
+                width={28}
+                height={28}
+                unoptimized
+                className="opacity-70 group-hover:opacity-100 transition-opacity"
+              />
+            </a>
+          )}
 
           {/* LinkedIn */}
-          <a
-            href="https://www.linkedin.com/in/connor-holmes-27588b226/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group p-3 rounded-xl transition-all duration-300 glass glass-hover"
-            aria-label="LinkedIn profile"
-          >
-            <Image
-              src="icons/linkedin.svg"
-              alt="LinkedIn"
-              width={28}
-              height={28}
-              unoptimized
-              className="opacity-70 group-hover:opacity-100 transition-opacity"
-            />
-          </a>
+          {process.env.NEXT_PUBLIC_LINKEDIN_URL && (
+            <a
+              href={process.env.NEXT_PUBLIC_LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-3 rounded-xl transition-all duration-300 glass glass-hover"
+              aria-label="LinkedIn profile"
+            >
+              <Image
+                src="icons/linkedin.svg"
+                alt="LinkedIn"
+                width={28}
+                height={28}
+                unoptimized
+                className="opacity-70 group-hover:opacity-100 transition-opacity"
+              />
+            </a>
+          )}
 
           {/* Email */}
           <button
