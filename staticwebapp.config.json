@@ -1,11 +1,1 @@
-{
-  "routes": [
-    {
-      "route": "/api/sendemail",
-      "methods": [
-        "post"
-      ],
-      "rewrite": "/api/sendemail"
-    }
-  ]
-}
+{}
