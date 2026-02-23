@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import ParticleCanvas from "./ParticleCanvas";
 import ScrollButton from "./ScrollButton";
 
@@ -16,10 +16,6 @@ const CODE_TOKENS = [
   { t: "  role",            c: "#79c0ff" },
   { t: ": ",                c: "#c9d1d9" },
   { t: '"Software Engineer"', c: "#a5d6ff" },
-  { t: ",\n",               c: "#c9d1d9" },
-  { t: "  company",         c: "#79c0ff" },
-  { t: ": ",                c: "#c9d1d9" },
-  { t: '"Redi Software"',   c: "#a5d6ff" },
   { t: ",\n",               c: "#c9d1d9" },
   { t: "  location",        c: "#79c0ff" },
   { t: ": ",                c: "#c9d1d9" },
@@ -122,8 +118,8 @@ function CodeTerminal() {
 }
 
 /* ── Rotating title words ───────────────────────────────────── */
-const PREFIXES = ["Software", "Web", "Systems"];
-const AFFIXES  = ["Engineer", "Developer", "Architect"];
+const PREFIXES = ["Software", "Web", "Database", "Systems"];
+const AFFIXES  = ["Engineer", "Developer", "Designer", "Architect"];
 
 export default function HeroSection({ onContact }: { onContact: () => void }) {
   const [pIdx, setPIdx] = useState(0);
@@ -196,7 +192,7 @@ export default function HeroSection({ onContact }: { onContact: () => void }) {
             {/* Rotating title */}
             <div className="flex items-center gap-3 mb-5 h-9 md:h-10">
               <span
-                className={`heading text-xl md:text-2xl transition-opacity duration-[550ms] ${
+                className={`heading text-xl md:text-2xl transition-opacity duration-[550ms] w-26 text-right ${
                   pFade ? "opacity-0" : "opacity-70"
                 }`}
               >
