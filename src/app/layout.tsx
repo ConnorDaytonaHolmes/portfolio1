@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     locale: "en_AU",
     images: [
       {
-        url: "opengraph.png",
+        url: "/opengraph.png",
         width: 1200,
         height: 630,
         alt: "Connor Holmes Software",
