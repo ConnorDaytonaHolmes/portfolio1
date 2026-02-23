@@ -21,7 +21,31 @@ const novaSquare = Nova_Square({
 
 export const metadata: Metadata = {
   title: "Connor Holmes | Software Engineer",
-  description: "Portfolio of Connor Holmes, Software Engineer based in Perth, Australia",
+  description:
+    "Portfolio of Connor Holmes, Software Engineer based in Perth, Australia",
+  openGraph: {
+    title: "Connor Holmes | Software Engineer",
+    description:
+      "Portfolio of Connor Holmes, Software Engineer based in Perth, Australia",
+    url: "https://connorholmes.software",
+    siteName: "Connor Holmes Software",
+    type: "website",
+    locale: "en_AU",
+    images: [
+      {
+        url: "opengraph.png",
+        width: 1200,
+        height: 630,
+        alt: "Connor Holmes Software",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Connor Holmes | Software Engineer",
+    description:
+      "Portfolio of Connor Holmes, Software Engineer based in Perth, Australia",
+  },
 };
 
 export default function RootLayout({
