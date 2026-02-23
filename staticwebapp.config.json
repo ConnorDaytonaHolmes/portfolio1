@@ -1,11 +1,1 @@
-{
-  "navigationFallback": {
-    "rewrite": "/",
-    "exclude": [
-      "/*.(png,jpg,jpeg,svg,webp,gif,ico)",
-      "/icons/*.(png,jpg,jpeg,svg,webp,gif,ico)",
-      "/projects/*.(png,jpg,jpeg,svg,webp,gif,ico)",
-      "/skills/*.(png,jpg,jpeg,svg,webp,gif,ico)"
-    ]
-  }
-}
+{}
