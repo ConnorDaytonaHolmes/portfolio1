@@ -23,6 +23,10 @@ export const metadata: Metadata = {
   title: "Connor Holmes | Software Engineer",
   description:
     "Portfolio of Connor Holmes, Software Engineer based in Perth, Australia",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: "Connor Holmes | Software Engineer",
     description:
