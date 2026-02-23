@@ -20,6 +20,7 @@ const novaSquare = Nova_Square({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://connorholmes.software"),
   title: "Connor Holmes | Software Engineer",
   description:
     "Portfolio of Connor Holmes, Software Engineer based in Perth, Australia",
