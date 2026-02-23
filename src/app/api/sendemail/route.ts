@@ -4,26 +4,24 @@ import EmailTemplate from '../../components/email/EmailTemplate';
 import { Resend } from 'resend';
 import { NextRequest, NextResponse } from 'next/server';
 
-//const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
   try {
-    return NextResponse.json({ "message": "Email sent successfully" }, { status: 200 });
     const { name, email, phone, message } = await req.json();
 
+    const { data, error } = await resend.emails.send({
+      from: 'Connor Holmes Software <outreach@mail.connorholmes.software>',
+      to: ['connorholmes.419@gmail.com'],
+      subject: `New message from ${name}`,
+      react: EmailTemplate({ name, email, phone, message }),
+    });
 
-    // const { data, error } = await resend.emails.send({
-    //   from: 'Connor Holmes Software <outreach@mail.connorholmes.software>',
-    //   to: ['connorholmes.419@gmail.com'],
-    //   subject: `New message from ${name}`,
-    //   react: EmailTemplate({ name, email, phone, message }),
-    // });
+    if (error) {
+      return NextResponse.json({ error }, { status: 400 });
+    }
 
-    // if (error) {
-    //   return Response.json({ error }, { status: 400 });
-    // }
-
-    // return Response.json(data);
+    return NextResponse.json(data);
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });
   }
