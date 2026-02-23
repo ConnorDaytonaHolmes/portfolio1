@@ -17,13 +17,11 @@ export async function POST(req: NextRequest) {
     });
 
     if (error) {
-      console.error("Failed to send email:", error);
       return Response.json({ error }, { status: 400 });
     }
 
     return Response.json(data);
   } catch (error) {
-    console.error("Encountered exception while sending email:", error);
     return Response.json({ error }, { status: 500 });
   }
 }
