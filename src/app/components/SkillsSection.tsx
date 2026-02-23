@@ -164,6 +164,14 @@ export default function SkillsSection() {
               </div>
             </div>
           ))}
+          
+          {/* Inner ring label */}
+          <div
+            className="absolute top-7 right-1 mono text-[9px] tracking-[0.3em] uppercase animate-spin-slow-clockwise"
+            style={{ color: "rgba(45,212,191,0.4)" }}
+          >
+            Technologies
+          </div>
         </div>
 
         {/* Central glowing core */}
