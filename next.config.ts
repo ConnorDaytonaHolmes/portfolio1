@@ -27,7 +27,7 @@ const nextConfig: NextConfig = {
       fallback: [
         {
           source: '/:path*',
-          destination: '/index.html',
+          destination: '/',
         },
       ]
     };
