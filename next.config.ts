@@ -1,5 +1,13 @@
 import type { NextConfig } from "next";
 
+function throwErrorIfMissing(envVar: string) {
+  if(!process.env[envVar]) {
+    throw `Abort: ${envVar} is not set in the environment`;
+  }
+}
+
+throwErrorIfMissing("RESEND_API_KEY");
+
 const nextConfig: NextConfig = {
   async headers() {
     return [
