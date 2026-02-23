@@ -8,9 +8,9 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
   try {
+    return Response.json({ "message": "Email sent successfully" }, { status: 200 });
     const { name, email, phone, message } = await req.json();
 
-    return Response.json({ name, email, phone, message }, { status: 200 });
 
     const { data, error } = await resend.emails.send({
       from: 'Connor Holmes Software <outreach@mail.connorholmes.software>',
