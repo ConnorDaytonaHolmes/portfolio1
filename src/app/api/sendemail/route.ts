@@ -2,13 +2,13 @@
 
 import EmailTemplate from '../../components/email/EmailTemplate';
 import { Resend } from 'resend';
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 //const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
   try {
-    return Response.json({ "message": "Email sent successfully" }, { status: 200 });
+    return NextResponse.json({ "message": "Email sent successfully" }, { status: 200 });
     const { name, email, phone, message } = await req.json();
 
 
@@ -25,6 +25,6 @@ export async function POST(req: NextRequest) {
 
     // return Response.json(data);
   } catch (error) {
-    return Response.json({ error }, { status: 500 });
+    return NextResponse.json({ error }, { status: 500 });
   }
 }
