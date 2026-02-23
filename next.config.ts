@@ -6,7 +6,7 @@ function throwErrorIfMissing(envVar: string) {
   }
 }
 
-throwErrorIfMissing("RESEND_API_KEY");
+//throwErrorIfMissing("RESEND_API_KEY");
 
 const nextConfig: NextConfig = {
   async headers() {
