@@ -27,7 +27,7 @@ export default function ProjectIcon({ isPersonal, size = 24, position = "md:top-
       ) : (
         <>
           <Image
-            src="icons/redisoftware.svg"
+            src="/icons/redisoftware.svg"
             alt="Redi Software"
             width={size}
             height={size}
