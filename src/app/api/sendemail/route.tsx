@@ -4,12 +4,10 @@ import EmailTemplate from '../../components/email/EmailTemplate';
 import { Resend } from 'resend';
 import { NextRequest, NextResponse } from 'next/server';
 
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 export async function POST(req: NextRequest) {
   try {
-    if(!process.env.RESEND_API_KEY) {
-      return NextResponse.json({ error: "Resend API key not set" }, { status: 500 });
-    }
-    const resend = new Resend(process.env.RESEND_API_KEY);
     const { name, email, phone, message } = await req.json();
     const { data, error } = await resend.emails.send({
       from: 'Connor Holmes Software <outreach@mail.connorholmes.software>',
