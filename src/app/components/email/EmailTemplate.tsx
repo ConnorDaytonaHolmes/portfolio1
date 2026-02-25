@@ -7,7 +7,7 @@ interface EmailTemplateProps {
   message: string;
 }
 
-export default function EmailTemplate({ name, email, phone, message }: EmailTemplateProps) {
+export function EmailTemplate({ name, email, phone, message }: EmailTemplateProps) {
   return (
     <div className='bg-gray-100'>
       <div className="text-white bg-gray-900 p-4 rounded-lg">
