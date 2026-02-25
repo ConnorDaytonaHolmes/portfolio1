@@ -24,12 +24,12 @@ const nextConfig: NextConfig = {
   },
   async rewrites() {
     return {
-      // fallback: [
-      //   {
-      //     source: '/:path*',
-      //     destination: '/',
-      //   },
-      // ]
+      fallback: [
+        {
+          source: '/:path*',
+          destination: '/',
+        },
+      ]
     };
   },
 };

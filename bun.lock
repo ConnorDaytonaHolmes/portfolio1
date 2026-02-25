@@ -5,7 +5,6 @@
     "": {
       "name": "portfolio1",
       "dependencies": {
-        "@azure/functions": "^4.11.2",
         "@fortawesome/fontawesome-svg-core": "^7.2.0",
         "@fortawesome/free-solid-svg-icons": "^7.2.0",
         "@fortawesome/react-fontawesome": "^3.2.0",
@@ -26,10 +25,6 @@
   },
   "packages": {
     "@alloc/quick-lru": ["@alloc/quick-lru@5.2.0", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@alloc/quick-lru/-/@alloc/quick-lru-5.2.0.tgz", {}, "sha1-e/aLIMCjUPk2kV/K4G9Y4yAHzjA="],
-
-    "@azure/functions": ["@azure/functions@4.11.2", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@azure/functions/-/@azure/functions-4.11.2.tgz", { "dependencies": { "@azure/functions-extensions-base": "0.2.0", "cookie": "^0.7.0" } }, "sha1-cH3mJ4GgPGKv7BXdyBFDar28nuA="],
-
-    "@azure/functions-extensions-base": ["@azure/functions-extensions-base@0.2.0", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@azure/functions-extensions-base/-/@azure/functions-extensions-base-0.2.0.tgz", {}, "sha1-M79pG6baQlmig0OZKCXDrzwO0G4="],
 
     "@emnapi/runtime": ["@emnapi/runtime@1.7.1", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/@emnapi/runtime/-/@emnapi/runtime-1.7.1.tgz", { "dependencies": { "tslib": "^2.4.0" } }, "sha1-pzeE4j9dVyhzacgIGXKItSJ2t5E="],
 
@@ -170,8 +165,6 @@
     "caniuse-lite": ["caniuse-lite@1.0.30001760", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/caniuse-lite/-/caniuse-lite-1.0.30001760.tgz", {}, "sha1-vdGWD6/t+NXwT/FugUYFBv+beY8="],
 
     "client-only": ["client-only@0.0.1", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/client-only/-/client-only-0.0.1.tgz", {}, "sha1-OLul1APEGrFQv/ZKlchQE89zvKE="],
-
-    "cookie": ["cookie@0.7.2", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/cookie/-/cookie-0.7.2.tgz", {}, "sha1-VWNpxHKiupEPKXmJG1JrNDYjftc="],
 
     "csstype": ["csstype@3.2.3", "https://www.myget.org/F/redisoft-components/auth/b9777768-ec53-4f42-8f63-47563fbe1aaa/npm/csstype/-/csstype-3.2.3.tgz", {}, "sha1-7EjA8+mT5QZIyG2lWeJhCZXPmJo="],
 

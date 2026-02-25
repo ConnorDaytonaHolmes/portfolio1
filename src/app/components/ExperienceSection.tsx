@@ -151,7 +151,7 @@ export default function ExperienceSection() {
         >
           <div className="flex items-center gap-4">
             <Image
-              src="/icons/redisoftware.svg"
+              src="icons/redisoftware.svg"
               alt="Redi Software"
               width={48}
               height={48}
