@@ -22,6 +22,6 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json(data);
   } catch (error) {
-    return NextResponse.json({ error: { message: "Failed to send email", inner: error } }, { status: 500 });
+    return NextResponse.json({ error: { message: "Failed to send email", inner: error, resend: resend.key } }, { status: 500 });
   }
 }

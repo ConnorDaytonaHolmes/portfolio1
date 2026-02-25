@@ -47,6 +47,7 @@ export default function EmailFormModal({ open, onClose }: EmailFormModalProps) {
         localStorage.setItem("visitor_name", name);
         setStatus("sent");
         setTimeout(() => { setStatus("idle"); onClose(); }, 1500);
+        console.log('success', await res.json());
       } else {
         console.error(await res.json());
         setStatus("error");
