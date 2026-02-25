@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
       from: 'Connor Holmes Software <outreach@mail.connorholmes.software>',
       to: ['connorholmes.419@gmail.com'],
       subject: `New message from ${name}`,
-      react: EmailTemplate({ name, email, phone, message }),
+      react: <EmailTemplate name={name} email={email} phone={phone} message={message}/>,
     });
 
     if (error) {
