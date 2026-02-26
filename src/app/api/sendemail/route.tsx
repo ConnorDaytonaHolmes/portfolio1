@@ -1,6 +1,5 @@
 "use server";
 
-import { EmailTemplate } from '@/components/EmailTemplate';
 import { Resend } from 'resend';
 import { NextRequest, NextResponse } from 'next/server';
 
